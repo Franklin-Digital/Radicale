@@ -599,7 +599,15 @@ class Application(ApplicationPartDelete, ApplicationPartHead,
 
         if user:
             group_type = self.configuration.get("group", "type")
-            if group_type in ["htgroup"]:
+            # FRANKLIN PATCH (franklin_1.0prod): upstream only consulted the
+            # group module for type "htgroup", so any CUSTOM group plugin --
+            # which radicale/group/__init__.py explicitly invites ("implement
+            # your own") -- was loaded but never called on CalDAV requests.
+            # The sharing API calls it unconditionally, so share-by-group
+            # entries could be CREATED but never resolved: they silently did
+            # nothing. Call the module for every type except the two that
+            # have their own handling here.
+            if group_type not in ["none", "from_auth"]:
                 self._rights._user_groups = self._group.groups(login) if login else set([])
             elif group_type in ["from_auth"]:
                 auth_type = self.configuration.get("auth", "type")

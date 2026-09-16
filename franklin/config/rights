@@ -46,9 +46,12 @@ collection = calendar-publisher
 permissions = RW
 
 [publisher-calendars]
+# M = may create map-based SHARES of these calendars (sharing API). That is
+# how the calendars appear automatically in every user's calendar home; see
+# franklin/franklin_radicale/group_all_users.py. Only this account holds M.
 user = calendar-publisher
 collection = calendar-publisher/[^/]+
-permissions = rw
+permissions = rwM
 
 # --- everyone else: read-only on the shared calendars --------------------
 # `user = .+` means AUTHENTICATED, never anonymous -- an unauthenticated

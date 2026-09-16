@@ -316,3 +316,15 @@ calendars (224 / 955 events); PUT, DELETE, PROPPATCH through the share are
 403; cross-user 403; anonymous 401; publisher writes appear to users
 immediately. Known, harmless: a user's MKCALENDAR at exactly a share path
 returns 201 and creates an empty shadowed folder — the share still wins.
+
+### ⚠️ Never leave uncommitted work in `/home/Franklin/franklin-radicale`
+
+The `calendar-publisher` Jenkins job syncs THIS checkout with
+`git reset --hard origin/franklin_1.0prod` on every run (hourly, and on every
+manual build). On 2026-09-16 two builds at 04:59 wiped uncommitted edits to
+four tracked files (the app patch, rights, config, Dockerfile) seconds after
+the image had been built from them — production ran correct code while the
+first commit of the feature was missing half of it. Untracked files and the
+gitignored rendered `franklin/deploy/config/` survive a reset; tracked edits do
+not. Commit and push BEFORE building or triggering the job, or edit in a
+separate worktree.

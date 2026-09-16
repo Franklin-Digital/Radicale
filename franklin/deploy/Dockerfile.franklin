@@ -52,6 +52,7 @@ USER radicale
 # container starts happily and every login fails closed -- indistinguishable
 # from "everyone typed the wrong password".
 RUN /app/bin/python -c "import franklin_radicale.auth_userdb as m; assert hasattr(m, 'Auth')" \
+    && /app/bin/python -c "import franklin_radicale.group_all_users as g; assert hasattr(g, 'Group')" \
     && /app/bin/python -c "import psycopg2, werkzeug.security"
 
 ENTRYPOINT ["/app/bin/python", "/app/bin/radicale"]

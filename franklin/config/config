@@ -81,6 +81,23 @@ filesystem_folder = /var/lib/radicale/collections
 # principal and read-granted to everyone in the rights file. See
 # franklin/deploy/create-shared-calendars.sh.
 
+[group]
+# Every authenticated user except calendar-publisher is in group "franklin".
+# Share-by-group entries (created by franklin/deploy/create-group-shares.sh)
+# then place the Earnings and Economic Indicator calendars, read-only, into
+# every user's own calendar home, so clients discover them with no setup.
+# Requires the FRANKLIN PATCH in radicale/app/__init__.py: upstream never
+# calls a custom group plugin on CalDAV requests.
+type = franklin_radicale.group_all_users
+franklin_group = franklin
+franklin_excluded_users = calendar-publisher
+
+[sharing]
+# Share database: /var/lib/radicale/collections/collection-db/sharing.csv
+# (inside the data volume, so shares survive container rebuilds).
+type = csv
+collection_by_map = True
+
 [web]
 type = internal
 
