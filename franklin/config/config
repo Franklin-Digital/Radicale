@@ -68,25 +68,18 @@ file = /etc/radicale/rights
 type = multifilesystem
 filesystem_folder = /var/lib/radicale/collections
 
-# The two launch calendars (Sal, 2026-09-15). Declared here so the deployment is
-# reproducible -- a calendar hand-created through a client exists only on that
-# box and is invisible to review.
+# predefined_collections is DELIBERATELY UNSET.
 #
-# NOTE: these are DERIVED calendars. Franklin already owns both data sets (FMP
-# earnings calendar, economic indicators); the intended writer is a publisher
-# job, not a human typing dates. The publisher is NOT built yet.
-predefined_collections = {
-    "earnings": {
-       "C:supported-calendar-component-set": "VEVENT",
-       "D:displayname": "Earnings Calendar",
-       "tag": "VCALENDAR"
-    },
-    "economic-indicators": {
-       "C:supported-calendar-component-set": "VEVENT",
-       "D:displayname": "Economic Indicator Calendar",
-       "tag": "VCALENDAR"
-    }
-  }
+# It looks like the way to declare the two launch calendars, and it is not.
+# radicale/app/__init__.py:625 creates them at `principal_path + name`, where
+# principal_path is "/<the logging-in user>/" -- so it gives EVERY user their
+# own private copy. Two users, two private Earnings calendars, and the shared
+# ones never exist. It is a per-user starter-calendar feature, not a sharing
+# mechanism.
+#
+# The shared calendars are therefore created ONCE under the `calendar-publisher`
+# principal and read-granted to everyone in the rights file. See
+# franklin/deploy/create-shared-calendars.sh.
 
 [web]
 type = internal
