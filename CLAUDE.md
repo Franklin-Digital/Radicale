@@ -120,3 +120,83 @@ collection URL, per AC #4 — and say which client was used.
 * Jira: DAYTRADE-778
 * Root `/Users/Sal/Projects/Franklin/CLAUDE.md` — infra conventions, tunnel table
 * `franklin-infra` — systemd units, docker compose
+
+## ⛔ DO NOT EXPOSE until an edge rate-limit rule exists
+
+Cloudflare Access cannot be enforcing in front of this hostname: CalDAV clients
+(macOS Calendar, DAVx5, Thunderbird) cannot run the interactive login, and the
+UIs give you nowhere to put `CF-Access-Client-Id`/`Secret` service-token
+headers. So the Access app must be **Bypass**, and the origin is the only gate.
+
+That origin gate is HTTP Basic against **real user passwords** — the same rows
+`dashboard.franklinfinancial.ai` authenticates. Internet-facing, that is a
+brute-force target.
+
+**Radicale has no rate limiting.** What it does have, and what each is actually
+for — verified by reading the code, not the config comments:
+
+| Mechanism | Where | What it does |
+|---|---|---|
+| `auth.delay` | `app/__init__.py:353`, `:583` | sleeps per failed/missing auth, **with jitter** (`delay * (0.5 + random())`) so the pause is not an oracle |
+| constant-exec padding | `auth/__init__.py:218` | pads failed logins to a constant time — defeats **timing** attacks (telling "no such user" from "wrong password"). Does **nothing** to slow repeated guessing |
+| `server.max_connections` | `server.py:341` | caps parallel connections, so caps parallel guessing |
+
+`auth.delay` is declared in three modules and enforced in only one of them
+(`app`, not `auth`) — reading a single file suggests it is dead config. It is
+not. Check the whole tree before claiming a setting is inert.
+
+Combined, `max_connections / delay` ≈ **8 / 2s ≈ 4 guesses/sec**. That is a
+speed bump, not a defence. Before this hostname is reachable, one of:
+
+* a **Cloudflare rate-limiting rule** scoped to `calendar.franklinfinancial.ai`
+  (preferred — stops it at the edge, before the origin spends a DB round-trip
+  per guess), or
+* **fail2ban** at the origin against the Radicale log.
+
+## Access enforcement across the zone is UNCONFIRMED
+
+DevOps checked 7 hostnames (grafana, jenkins, dashboard, questdb, api, mcp,
+ai-gateway) and **none redirects to `cloudflareaccess.com`**, despite the root
+`CLAUDE.md` describing them all as "Cloudflare tunnel + Access". Two
+explanations fit and neither was distinguishable from on-network: an Access
+**Bypass** policy including the house egress IP, or **Access not enforcing at
+all**. mac-pro and DGX share that egress IP, and there is no Cloudflare API
+token on the box with Access scope, so this needs a human in Zero Trust →
+Access → Applications.
+
+Do not reason from the DAYTRADE-204 config comment ("Access app = explicit
+bypass … enforced at the origin") as though it describes the live state. It
+describes an *intent*, and the same file's ⚠ warning about a second cloudflared
+daemon had already outlived the problem it described.
+
+**Status-code alone cannot tell you whether Access is in front.** Grafana
+returns `302`, which reads like an Access redirect but whose `Location` is
+Grafana's own `/login`. Only the redirect *target* or `cf-access-*` headers
+answer it.
+
+## Tunnel ingress — one config, not two
+
+`cloudflared-dashboard.service` is **decommissioned** (unit file gone, inactive);
+one connector runs, PID 4946, `--config /etc/cloudflared/config.yml`. DevOps
+measured 20/20 identical responses on an existing hostname and 6/6 `404`s on
+`calendar` — a probe that *can* return 404, so the negative is real.
+
+So add the rule to `/etc/cloudflared/config.yml` **only** (needs sudo):
+
+```yaml
+  - hostname: calendar.franklinfinancial.ai
+    service: http://localhost:5232
+```
+
+Two cleanups belong in the same edit: delete the stale ⚠ second-daemon warning
+comment (it cost a design question), and remove `/home/sal/.cloudflared/config.yml`,
+which nothing reads.
+
+## Unverified, carry as open
+
+* **Edge timeout ~100s** — a long `REPORT` against a large calendar surfaces as
+  `524`. Not measured for this zone.
+* **WAF managed rules** may flag XML request bodies; CalDAV `REPORT` bodies are
+  XML. If WAF is on, check for false positives before blaming Radicale.
+* **`X-Forwarded-Host`** — see the HTTPS note above; Radicale advertises
+  `http://` URLs unless that header is present.

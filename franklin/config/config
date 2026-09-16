@@ -2,6 +2,19 @@
 # Branch: franklin_1.0prod.  Deployed to /etc/radicale/config in the container.
 
 [server]
+# Brute-force surface control. With Cloudflare Access bypassed (CalDAV clients
+# cannot run the interactive flow), the ONLY gate is HTTP Basic against real
+# user passwords -- so the throttles below are load-bearing, not tuning.
+#
+# Caps concurrent connections, which caps parallel guessing. auth.delay is
+# per-REQUEST, so an attacker's rate is roughly max_connections / delay.
+# 8 / 2s = ~4 guesses/sec, and 4/sec is still far too fast for an
+# internet-facing login: this is a speed bump, NOT the mitigation.
+#
+# THE MITIGATION IS AN EDGE RATE-LIMIT RULE. See CLAUDE.md -- do not expose
+# this hostname until one exists.
+max_connections = 8
+
 # Bind inside the container only. Public access is via the Cloudflare tunnel
 # (calendar.franklinfinancial.ai -> http://localhost:5232); Radicale itself
 # terminates no TLS and MUST NOT be published to the LAN.
@@ -30,6 +43,13 @@ franklin_pg_password =
 # normalisation off so the stored username is what appears in rights/paths.
 lc_username = False
 strip_domain = False
+
+# Applied per failed/missing auth in radicale/app/__init__.py:353 and :583,
+# with jitter (delay * (0.5 + random())) so the pause cannot be used as an
+# oracle. NOT the same thing as the constant-execution-time padding in
+# auth/__init__.py, which defeats TIMING attacks (distinguishing "no such user"
+# from "wrong password") but does nothing to slow repeated guessing.
+delay = 2
 
 realm = Franklin Calendar - Password Required
 
