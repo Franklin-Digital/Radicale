@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<multistatus xmlns="DAV:" xmlns:C="urn:ietf:params:xml:ns:caldav"><response><href>/calendar-publisher/fixture-test/earnings-50fffa95f12e18f070ae.ics</href><propstat><prop><getetag>"94764a244de52f0f36ec78cc622df5d8c9f8a109258564668521ca063321a2c1"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-50fffa95f12e18f070ae@franklinfinancial.ai
+DTSTART:20270120T130000Z
+DTEND:20270120T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:2 companies report before the open (8:00 AM ET)\n★ ANAB - Q4 
+ 2026 · EPS est -0.465 · Rev est 14\,057\,370\nALOT - Q2 2027 · EPS est 
+ 0.04 · Rev est 29\,189\,000 · date not confirmed
+DTSTAMP:20260916T123456Z
+SUMMARY:🌅 Before open: ★ANAB\, ALOT
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response></multistatus>

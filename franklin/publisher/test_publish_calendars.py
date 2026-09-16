@@ -61,12 +61,19 @@ def test_unrecognised_time_token_falls_back_to_all_day():
 # ── UID stability ────────────────────────────────────────────────────
 
 def test_uid_is_stable_across_runs():
+    # Same day + same timing bucket -> same resource, so a re-run UPDATES. A
+    # landed EPS actual, a later DTSTAMP, or another company joining the day
+    # must not fork it.
     a, _ = pc.earnings_vevent(_row(time="bmo"), NOW)
-    b, _ = pc.earnings_vevent(_row(time="amc", eps_actual=1.5), NOW + dt.timedelta(days=1))
-    # Same symbol+date -> same resource, so a re-run UPDATES rather than
-    # duplicating. Changing the time or the estimates must NOT fork the UID.
-    assert a == b
+    b, _ = pc.earnings_vevent(_row(time="bmo", eps_actual=1.5), NOW + dt.timedelta(days=1))
+    c, _ = pc.earnings_group_vevent([_row(time="bmo"), _row(symbol="MSFT", time="bmo")], NOW)
+    assert a == b == c
 
+
+def test_before_open_and_after_close_are_separate_events():
+    a, _ = pc.earnings_vevent(_row(time="bmo"), NOW)
+    b, _ = pc.earnings_vevent(_row(time="amc"), NOW)
+    assert a != b
 
 def test_uid_differs_for_a_moved_date():
     a, _ = pc.earnings_vevent(_row(date="2026-10-30"), NOW)
@@ -122,12 +129,12 @@ def test_long_event_name_survives_a_round_trip():
 
 def test_unconfirmed_date_is_flagged():
     _, ics = pc.earnings_vevent(_row(confirmed=False), NOW)
-    assert "NOT confirmed" in ics
+    assert "date not confirmed" in ics
 
 
 def test_confirmed_date_is_not_flagged():
     _, ics = pc.earnings_vevent(_row(confirmed=True), NOW)
-    assert "NOT confirmed" not in ics
+    assert "not confirmed" not in ics
 
 
 def test_events_are_transparent():
@@ -373,26 +380,38 @@ def test_parse_report_ignores_hrefs_outside_the_collection():
         assert pc.parse_report(f.read(), "http://h/calendar-publisher/economic-indicators/") == {}
 
 
+GROUPED_FIXTURE = os.path.join(os.path.dirname(__file__), "fixtures_report_earnings_grouped.xml")
+GROUPED_ROWS = [
+    dict(symbol="ANAB", date="2027-01-20", time="bmo", eps_estimated=-0.465, eps_actual=None,
+         revenue_estimated=14057370.0, revenue_actual=None, fiscal_period="Q4",
+         fiscal_year="2026", confirmed=True),
+    dict(symbol="ALOT", date="2027-01-20", time="bmo", eps_estimated=0.04, eps_actual=None,
+         revenue_estimated=29189000.0, revenue_actual=None, fiscal_period="Q2",
+         fiscal_year="2027", confirmed=False),
+]
+
+
+def _grouped_stored():
+    """Verbatim Radicale REPORT for GROUPED_ROWS (captured from a staging
+    server by PUTting exactly this group), so the comparison is against real
+    server output: reordered properties, re-folded, LF line endings."""
+    with open(GROUPED_FIXTURE, "rb") as f:
+        items = pc.parse_report(f.read(), "http://127.0.0.1:5299/calendar-publisher/fixture-test/")
+    assert len(items) == 1, items.keys()
+    return next(iter(items.items()))
+
+
 def test_server_reordered_body_compares_equal_to_what_we_generate():
-    stored = _fixture_items()["earnings-dc2155924e8b260dbbfb"]
-    # Rebuild the same event the way the publisher does (ALOT, bmo, 2026-09-10).
-    row = dict(symbol="ALOT", date="2026-09-10", time="bmo", eps_estimated=0.04,
-               eps_actual=None, revenue_estimated=29189000.0, revenue_actual=None,
-               fiscal_period="Q2", fiscal_year="2027", confirmed=False)
-    slug, ev = pc.earnings_vevent(row, NOW)   # different DTSTAMP on purpose
-    assert slug == "earnings-dc2155924e8b260dbbfb"
+    stored_slug, stored = _grouped_stored()
+    slug, ev = pc.earnings_group_vevent(list(reversed(GROUPED_ROWS)), NOW, {"ANAB"})  # other order, other DTSTAMP
+    assert slug == stored_slug
     assert pc._comparable(pc._vcalendar([ev])) == pc._comparable(stored)
 
-
 def test_a_real_content_change_is_detected():
-    stored = _fixture_items()["earnings-dc2155924e8b260dbbfb"]
-    row = dict(symbol="ALOT", date="2026-09-10", time="bmo", eps_estimated=0.04,
-               eps_actual=0.07,  # the actual landed
-               revenue_estimated=29189000.0, revenue_actual=None,
-               fiscal_period="Q2", fiscal_year="2027", confirmed=False)
-    _, ev = pc.earnings_vevent(row, NOW)
+    _, stored = _grouped_stored()
+    rows = [dict(GROUPED_ROWS[0], eps_actual=-0.40), GROUPED_ROWS[1]]   # an actual landed
+    _, ev = pc.earnings_group_vevent(rows, NOW, {"ANAB"})
     assert pc._comparable(pc._vcalendar([ev])) != pc._comparable(stored)
-
 
 # ── grouping: one event per release time ─────────────────────────────
 
@@ -451,3 +470,38 @@ def test_headline_prefers_the_release_with_a_consensus_estimate():
     _, ics = pc.economic_release_vevent(rows, NOW)
     summary = _parse(pc._vcalendar([ics])).vevent.summary.value
     assert summary == "\U0001F534 Fed Interest Rate Decision +1"
+
+
+# ── earnings grouping: one event per day and timing bucket ───────────
+
+def test_same_day_same_bucket_collapses_other_buckets_do_not():
+    rows = [_row(symbol=x, time="bmo") for x in ("AAA", "BBB", "CCC")] + \
+           [_row(symbol="DDD", time="amc"), _row(symbol="EEE", time=""),
+            _row(symbol="FFF", time=None), _row(symbol="GGG", date="2026-10-31", time="bmo")]
+    groups = pc.group_earnings_rows(rows)
+    assert sorted((k, len(v)) for k, v in groups.items()) == [
+        (("2026-10-30", "amc"), 1), (("2026-10-30", "bmo"), 3),
+        (("2026-10-30", "tbd"), 2), (("2026-10-31", "bmo"), 1)]
+
+
+def test_title_stars_portfolio_first_and_counts_the_rest():
+    rows = [_row(symbol=x, time="bmo") for x in ("ZZZ", "AAA", "NVDA", "BBB", "CCC")]
+    _, ics = pc.earnings_group_vevent(rows, NOW, {"NVDA"})
+    ve = _parse(pc._vcalendar([ics])).vevent
+    assert ve.summary.value == "\U0001F305 Before open: \u2605NVDA, AAA, BBB +2"
+
+
+def test_notes_list_every_company_with_estimates():
+    rows = [_row(symbol="AAA", time="amc", eps_estimated=1.25, revenue_estimated=2_500_000_000.0,
+                 fiscal_period="Q3", fiscal_year="2026"),
+            _row(symbol="BBB", time="amc", confirmed=False)]
+    _, ics = pc.earnings_group_vevent(rows, NOW)
+    desc = _parse(pc._vcalendar([ics])).vevent.description.value.split("\n")
+    assert desc[0] == "2 companies report after the close (4:30 PM ET)"
+    assert desc[1] == "AAA - Q3 2026 \u00b7 EPS est 1.25 \u00b7 Rev est 2,500,000,000"
+    assert desc[2] == "BBB - date not confirmed"
+
+
+def test_unparseable_date_row_is_skipped_not_fatal():
+    groups = pc.group_earnings_rows([_row(date="not-a-date"), _row(symbol="OK")])
+    assert [len(v) for v in groups.values()] == [1]

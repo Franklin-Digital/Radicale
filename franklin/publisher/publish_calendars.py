@@ -132,35 +132,77 @@ def _stamp(when: dt.datetime) -> str:
 
 # ── event builders ───────────────────────────────────────────────────
 
-def earnings_vevent(row: dict, now: dt.datetime) -> tuple[str, str]:
-    sym, date_s, when = row["symbol"], row["date"], (row["time"] or "").strip().lower()
-    day = dt.date.fromisoformat(date_s)
-    slug = _slug("earnings", sym, date_s)
+#: (earnings time token) -> (bucket, marker, title label, notes phrase)
+EARNINGS_BUCKETS = {
+    "bmo": ("bmo", "\U0001F305", "Before open", "before the open (8:00 AM ET)"),
+    "amc": ("amc", "\U0001F319", "After close", "after the close (4:30 PM ET)"),
+}
+_TBD = ("tbd", "\U0001F4C5", "Earnings, time TBD", "on this day, time not announced")
+#: Symbols named in the title before "+N". A day view truncates after a few
+#: dozen characters; the full list is always in the notes.
+TITLE_SYMBOLS = 3
 
-    summary = f"{sym} earnings"
-    if when == "bmo":
-        summary += " (before open)"
-    elif when == "amc":
-        summary += " (after close)"
 
-    desc = []
-    if row.get("fiscal_period") or row.get("fiscal_year"):
-        desc.append(f"Fiscal: {row.get('fiscal_period') or '?'} {row.get('fiscal_year') or ''}".strip())
+def _earnings_bucket(row: dict) -> tuple:
+    # Any token other than bmo/amc -- empty, None, or a new vendor value -- is
+    # "time not announced". It must never be mistaken for a clock time.
+    return EARNINGS_BUCKETS.get((row.get("time") or "").strip().lower(), _TBD)
+
+
+def _money(v) -> str:
+    return f"{v:,.4g}" if abs(v) < 1e6 else f"{v:,.0f}"
+
+
+def _earnings_line(row: dict, portfolio: set) -> str:
+    parts = []
+    period = " ".join(x for x in (row.get("fiscal_period"), row.get("fiscal_year")) if x)
+    if period:
+        parts.append(period)
     for label, key in (("EPS est", "eps_estimated"), ("EPS actual", "eps_actual"),
-                       ("Revenue est", "revenue_estimated"), ("Revenue actual", "revenue_actual")):
+                       ("Rev est", "revenue_estimated"), ("Rev actual", "revenue_actual")):
         v = row.get(key)
         if v is not None:
-            desc.append(f"{label}: {v:,.4g}" if abs(v) < 1e6 else f"{label}: {v:,.0f}")
+            parts.append(f"{label} {_money(v)}")
     if row.get("confirmed") is False:
         # Estimated dates move. Saying so is the difference between a calendar
         # you can act on and one you cannot.
-        desc.append("Date NOT confirmed by the company")
+        parts.append("date not confirmed")
+    star = "★ " if row["symbol"] in portfolio else ""
+    return f"{star}{row['symbol']}" + (f" - {' · '.join(parts)}" if parts else "")
+
+
+def earnings_group_vevent(rows: list, now: dt.datetime, portfolio: set = frozenset()) -> tuple[str, str]:
+    """ONE event per report date and timing bucket (before open / after close /
+    time not announced).
+
+    One event per company put 10-12 thirty-minute blocks at 08:00 ET and again
+    at 16:30 ET, which calendar apps render as unreadable slivers, plus "+5
+    more" stacks of all-day events. Portfolio holdings are listed first and
+    starred; every company is in the notes, so nothing is dropped and a search
+    for a ticker still finds its day.
+    """
+    if not rows:
+        raise ValueError("earnings_group_vevent needs at least one row")
+    date_s = rows[0]["date"]
+    day = dt.date.fromisoformat(date_s)
+    bucket, marker, label, phrase = _earnings_bucket(rows[0])
+    ordered = sorted(rows, key=lambda r: (r["symbol"] not in portfolio, r["symbol"]))
+    slug = _slug("earnings", date_s, bucket)
+
+    shown = [("★" if r["symbol"] in portfolio else "") + r["symbol"]
+             for r in ordered[:TITLE_SYMBOLS]]
+    summary = f"{marker} {label}: {', '.join(shown)}"
+    if len(ordered) > TITLE_SYMBOLS:
+        summary += f" +{len(ordered) - TITLE_SYMBOLS}"
+
+    n = len(ordered)
+    desc = [f"{n} compan{'ies report' if n > 1 else 'y reports'} {phrase}"]
+    desc += [_earnings_line(r, portfolio) for r in ordered]
 
     lines = ["BEGIN:VEVENT", f"UID:{slug}@{UID_DOMAIN}", f"DTSTAMP:{_stamp(now)}",
              f"SUMMARY:{_esc(summary)}"]
-
-    if when in ("bmo", "amc"):
-        local = dt.datetime.combine(day, BMO_LOCAL if when == "bmo" else AMC_LOCAL, ET)
+    if bucket in ("bmo", "amc"):
+        local = dt.datetime.combine(day, BMO_LOCAL if bucket == "bmo" else AMC_LOCAL, ET)
         lines.append(f"DTSTART:{_stamp(local)}")
         lines.append(f"DTEND:{_stamp(local + EARNINGS_DURATION)}")
     else:
@@ -168,13 +210,31 @@ def earnings_vevent(row: dict, now: dt.datetime) -> tuple[str, str]:
         # precise claim the source never made.
         lines.append(f"DTSTART;VALUE=DATE:{day.strftime('%Y%m%d')}")
         lines.append(f"DTEND;VALUE=DATE:{(day + dt.timedelta(days=1)).strftime('%Y%m%d')}")
-
-    if desc:
-        lines.append(f"DESCRIPTION:{_esc(chr(10).join(desc))}")
+    lines.append(f"DESCRIPTION:{_esc(chr(10).join(desc))}")
     lines.append(f"CATEGORIES:{_esc('Earnings')}")
     lines.append("TRANSP:TRANSPARENT")   # informational: must not block free/busy
     lines.append("END:VEVENT")
     return slug, "\r\n".join(lines)
+
+
+def earnings_vevent(row: dict, now: dt.datetime, portfolio: set = frozenset()) -> tuple[str, str]:
+    """A single company as its own event (a group of one)."""
+    return earnings_group_vevent([row], now, portfolio)
+
+
+def group_earnings_rows(rows: list) -> dict:
+    """(report date, timing bucket) -> rows. The ONLY earnings grouping code;
+    publish_earnings calls it, so its tests cover what production runs."""
+    groups: dict = {}
+    for r in rows:
+        try:
+            dt.date.fromisoformat(r["date"])
+            key = (r["date"], _earnings_bucket(r)[0])
+        except Exception as e:  # one bad vendor row must not lose the calendar
+            log.warning("skipping earnings row %s/%s: %s", r.get("symbol"), r.get("date"), e)
+            continue
+        groups.setdefault(key, []).append(r)
+    return groups
 
 
 #: Impact -> (rank, marker). The marker leads the title so importance is legible
@@ -467,13 +527,20 @@ def publish_earnings(conn, args, start, end, now, pw) -> int:
         cols = [d[0] for d in cur.description]
         rows = [dict(zip(cols, r)) for r in cur.fetchall()]
 
+    # Portfolio holdings lead each day's list and are starred.
+    with conn.cursor() as cur:
+        cur.execute("SELECT symbol FROM universe_memberships "
+                    "WHERE index_name = 'portfolio' AND removed_at IS NULL")
+        portfolio = {r[0] for r in cur.fetchall()}
+
     wanted: dict[str, str] = {}
-    for r in rows:
+    for (date_s, bucket), group in group_earnings_rows(rows).items():
         try:
-            slug, ics = earnings_vevent(r, now)
+            slug, ics = earnings_group_vevent(group, now, portfolio)
             wanted[slug] = ics
-        except Exception as e:  # one bad row must not lose the whole calendar
-            log.warning("skipping earnings row %s/%s: %s", r.get("symbol"), r.get("date"), e)
+        except Exception as e:
+            log.warning("skipping earnings %s/%s (%d rows): %s", date_s, bucket, len(group), e)
+    log.info("earnings: %d rows -> %d day/timing groups", len(rows), len(wanted))
 
     cal = Calendar(args.base, "calendar-publisher", pw, "earnings", args.dry_run)
     return _sync(cal, wanted, "earnings", args.force)

@@ -261,6 +261,10 @@ radicale = [
     "web/internal_data/js/scenes/*.js",
     "web/internal_data/js/utils/*.js",
     "web/internal_data/index.html",
+    "web/internal_data/calendar/*.html",
+    "web/internal_data/calendar/*.js",
+    "web/internal_data/calendar/vendor/*.js",
+    "web/internal_data/calendar/vendor/*.txt",
     "py.typed",
 ]
 

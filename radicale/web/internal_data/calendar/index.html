@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Franklin Calendar</title>
+  <!--
+    Franklin web calendar view (DAYTRADE-778). Read-only month / week / day /
+    list view of the signed-in user's calendars, including the shared Earnings
+    and Economic Indicator calendars. Everything is same-origin: the grid
+    library is vendored (vendor/, FullCalendar 6.1.21, MIT) and credentials are
+    held in memory only -- never written to storage.
+  -->
+  <link rel="icon" href="../css/icon.png">
+  <style>
+    :root {
+      --bg: #ffffff; --fg: #1d1d1f; --muted: #6e6e73; --line: #e5e5ea;
+      --panel: #f5f5f7; --accent: #0a66c2; --danger: #c62828;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1c1e; --fg: #f2f2f7; --muted: #a1a1a6; --line: #38383a;
+        --panel: #2c2c2e; --accent: #4ea1ff; --danger: #ff6b6b;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg);
+      font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    button, input { font: inherit; }
+    [hidden] { display: none !important; }
+
+    /* sign-in */
+    #login { min-height: 100%; display: grid; place-items: center; padding: 16px; }
+    #login form { width: 100%; max-width: 340px; background: var(--panel);
+      border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+    #login h1 { margin: 0 0 4px; font-size: 20px; }
+    #login p { margin: 0 0 16px; color: var(--muted); }
+    #login label { display: block; margin: 12px 0 4px; font-weight: 600; }
+    #login input { width: 100%; padding: 9px 10px; border-radius: 8px;
+      border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
+    #login button { width: 100%; margin-top: 18px; padding: 10px; border: 0;
+      border-radius: 8px; background: var(--accent); color: #fff; font-weight: 600; cursor: pointer; }
+    #login-error { color: var(--danger); margin-top: 12px; min-height: 1.4em; }
+
+    /* app */
+    #app { display: grid; grid-template-columns: 240px 1fr; height: 100%; }
+    #side { border-right: 1px solid var(--line); padding: 16px; overflow: auto; background: var(--panel); }
+    #side h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em;
+      color: var(--muted); margin: 0 0 10px; }
+    #who { font-weight: 600; margin-bottom: 4px; word-break: break-all; }
+    #side .links { display: flex; gap: 12px; margin-bottom: 20px; }
+    #side .links a, #side .links button { color: var(--accent); background: none; border: 0;
+      padding: 0; cursor: pointer; text-decoration: none; }
+    .cal-toggle { display: flex; align-items: center; gap: 8px; padding: 5px 0; cursor: pointer; }
+    .cal-toggle .swatch { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+    #tz-note { color: var(--muted); font-size: 12px; margin-top: 20px; }
+    #main { padding: 12px 16px; overflow: auto; min-width: 0; }
+    #status { color: var(--muted); min-height: 1.4em; margin-bottom: 6px; }
+
+    /* FullCalendar theme tweaks */
+    .fc { --fc-border-color: var(--line); --fc-page-bg-color: var(--bg);
+      --fc-neutral-bg-color: var(--panel); --fc-list-event-hover-bg-color: var(--panel);
+      --fc-today-bg-color: rgba(10, 102, 194, .08); }
+    .fc .fc-toolbar-title { font-size: 18px; }
+    .fc .fc-button { padding: .3em .6em; }
+    .fc .fc-event { cursor: pointer; }
+    .fc-theme-standard .fc-list-day-cushion { background: var(--panel); }
+
+    /* event detail */
+    #detail { position: fixed; inset: 0; background: rgba(0,0,0,.45);
+      display: grid; place-items: center; padding: 16px; z-index: 10; }
+    #detail .card { background: var(--bg); color: var(--fg); border: 1px solid var(--line);
+      border-radius: 12px; width: 100%; max-width: 560px; max-height: 85vh; overflow: auto; padding: 20px; }
+    #detail h3 { margin: 0 0 6px; font-size: 18px; }
+    #detail .meta { color: var(--muted); margin-bottom: 12px; }
+    #detail .notes { white-space: pre-wrap; margin: 0; font: inherit; }
+    #detail button { margin-top: 16px; padding: 8px 14px; border-radius: 8px;
+      border: 1px solid var(--line); background: var(--panel); color: var(--fg); cursor: pointer; }
+
+    @media (max-width: 720px) {
+      #app { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+      #side { border-right: 0; border-bottom: 1px solid var(--line); }
+      #tz-note { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <section id="login">
+    <form id="login-form" autocomplete="on">
+      <h1>Franklin Calendar</h1>
+      <p>Sign in with your dashboard username and password.</p>
+      <label for="user">Username</label>
+      <input id="user" name="username" autocomplete="username" required autofocus>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required>
+      <button type="submit">Sign in</button>
+      <div id="login-error" role="alert"></div>
+    </form>
+  </section>
+
+  <section id="app" hidden>
+    <aside id="side">
+      <div id="who"></div>
+      <div class="links">
+        <a href="../">Manage calendars</a>
+        <button id="logout" type="button">Sign out</button>
+      </div>
+      <h2>Calendars</h2>
+      <div id="calendars"></div>
+      <div id="tz-note"></div>
+    </aside>
+    <main id="main">
+      <div id="status" role="status"></div>
+      <div id="calendar"></div>
+    </main>
+  </section>
+
+  <div id="detail" hidden>
+    <div class="card" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+      <h3 id="detail-title"></h3>
+      <div class="meta" id="detail-meta"></div>
+      <pre class="notes" id="detail-notes"></pre>
+      <button id="detail-close" type="button">Close</button>
+    </div>
+  </div>
+
+  <script src="vendor/fullcalendar-6.1.21.global.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
