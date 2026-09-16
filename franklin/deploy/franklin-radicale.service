@@ -1,31 +1,62 @@
-# systemd unit for Radicale CalDAV — DAYTRADE-778
-# Install: sudo cp to /etc/systemd/system/, then daemon-reload + enable --now.
+# Radicale CalDAV — calendar.franklinfinancial.ai (DAYTRADE-778)
 #
-# Deliberately NO docker `restart:` policy in the compose file — systemd owns
-# the lifecycle. Two restart mechanisms racing is how a stopped service comes
-# back on its own.
+# Install:
+#   sudo cp franklin/deploy/franklin-radicale.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now franklin-radicale
+#
+# Deliberately NO compose `restart:` policy. systemd owns the lifecycle, so
+# `systemctl status` is the single source of truth; two restart mechanisms
+# racing is how a stopped service comes back on its own.
 [Unit]
-Description=Franklin Radicale CalDAV (calendar.franklinfinancial.ai)
+Description=Franklin Radicale CalDAV (calendar.franklinfinancial.ai, 127.0.0.1:5232)
 Documentation=https://franklindigital.atlassian.net/browse/DAYTRADE-778
+# postgres-prod is a DOCKER CONTAINER, not a systemd unit -- `After=` on a
+# unit that does not exist is a SILENT no-op, so naming it here would have
+# looked like an ordering guarantee while providing none. (postgresql.service
+# exists but is a leftover native install sitting active/exited; it is not the
+# database this uses.) The real ordering we can express is docker.service; the
+# container being READY is checked explicitly in ExecStartPre below.
 After=docker.service network-online.target
 Requires=docker.service
 Wants=network-online.target
 
 [Service]
-Type=simple
+Type=oneshot
+RemainAfterExit=yes
 WorkingDirectory=/home/Franklin/franklin-radicale/franklin/deploy
+User=sal
+Group=sal
 
-# franklin.env has no `export` lines, so `set -a` is REQUIRED or every var
-# reads empty -- a documented trap on this host. BENNY_PASSWORD becomes the
-# plugin's franklin_pg_password.
-EnvironmentFile=/home/Franklin/secrets/franklin.env
+# Render the runtime config from the committed template. Radicale does NOT
+# expand env vars in its config, so the DB password must be substituted here.
+# The script sources franklin.env with `set -a` itself (the file has no export
+# lines) and REFUSES to render when BENNY_PASSWORD is empty -- rendering an
+# empty password would make every login fail closed, which looks exactly like
+# every user mistyping their password.
+#
+# NOTE: this is NOT an EnvironmentFile= directive. systemd parses that file
+# itself and does not run a shell, so `set -a` semantics and any quoting in
+# franklin.env would not apply the way the rest of this host expects.
+ExecStartPre=/home/Franklin/franklin-radicale/franklin/deploy/render-config.sh
 
-ExecStartPre=-/usr/bin/docker compose -f docker-compose.yml down
-ExecStart=/usr/bin/docker compose -f docker-compose.yml up
+# Postgres reachability gate. THIS IS NOT BELT-AND-BRACES -- it covers a real
+# blind spot in the container healthcheck.
+#
+# The healthcheck asserts an unauthenticated PROPFIND returns 401. But when
+# Postgres is unreachable the auth plugin fails CLOSED and also returns 401,
+# so a totally broken deployment and a correctly-secured one look IDENTICAL to
+# that probe. Without this gate the unit would go green while every user on
+# the system was locked out.
+ExecStartPre=/usr/bin/docker exec postgres-prod pg_isready -h 127.0.0.1 -q
+
+ExecStart=/usr/bin/docker compose -f docker-compose.yml up -d --wait
 ExecStop=/usr/bin/docker compose -f docker-compose.yml down
 
-Restart=on-failure
-RestartSec=10s
+# `up -d --wait` blocks until the healthcheck passes, and that healthcheck
+# asserts an unauthenticated PROPFIND returns 401. So a green unit means the
+# app is up AND auth is enforced -- not merely that a container started.
+TimeoutStartSec=300
 
 [Install]
 WantedBy=multi-user.target
