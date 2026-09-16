@@ -1,0 +1,74 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job">
+  <description>calendar-publisher (DAYTRADE-778). Publishes fmp_earnings_calendar (portfolio + active earnings_wk) and fmp_economic_calendar (US) into the shared Earnings / Economic Indicator calendars on calendar.franklinfinancial.ai, -7/+90 days. Hourly; writes only new/changed events and deletes stale ones, so a quiet run takes seconds. Safe to run by hand at any time. Pipeline logic lives in git: Franklin-Digital/Radicale @ franklin_1.0prod, franklin/deploy/jenkins/calendar-publisher.groovy. This job is the ONLY scheduler - do not re-add the systemd timer.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>300</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty>
+      <abortPrevious>false</abortPrevious>
+    </org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.BooleanParameterDefinition>
+          <name>DRY_RUN</name>
+          <description>Compute and log new / changed / stale counts, write nothing. Scheduled runs use the default (false).</description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>FORCE</name>
+          <description>Re-PUT every event even if unchanged. About 10 minutes. Only needed if the server content is suspected wrong in a way the comparison cannot see.</description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>ONLY</name>
+          <description>Publish both calendars, or just one.</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>both</string>
+              <string>earnings</string>
+              <string>economic</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers>
+        <hudson.triggers.TimerTrigger>
+          <spec>H * * * *</spec>
+        </hudson.triggers.TimerTrigger>
+      </triggers>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps">
+    <script>// Bootstrap only. Real pipeline: franklin/deploy/jenkins/calendar-publisher.groovy
+node {
+    stage('Sync repo') {
+        // reset --hard, not pull: this checkout is a deploy reference, and a
+        // fast-forward pull reads FETCH_HEAD, which concurrent fetches corrupt.
+        // The groovy is copied INTO the workspace via sal, so the jenkins user
+        // needs no read access to the checkout.
+        sh '''#!/bin/bash
+set -euo pipefail
+R=/home/Franklin/franklin-radicale
+sudo -u sal -H git -C "$R" fetch origin --prune
+sudo -u sal -H git -C "$R" checkout -q franklin_1.0prod
+sudo -u sal -H git -C "$R" reset -q --hard origin/franklin_1.0prod
+sudo -u sal -H git -C "$R" log -1 --format='publisher rev: %h %ci %s'
+sudo -u sal -H cat "$R/franklin/deploy/jenkins/calendar-publisher.groovy" &gt; calendar-publisher.groovy
+'''
+    }
+    load('calendar-publisher.groovy').run(params)
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

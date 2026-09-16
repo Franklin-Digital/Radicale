@@ -223,8 +223,21 @@ which nothing reads.
 ## Publisher job — `franklin/publisher/publish_calendars.py`
 
 Renders `fmp_earnings_calendar` and `fmp_economic_calendar` (Postgres
-`benny_prod`) into the two shared calendars as `calendar-publisher`. Scheduled
-hourly by `franklin/deploy/franklin-calendar-publisher.{service,timer}`.
+`benny_prod`) into the two shared calendars as `calendar-publisher`.
+
+**Scheduled and run from Jenkins, nowhere else:** `1. Franklin / Day Trading
+Agent / calendar-publisher`, hourly (`H * * * *`), with DRY_RUN / FORCE / ONLY
+parameters for manual runs. Build descriptions show the new/changed/stale
+counts. The job definition is `franklin/deploy/jenkins/config.xml` (a bootstrap
+that syncs this checkout to `origin/franklin_1.0prod` as `sal` and `load`s
+`franklin/deploy/jenkins/calendar-publisher.groovy`). No deploy key exists for
+this fork, hence not pipeline-from-SCM. A systemd timer existed for ~1 hour on
+2026-09-16 and was removed: Sal wants Jenkins for visibility and manual runs,
+and `disableConcurrentBuilds()` cannot see a systemd run. Do not re-add it.
+
+To recreate the job: POST `config.xml` to
+`/job/1.%20Franklin/job/Day%20Trading%20Agent/createItem?name=calendar-publisher`
+with `Content-Type: application/xml; charset=utf-8`.
 
 **Scope (defaults).** Earnings: active members (`removed_at IS NULL`) of
 `portfolio` + `earnings_wk`; economic: `country = 'US'`; window −7/+90 days.
