@@ -137,12 +137,24 @@ def test_missing_dependencies_fail_closed(monkeypatch):
 
 # ── shape of the query ────────────────────────────────────────────────
 
-def test_lookup_is_case_insensitive_and_parameterised(monkeypatch):
-    """Case-insensitive so 'Sal' and 'sal' are one account, and parameterised
-    so a username can never be SQL."""
+def test_lookup_is_exact_match_not_case_folded():
+    """`users_username_key` is a CASE-SENSITIVE unique index, so "Sal" and "sal"
+    can both exist. A lower() lookup would match BOTH, and fetchone() would take
+    an arbitrary row -- a login resolving to whichever the planner returned.
+
+    The dashboard does `WHERE username = %s` (trading_desk.py:1572). Matching
+    loosely here would create a credential that works on the calendar and fails
+    on the dashboard, which is the divergence this plugin exists to prevent."""
     from franklin_radicale import auth_userdb
-    assert "lower(username) = lower(%s)" in auth_userdb._LOOKUP_SQL
-    assert "'" not in auth_userdb._LOOKUP_SQL
+    assert "WHERE username = %s" in auth_userdb._LOOKUP_SQL
+    assert "lower(" not in auth_userdb._LOOKUP_SQL.lower()
+
+
+def test_lookup_is_parameterised():
+    """A username must never be able to become SQL."""
+    from franklin_radicale import auth_userdb
+    assert "%s" in auth_userdb._LOOKUP_SQL
+    assert chr(39) not in auth_userdb._LOOKUP_SQL
 
 
 def test_plugin_never_writes():

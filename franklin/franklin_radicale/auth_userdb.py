@@ -50,7 +50,19 @@ from radicale.auth import BaseAuth
 logger = logging.getLogger(__name__)
 
 #: Read-only: this plugin never creates or mutates a user.
-_LOOKUP_SQL = "SELECT password_hash FROM users WHERE lower(username) = lower(%s)"
+#:
+#: EXACT match, not lower(). Two reasons, both load-bearing:
+#:
+#:   1. `users_username_key` is a CASE-SENSITIVE unique btree on `username`, so
+#:      "Sal" and "sal" can both exist as separate accounts. A lower() lookup
+#:      would match both and fetchone() would take an arbitrary one -- a login
+#:      resolving to whichever row the planner happened to return.
+#:   2. The dashboard does `WHERE username = %s` (trading_desk.py:1572). Matching
+#:      loosely here would create a credential that works on the calendar and
+#:      fails on the dashboard -- exactly the divergence this plugin prevents.
+#:
+#: Parameterised, so a username can never become SQL.
+_LOOKUP_SQL = "SELECT password_hash FROM users WHERE username = %s"
 
 
 class Auth(BaseAuth):

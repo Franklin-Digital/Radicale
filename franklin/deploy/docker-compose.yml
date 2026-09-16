@@ -1,0 +1,45 @@
+# Radicale CalDAV — calendar.franklinfinancial.ai (DAYTRADE-778)
+#
+# Managed by SYSTEMD, never `restart:` policies. House rule: systemd owns
+# service lifecycle so `systemctl status` is the single source of truth. A
+# compose restart policy silently competes with it and survives a `systemctl
+# stop`, which reads as a service that will not stay stopped.
+name: franklin-radicale
+
+services:
+  radicale:
+    build:
+      context: ../..
+      dockerfile: Dockerfile
+      args:
+        # Build from THIS checkout, not upstream master, so the franklin_*
+        # branch is what ships.
+        VERSION: franklin_1.0prod
+        DEPENDENCIES: bcrypt
+    container_name: franklin-radicale
+    # Loopback ONLY. Public access is the Cloudflare tunnel; Radicale
+    # terminates no TLS itself and must never be reachable on the LAN.
+    # (QuestDB on this host is bound 0.0.0.0 by Docker publishing and is a
+    # standing finding — do not repeat that here.)
+    ports:
+      - "127.0.0.1:5232:5232"
+    volumes:
+      - ./config:/etc/radicale:ro
+      - /var/lib/franklin-radicale:/var/lib/radicale
+      # The auth plugin, importable as franklin_radicale.auth_userdb
+      - ../franklin_radicale:/app/lib/franklin_radicale:ro
+    environment:
+      PYTHONPATH: /app/lib
+      RADICALE_CONFIG: /etc/radicale/config
+    # psycopg2 + werkzeug are NOT in the upstream image; the auth plugin
+    # refuses every login without them (fails closed, by design). Installed in
+    # the Franklin image build — see Dockerfile.franklin.
+    healthcheck:
+      # Radicale answers 401 unauthenticated, which IS healthy: it proves the
+      # app is up AND that auth is enforced. A 200 here would mean auth is off.
+      test: ["CMD", "sh", "-c",
+             "curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:5232/ | grep -q 401"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

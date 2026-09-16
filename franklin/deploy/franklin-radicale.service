@@ -1,0 +1,31 @@
+# systemd unit for Radicale CalDAV — DAYTRADE-778
+# Install: sudo cp to /etc/systemd/system/, then daemon-reload + enable --now.
+#
+# Deliberately NO docker `restart:` policy in the compose file — systemd owns
+# the lifecycle. Two restart mechanisms racing is how a stopped service comes
+# back on its own.
+[Unit]
+Description=Franklin Radicale CalDAV (calendar.franklinfinancial.ai)
+Documentation=https://franklindigital.atlassian.net/browse/DAYTRADE-778
+After=docker.service network-online.target
+Requires=docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/Franklin/franklin-radicale/franklin/deploy
+
+# franklin.env has no `export` lines, so `set -a` is REQUIRED or every var
+# reads empty -- a documented trap on this host. BENNY_PASSWORD becomes the
+# plugin's franklin_pg_password.
+EnvironmentFile=/home/Franklin/secrets/franklin.env
+
+ExecStartPre=-/usr/bin/docker compose -f docker-compose.yml down
+ExecStart=/usr/bin/docker compose -f docker-compose.yml up
+ExecStop=/usr/bin/docker compose -f docker-compose.yml down
+
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
