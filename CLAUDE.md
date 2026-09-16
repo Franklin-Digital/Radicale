@@ -286,3 +286,33 @@ deleted, 224 remain.
 Also: a mutation run whose `str.replace` silently matched nothing reported the
 tests as catching a bug they did not catch. Mutation scripts must assert the
 mutation applied.
+
+## Shared calendars appear automatically (share-by-group)
+
+Every user sees **Earnings Calendar** and **Economic Indicator Calendar** in
+their OWN calendar home (`/<user>/franklin-earnings/`,
+`/<user>/franklin-economic-indicators/`), read-only, with no per-user setup.
+Before this, the calendars lived only under `/calendar-publisher/`, which no
+client discovers, and each had to be added by URL.
+
+Mechanism (Radicale >= 3.8 map sharing):
+* `franklin_radicale.group_all_users` puts every authenticated user in group
+  `franklin`, **except `calendar-publisher`** (it must keep seeing only the
+  real collections it writes).
+* `franklin/deploy/create-group-shares.sh` creates two share entries owned by
+  `calendar-publisher`, `User=:franklin`, `PathOrToken=/{user}/<name>/`.
+  Idempotent; verifies via the list API. Stored in
+  `franklin-radicale-data/collections/collection-db/sharing.csv`.
+* Rights: `calendar-publisher` holds `M` on its calendars (permit to create
+  map shares); `[sharing] collection_by_map = True`.
+* **FRANKLIN PATCH in `radicale/app/__init__.py`:** upstream only called the
+  group module for type `htgroup`, so a custom group plugin was loaded but
+  never consulted on CalDAV requests. Shares could be CREATED (the sharing API
+  calls the plugin itself) but silently resolved for nobody. Guarded by
+  `franklin/tests/test_group_all_users.py`; re-check after any upstream merge.
+
+Verified on a staging instance with test users (alice, bob): both see both
+calendars (224 / 955 events); PUT, DELETE, PROPPATCH through the share are
+403; cross-user 403; anonymous 401; publisher writes appear to users
+immediately. Known, harmless: a user's MKCALENDAR at exactly a share path
+returns 201 and creates an empty shadowed folder — the share still wins.
