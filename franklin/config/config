@@ -15,10 +15,17 @@
 # this hostname until one exists.
 max_connections = 8
 
-# Bind inside the container only. Public access is via the Cloudflare tunnel
-# (calendar.franklinfinancial.ai -> http://localhost:5232); Radicale itself
-# terminates no TLS and MUST NOT be published to the LAN.
-hosts = 0.0.0.0:5232
+# LOOPBACK ONLY, and this line is the ONLY thing enforcing that.
+#
+# The container runs with network_mode: host (needed because Postgres is bound
+# to 127.0.0.1 on the host and is unreachable from the default bridge). Under
+# host networking a compose `ports:` mapping does nothing, so 0.0.0.0 here
+# would publish Radicale on every interface -- the LAN included. That is the
+# exact shape of the standing QuestDB exposure finding.
+#
+# Public access is the Cloudflare tunnel, which connects from the host to
+# localhost:5232. Radicale terminates no TLS.
+hosts = 127.0.0.1:5232
 
 [auth]
 # Authenticate against the SAME Postgres `users` table as

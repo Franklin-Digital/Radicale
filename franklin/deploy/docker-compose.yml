@@ -1,45 +1,59 @@
 # Radicale CalDAV — calendar.franklinfinancial.ai (DAYTRADE-778)
 #
-# Managed by SYSTEMD, never `restart:` policies. House rule: systemd owns
-# service lifecycle so `systemctl status` is the single source of truth. A
-# compose restart policy silently competes with it and survives a `systemctl
-# stop`, which reads as a service that will not stay stopped.
+# Managed by SYSTEMD, never a compose `restart:` policy. House rule: systemd
+# owns service lifecycle so `systemctl status` is the single source of truth.
+# A compose restart policy competes with it and survives `systemctl stop`,
+# which reads as a service that will not stay stopped.
 name: franklin-radicale
 
 services:
   radicale:
     build:
+      # Repo root, so the Dockerfile can install Radicale from THIS checkout
+      # rather than a Kozea tarball that has never heard of franklin_1.0prod.
       context: ../..
-      dockerfile: Dockerfile
-      args:
-        # Build from THIS checkout, not upstream master, so the franklin_*
-        # branch is what ships.
-        VERSION: franklin_1.0prod
-        DEPENDENCIES: bcrypt
+      dockerfile: franklin/deploy/Dockerfile.franklin
+    image: franklin-radicale:1.0prod
     container_name: franklin-radicale
-    # Loopback ONLY. Public access is the Cloudflare tunnel; Radicale
-    # terminates no TLS itself and must never be reachable on the LAN.
-    # (QuestDB on this host is bound 0.0.0.0 by Docker publishing and is a
-    # standing finding — do not repeat that here.)
-    ports:
-      - "127.0.0.1:5232:5232"
+
+    # NO `ports:` block -- it is INERT under network_mode: host and would be
+    # actively misleading, because a reader would take it as the thing
+    # providing loopback-only exposure. Under host networking the bind is
+    # decided by Radicale's own `[server] hosts`, which is set to
+    # 127.0.0.1:5232. QuestDB on this host is published on 0.0.0.0 and is a
+    # standing finding -- do not repeat that shape here.
+
     volumes:
       - ./config:/etc/radicale:ro
-      - /var/lib/franklin-radicale:/var/lib/radicale
-      # The auth plugin, importable as franklin_radicale.auth_userdb
-      - ../franklin_radicale:/app/lib/franklin_radicale:ro
+      - /home/Franklin/franklin-radicale-data:/var/lib/radicale
+      # NOTE: the auth plugin is BAKED INTO the image, deliberately not
+      # bind-mounted. A mount would shadow the copy the image's import check
+      # validated at build time, so the thing that passed the check and the
+      # thing that runs could differ without any error.
+
     environment:
-      PYTHONPATH: /app/lib
+      # franklin.env supplies BENNY_PASSWORD; the config references it as the
+      # plugin's franklin_pg_password. Radicale does not expand env vars in its
+      # config, so the deploy step must render it -- see APPLY.md.
       RADICALE_CONFIG: /etc/radicale/config
-    # psycopg2 + werkzeug are NOT in the upstream image; the auth plugin
-    # refuses every login without them (fails closed, by design). Installed in
-    # the Franklin image build — see Dockerfile.franklin.
+
+    # Postgres is bound to 127.0.0.1 ON THE HOST, so the container cannot reach
+    # it over the default bridge. host networking is the simplest correct
+    # answer here and keeps the 127.0.0.1-only exposure.
+    network_mode: host
+
     healthcheck:
-      # Radicale answers 401 unauthenticated, which IS healthy: it proves the
-      # app is up AND that auth is enforced. A 200 here would mean auth is off.
+      # PROPFIND, not GET, and 401 is the HEALTHY answer.
+      #
+      # GET / returns 302 (redirect to the /.web/ UI), so probing it for 401
+      # marks a perfectly healthy server unhealthy -- measured, not guessed.
+      # PROPFIND is the verb CalDAV clients actually use, and unauthenticated
+      # it must be 401: that single check proves the app is up, the auth
+      # plugin loaded, AND that auth is enforced. A 2xx here would mean auth
+      # is OFF, so this must never accept one.
       test: ["CMD", "sh", "-c",
-             "curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:5232/ | grep -q 401"]
+             "curl -s -o /dev/null -X PROPFIND -w '%{http_code}' http://127.0.0.1:5232/ | grep -q 401"]
       interval: 30s
       timeout: 5s
       retries: 3
-      start_period: 10s
+      start_period: 15s

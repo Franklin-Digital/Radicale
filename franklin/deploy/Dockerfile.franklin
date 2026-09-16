@@ -1,0 +1,58 @@
+# Radicale + Franklin customizations — DAYTRADE-778
+#
+# Builds from THIS CHECKOUT, not a tarball URL. The upstream Dockerfile does:
+#
+#   pip install "Radicale[...] @ https://github.com/Kozea/Radicale/archive/${VERSION}.tar.gz"
+#
+# which fetches from KOZEA. Passing VERSION=franklin_1.0prod there would 404,
+# because that branch exists only in the Franklin fork -- and a silent fallback
+# to upstream master would ship a build with no auth plugin in it.
+
+FROM python:3-alpine AS builder
+
+# psycopg2 needs libpq + a compiler on musl; psycopg2-binary publishes no musl
+# wheels, so it is built from source here and only the venv is carried forward.
+RUN apk add --no-cache --virtual .build-deps \
+        gcc libffi-dev musl-dev rust cargo postgresql-dev
+
+COPY . /src
+
+RUN python -m venv /app/venv \
+    && /app/venv/bin/pip install --no-cache-dir --upgrade pip \
+    # Radicale itself, from the local tree
+    && /app/venv/bin/pip install --no-cache-dir "/src[bcrypt]" \
+    # Auth plugin deps. WITHOUT these the plugin refuses every login -- it
+    # fails closed by design, so a missing dep looks like "wrong password"
+    # for every user rather than a crash. Pin them into the image.
+    && /app/venv/bin/pip install --no-cache-dir psycopg2 werkzeug
+
+
+FROM python:3-alpine
+
+WORKDIR /app
+
+RUN addgroup -g 1000 radicale \
+    && adduser radicale --home /var/lib/radicale --system --uid 1000 \
+       --disabled-password -G radicale \
+    # libpq is needed at RUNTIME too, not just to build psycopg2.
+    && apk add --no-cache ca-certificates libpq curl
+
+COPY --chown=radicale:radicale --from=builder /app/venv /app
+
+# The Franklin auth plugin, importable as franklin_radicale.auth_userdb
+COPY --chown=radicale:radicale franklin/franklin_radicale /app/lib/franklin_radicale
+ENV PYTHONPATH=/app/lib
+
+VOLUME /var/lib/radicale
+EXPOSE 5232
+
+USER radicale
+
+# Fail fast and loudly if the plugin cannot be imported. Without this the
+# container starts happily and every login fails closed -- indistinguishable
+# from "everyone typed the wrong password".
+RUN /app/bin/python -c "import franklin_radicale.auth_userdb as m; assert hasattr(m, 'Auth')" \
+    && /app/bin/python -c "import psycopg2, werkzeug.security"
+
+ENTRYPOINT ["/app/bin/python", "/app/bin/radicale"]
+CMD ["--config", "/etc/radicale/config"]

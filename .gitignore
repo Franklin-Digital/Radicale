@@ -30,3 +30,4 @@ uv.lock
 # Franklin
 .venv/
 franklin/config/*.local
+franklin/deploy/config/
