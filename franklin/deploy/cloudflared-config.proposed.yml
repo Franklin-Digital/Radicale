@@ -1,0 +1,44 @@
+# Cloudflare tunnel "mac-pro" — SOURCE OF TRUTH (deploy: sudo cp to
+# /etc/cloudflared/config.yml, then sudo systemctl restart cloudflared).
+# Served by cloudflared.service (root, /etc/cloudflared/config.yml).
+#
+#
+# api/mcp hostnames (DAYTRADE-204): TLS at the edge, Access app = explicit
+# bypass — bearer auth (UserDB JWT / FRANKLIN_MCP_TOKEN) is enforced at the
+# origin and was load-tested. Upgrade path: flip the Access policy to
+# Service Auth in Zero Trust dashboard (service tokens need account-scoped
+# API perms our zone token lacks) and add CF-Access-Client-Id/Secret
+# headers to clients.
+
+tunnel: d28481f4-4a0b-4a0e-a0cf-6d359722d92e
+credentials-file: /etc/cloudflared/d28481f4-4a0b-4a0e-a0cf-6d359722d92e.json
+
+ingress:
+  - hostname: ai-gateway.franklinfinancial.ai
+    service: http://localhost:8080
+  - hostname: grafana.franklinfinancial.ai
+    service: http://localhost:3000
+  - hostname: questdb.franklinfinancial.ai
+    service: http://localhost:9000
+  - hostname: questdb-nonprod.franklinfinancial.ai
+    service: http://localhost:19000
+  - hostname: jenkins.franklinfinancial.ai
+    service: http://localhost:8090
+  - hostname: dashboard.franklinfinancial.ai
+    service: http://localhost:8051
+  # Franklin API Gateway (KrakenD) — DAYTRADE-204
+  - hostname: api.franklinfinancial.ai
+    service: http://localhost:8060
+  - hostname: api-nonprod.franklinfinancial.ai
+    service: http://localhost:8065
+  # Franklin MCP server (streamable HTTP) — DAYTRADE-204
+  - hostname: mcp.franklinfinancial.ai
+    service: http://localhost:8075
+  - hostname: mcp-nonprod.franklinfinancial.ai
+    service: http://localhost:8076
+  # Radicale CalDAV - DAYTRADE-778. Loopback origin; Radicale
+  # terminates no TLS (edge does). Access must be BYPASS: CalDAV
+  # clients cannot run the interactive flow.
+  - hostname: calendar.franklinfinancial.ai
+    service: http://localhost:5232
+  - service: http_status:404
