@@ -177,39 +177,107 @@ def earnings_vevent(row: dict, now: dt.datetime) -> tuple[str, str]:
     return slug, "\r\n".join(lines)
 
 
-def economic_vevent(row: dict, now: dt.datetime) -> tuple[str, str]:
-    event, country, ts = row["event"], row["country"], row["date"]
+#: Impact -> (rank, marker). The marker leads the title so importance is legible
+#: at a glance in a crowded day view, where the text is truncated after a few
+#: characters. "[Medium] US: ..." used 13 of those characters on the prefix.
+IMPACT = {"High": (0, "\U0001F534"), "Medium": (1, "\U0001F7E0"), "Low": (2, "⚪")}
+_NO_IMPACT = (3, "⚪")
+
+
+def _impact(row: dict) -> tuple:
+    return IMPACT.get((row.get("impact") or "").strip(), _NO_IMPACT)
+
+
+def _release_time_utc(ts) -> dt.datetime:
+    """FMP economic-calendar timestamps are UTC, stored without a zone.
+
+    Verified 2026-09-16 against releases with known clock times: the FOMC rate
+    decision (14:00 ET) is stored as 18:00 and its press conference (14:30 ET)
+    as 18:30; retail sales (08:30 ET) as 12:30; MBA mortgage applications
+    (07:00 ET) as 11:00. The first version of this publisher read them as
+    Eastern and put every economic event 4 hours late (5 in winter).
+    """
     when = ts if isinstance(ts, dt.datetime) else dt.datetime.fromisoformat(str(ts))
-    slug = _slug("econ", event, country, str(ts))
+    return when.replace(tzinfo=UTC) if when.tzinfo is None else when
 
-    impact = (row.get("impact") or "").strip()
-    summary = f"{country}: {event}"
-    if impact:
-        summary = f"[{impact}] {summary}"
 
-    desc = []
-    for label, key in (("Previous", "previous"), ("Estimate", "estimate"), ("Actual", "actual")):
+def _value_line(row: dict) -> str:
+    unit = row.get("unit") or ""
+    parts = []
+    for label, key in (("est", "estimate"), ("prev", "previous"), ("actual", "actual")):
         v = row.get(key)
         if v is not None:
-            unit = row.get("unit") or ""
-            desc.append(f"{label}: {v:,.4g}{(' ' + unit) if unit else ''}")
-    if row.get("change_percentage") is not None:
-        desc.append(f"Change: {row['change_percentage']:,.4g}%")
+            parts.append(f"{label} {v:,.4g}{unit}")
+    return ", ".join(parts)
 
-    # Source timestamps carry no tzinfo; they are US market-calendar times.
-    if when.tzinfo is None:
-        when = when.replace(tzinfo=ET)
+
+def economic_release_vevent(rows: list, now: dt.datetime) -> tuple[str, str]:
+    """ONE event for all releases that share a country and release time.
+
+    FMP lists every sub-series separately -- retail sales alone is MoM, YoY,
+    ex-autos, control group, ... all at 08:30 ET -- so one event per row put up
+    to 11 overlapping 15-minute blocks at the same instant, which calendar apps
+    render as unreadable truncated columns. 955 rows in the window collapse to
+    330 release times. Nothing is dropped: every release is listed, most
+    important first, in the event notes.
+    """
+    if not rows:
+        raise ValueError("economic_release_vevent needs at least one row")
+    country = rows[0]["country"]
+    when = _release_time_utc(rows[0]["date"])
+    # Most important first: impact, then releases the market has a consensus
+    # estimate for (the watched headline -- "Fed Interest Rate Decision" over
+    # "FOMC Economic Projections"), then the shortest, most general name.
+    ordered = sorted(rows, key=lambda r: (_impact(r)[0], r.get("estimate") is None,
+                                          len(r["event"]), r["event"]))
+    top = ordered[0]
+    slug = _slug("econ", country, when.strftime("%Y-%m-%dT%H:%M:%SZ"))
+
+    summary = f"{_impact(top)[1]} {top['event']}"
+    if len(rows) > 1:
+        summary += f" +{len(rows) - 1}"
+    if country != "US":
+        summary = f"{country}: {summary}"
+
+    et = when.astimezone(ET)
+    desc = [f"{len(rows)} release{'s' if len(rows) > 1 else ''} at "
+            f"{et.strftime('%-I:%M %p')} ET"]
+    for r in ordered:
+        vals = _value_line(r)
+        desc.append(f"{_impact(r)[1]} {r['event']}" + (f" - {vals}" if vals else ""))
 
     lines = ["BEGIN:VEVENT", f"UID:{slug}@{UID_DOMAIN}", f"DTSTAMP:{_stamp(now)}",
              f"SUMMARY:{_esc(summary)}",
              f"DTSTART:{_stamp(when)}",
-             f"DTEND:{_stamp(when + ECONOMIC_DURATION)}"]
-    if desc:
-        lines.append(f"DESCRIPTION:{_esc(chr(10).join(desc))}")
-    lines.append(f"CATEGORIES:{_esc('Economic')}")
-    lines.append("TRANSP:TRANSPARENT")
-    lines.append("END:VEVENT")
+             f"DTEND:{_stamp(when + ECONOMIC_DURATION)}",
+             f"DESCRIPTION:{_esc(chr(10).join(desc))}",
+             f"CATEGORIES:{_esc('Economic')}",
+             "TRANSP:TRANSPARENT",
+             "END:VEVENT"]
     return slug, "\r\n".join(lines)
+
+
+def economic_vevent(row: dict, now: dt.datetime) -> tuple[str, str]:
+    """A single release as its own event (a group of one)."""
+    return economic_release_vevent([row], now)
+
+
+def group_economic_rows(rows: list) -> dict:
+    """(country, release time UTC) -> rows.
+
+    The ONLY grouping code: publish_economic calls this, so the tests on it
+    cover what production runs. A row whose timestamp cannot be parsed is
+    skipped with a warning -- one bad vendor row must not lose the calendar.
+    """
+    groups: dict = {}
+    for r in rows:
+        try:
+            key = (r["country"], _release_time_utc(r["date"]))
+        except Exception as e:
+            log.warning("skipping economic row %s/%s: %s", r.get("event"), r.get("date"), e)
+            continue
+        groups.setdefault(key, []).append(r)
+    return groups
 
 
 # ── CalDAV ───────────────────────────────────────────────────────────
@@ -429,12 +497,14 @@ def publish_economic(conn, args, start, end, now, pw) -> int:
         rows = [dict(zip(cols, r)) for r in cur.fetchall()]
 
     wanted: dict[str, str] = {}
-    for r in rows:
+    for (country, when), group in group_economic_rows(rows).items():
         try:
-            slug, ics = economic_vevent(r, now)
+            slug, ics = economic_release_vevent(group, now)
             wanted[slug] = ics
         except Exception as e:
-            log.warning("skipping economic row %s/%s: %s", r.get("event"), r.get("date"), e)
+            log.warning("skipping economic release %s/%s (%d rows): %s",
+                        country, when, len(group), e)
+    log.info("economic: %d rows -> %d release times", len(rows), len(wanted))
 
     cal = Calendar(args.base, "calendar-publisher", pw, "economic-indicators", args.dry_run)
     return _sync(cal, wanted, "economic", args.force)

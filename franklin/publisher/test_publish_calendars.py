@@ -8,6 +8,7 @@ import sys, os
 sys.path.insert(0, os.path.dirname(__file__))
 
 import publish_calendars as pc
+import pytest
 
 NOW = dt.datetime(2026, 9, 16, 12, 0, tzinfo=dt.timezone.utc)
 
@@ -135,14 +136,29 @@ def test_events_are_transparent():
     assert "TRANSP:TRANSPARENT" in ics
 
 
-def test_economic_naive_timestamp_is_treated_as_eastern():
-    row = dict(event="CPI", country="US", date=dt.datetime(2026, 10, 2, 8, 30),
-               previous=None, estimate=None, actual=None, impact="High",
-               unit=None, change_percentage=None)
-    _, ics = pc.economic_vevent(row, NOW)
-    # 08:30 EDT -> 12:30Z. Treating it as UTC would emit 08:30Z.
-    assert "DTSTART:20261002T123000Z" in ics, ics
+def _econ(event, ts, impact="High", **kw):
+    row = dict(event=event, country="US", date=ts, previous=None, estimate=None,
+               actual=None, impact=impact, unit=None, change_percentage=None)
+    row.update(kw)
+    return row
 
+
+@pytest.mark.parametrize("stored, et_clock", [
+    # FMP stores UTC. Release clock times are public and fixed:
+    ("2026-09-16 18:00:00", "20260916T180000Z"),   # FOMC decision, 14:00 EDT
+    ("2026-09-16 12:30:00", "20260916T123000Z"),   # retail sales, 08:30 EDT
+    ("2026-12-11 13:30:00", "20261211T133000Z"),   # 08:30 EST in winter
+])
+def test_economic_timestamps_are_utc_not_eastern(stored, et_clock):
+    _, ics = pc.economic_vevent(_econ("X", dt.datetime.fromisoformat(stored)), NOW)
+    # Reading them as Eastern put every event 4h late (5h in winter).
+    assert f"DTSTART:{et_clock}" in ics, ics
+
+
+def test_fomc_description_states_the_eastern_clock_time():
+    _, ics = pc.economic_vevent(_econ("Fed Interest Rate Decision",
+                                      dt.datetime(2026, 9, 16, 18, 0)), NOW)
+    assert "2:00 PM ET" in ics.replace("\r\n ", "")
 
 def test_vcalendar_wraps_and_terminates():
     _, ev = pc.earnings_vevent(_row(), NOW)
@@ -231,7 +247,7 @@ def test_parsed_values_survive_folding_intact():
     _, ev = pc.economic_vevent(row, NOW)
     ve = _parse(pc._vcalendar([ev])).vevent
     # Round-trips through fold AND through the ; and , escaping.
-    assert ve.summary.value == "[High] US: " + long_name
+    assert ve.summary.value == "\U0001F534 " + long_name
 
 
 # ── the exact payload Radicale rejected, plus a 1-byte alignment sweep ──
@@ -376,3 +392,62 @@ def test_a_real_content_change_is_detected():
                fiscal_period="Q2", fiscal_year="2027", confirmed=False)
     _, ev = pc.earnings_vevent(row, NOW)
     assert pc._comparable(pc._vcalendar([ev])) != pc._comparable(stored)
+
+
+# ── grouping: one event per release time ─────────────────────────────
+
+RETAIL = dt.datetime(2026, 9, 16, 12, 30)
+
+
+def _retail_group():
+    return [
+        _econ("Retail Sales YoY (Aug)", RETAIL, "Medium"),
+        _econ("Retail Sales MoM (Aug)", RETAIL, "High", estimate=0.3, previous=0.5, unit="%"),
+        _econ("Retail Sales Ex Autos MoM (Aug)", RETAIL, "High"),
+        _econ("Import Prices MoM (Aug)", RETAIL, "Low"),
+    ]
+
+
+def test_rows_at_the_same_time_collapse_to_one_event():
+    groups = pc.group_economic_rows(_retail_group() + [_econ("FOMC", dt.datetime(2026, 9, 16, 18))])
+    assert sorted(len(v) for v in groups.values()) == [1, 4]
+
+
+def test_title_is_the_most_important_release_plus_count():
+    _, ics = pc.economic_release_vevent(_retail_group(), NOW)
+    ve = _parse(pc._vcalendar([ics])).vevent
+    # highest impact first, then the shortest (most general) name
+    assert ve.summary.value == "\U0001F534 Retail Sales MoM (Aug) +3"
+
+
+def test_every_release_is_listed_in_the_notes_most_important_first():
+    _, ics = pc.economic_release_vevent(_retail_group(), NOW)
+    desc = _parse(pc._vcalendar([ics])).vevent.description.value.split("\n")
+    assert desc[0] == "4 releases at 8:30 AM ET"
+    assert [l.split(" ", 1)[1].split(" - ")[0] for l in desc[1:]] == [
+        "Retail Sales MoM (Aug)", "Retail Sales Ex Autos MoM (Aug)",
+        "Retail Sales YoY (Aug)", "Import Prices MoM (Aug)"]
+    assert "est 0.3%, prev 0.5%" in desc[1]
+
+
+def test_group_slug_is_stable_regardless_of_row_order_or_values():
+    rows = _retail_group()
+    a, _ = pc.economic_release_vevent(rows, NOW)
+    b, _ = pc.economic_release_vevent(list(reversed(rows)), NOW)
+    changed = [dict(r, actual=0.7) for r in rows]
+    c, _ = pc.economic_release_vevent(changed, NOW)
+    assert a == b == c
+
+
+def test_non_us_release_names_its_country():
+    _, ics = pc.economic_release_vevent([dict(_econ("CPI YoY", RETAIL), country="GB")], NOW)
+    assert "SUMMARY:GB: " in ics
+
+
+def test_headline_prefers_the_release_with_a_consensus_estimate():
+    ts = dt.datetime(2026, 9, 16, 18, 0)
+    rows = [_econ("FOMC Economic Projections", ts),
+            _econ("Fed Interest Rate Decision", ts, estimate=4.0)]
+    _, ics = pc.economic_release_vevent(rows, NOW)
+    summary = _parse(pc._vcalendar([ics])).vevent.summary.value
+    assert summary == "\U0001F534 Fed Interest Rate Decision +1"
