@@ -1,0 +1,40 @@
+# Radicale rights — Franklin Digital (DAYTRADE-778)
+#
+# Evaluated TOP-DOWN; the FIRST matching section wins. Order is load-bearing:
+# move a broad rule above a narrow one and the narrow one becomes unreachable.
+#
+# {0} interpolates the authenticated username.
+
+# --- each user owns their home collection -------------------------------
+# Needed before anything else: without it a client cannot discover any
+# calendar, because discovery PROPFINDs the principal's own path first.
+[owner-root]
+user = .+
+collection = {0}
+permissions = RW
+
+[owner-collections]
+user = .+
+collection = {0}/.*
+permissions = rw
+
+# --- shared calendars ----------------------------------------------------
+# Live under the `shared` principal. Every AUTHENTICATED user may read them;
+# nobody but the publisher may write. `user = .+` means authenticated, NOT
+# anonymous -- an unauthenticated request never reaches the rights file.
+[shared-root-discovery]
+user = .+
+collection = shared
+permissions = R
+
+[shared-publisher]
+# The account the (not yet built) publisher job runs as. It is the ONLY writer,
+# so a wrong client cannot corrupt a derived calendar.
+user = calendar-publisher
+collection = shared/.*
+permissions = rw
+
+[shared-readonly]
+user = .+
+collection = shared/(earnings|economic-indicators)
+permissions = r

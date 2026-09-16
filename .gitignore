@@ -26,3 +26,7 @@ Gemfile.lock
 pytest-results.xml
 pytestdebug.log
 uv.lock
+
+# Franklin
+.venv/
+franklin/config/*.local

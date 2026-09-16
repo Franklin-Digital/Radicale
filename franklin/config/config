@@ -1,0 +1,69 @@
+# Radicale — Franklin Digital production config (DAYTRADE-778)
+# Branch: franklin_1.0prod.  Deployed to /etc/radicale/config in the container.
+
+[server]
+# Bind inside the container only. Public access is via the Cloudflare tunnel
+# (calendar.franklinfinancial.ai -> http://localhost:5232); Radicale itself
+# terminates no TLS and MUST NOT be published to the LAN.
+hosts = 0.0.0.0:5232
+
+[auth]
+# Authenticate against the SAME Postgres `users` table as
+# dashboard.franklinfinancial.ai -- Sal, 2026-09-15. Not htpasswd (a second
+# credential store violates DAYTRADE-778 AC #2) and not oauth2 (the dashboard
+# is not an OAuth2 provider; the Jira story's Entra assumption does not hold).
+#
+# Setting `type` to a module path is what makes the franklin_pg_* options below
+# legal: radicale/config.py only accepts unknown keys in a section whose `type`
+# is NOT one of the built-ins. Reverting this to a built-in type will make
+# Radicale refuse to start on "Invalid option" rather than ignore them.
+type = franklin_radicale.auth_userdb
+
+franklin_pg_host = localhost
+franklin_pg_port = 5432
+franklin_pg_dbname = benny_prod
+franklin_pg_user = benny_prod
+# Injected from franklin.env (BENNY_PASSWORD) at deploy time -- never committed.
+franklin_pg_password =
+
+# Usernames are matched case-insensitively in SQL; keep Radicale's own
+# normalisation off so the stored username is what appears in rights/paths.
+lc_username = False
+strip_domain = False
+
+realm = Franklin Calendar - Password Required
+
+[rights]
+type = from_file
+file = /etc/radicale/rights
+
+[storage]
+type = multifilesystem
+filesystem_folder = /var/lib/radicale/collections
+
+# The two launch calendars (Sal, 2026-09-15). Declared here so the deployment is
+# reproducible -- a calendar hand-created through a client exists only on that
+# box and is invisible to review.
+#
+# NOTE: these are DERIVED calendars. Franklin already owns both data sets (FMP
+# earnings calendar, economic indicators); the intended writer is a publisher
+# job, not a human typing dates. The publisher is NOT built yet.
+predefined_collections = {
+    "earnings": {
+       "C:supported-calendar-component-set": "VEVENT",
+       "D:displayname": "Earnings Calendar",
+       "tag": "VCALENDAR"
+    },
+    "economic-indicators": {
+       "C:supported-calendar-component-set": "VEVENT",
+       "D:displayname": "Economic Indicator Calendar",
+       "tag": "VCALENDAR"
+    }
+  }
+
+[web]
+type = internal
+
+[logging]
+level = info
+mask_passwords = True
