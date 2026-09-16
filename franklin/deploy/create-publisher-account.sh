@@ -18,7 +18,7 @@ set +a
 
 : "${BENNY_PASSWORD:?BENNY_PASSWORD empty - refusing}"
 
-/home/Franklin/franklin-radicale/.venv/bin/python - <<'PY'
+/home/Franklin/venvs/franklin-radicale-prod/bin/python - <<'PY'
 import os, secrets, string, sys
 import psycopg2
 from werkzeug.security import generate_password_hash

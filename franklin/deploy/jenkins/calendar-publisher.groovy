@@ -17,6 +17,13 @@
 //   FORCE    re-PUT every event even if unchanged (~10 min)
 //   ONLY     both | earnings | economic
 
+// Python environment: the host convention /home/Franklin/venvs/<component>-<env>.
+// Built from franklin/deploy/requirements-franklin-radicale-prod.txt with NO
+// editable install of this repo: commands run with cwd = the checkout, so
+// `python -m pytest` imports the checked-out radicale package directly.
+@groovy.transform.Field
+String VENV = '/home/Franklin/venvs/franklin-radicale-prod'
+
 // Run a command as sal, in the repo, with franklin.env loaded. franklin.env
 // has no `export` lines, so `set -a` is required or every variable is empty.
 // `cmd` must not contain single quotes. With `log`, output is also tee'd in
@@ -53,7 +60,7 @@ def run(params) {
         stage('Tests') {
             // ~2s. Gates every run: the publisher shipped through four bugs
             // that each looked fine until run against the real server.
-            asSal('.venv/bin/python -m pytest franklin/publisher -q -p no:cacheprovider')
+            asSal("${VENV}/bin/python -m pytest franklin/publisher franklin/tests -q -p no:cacheprovider")
         }
 
         stage('Publish') {
@@ -64,7 +71,7 @@ def run(params) {
             def argStr = args.join(' ')
             echo "publish_calendars.py ${argStr ?: '(no flags)'}"
 
-            asSal(".venv/bin/python franklin/publisher/publish_calendars.py ${argStr}", 'publish.log')
+            asSal("${VENV}/bin/python franklin/publisher/publish_calendars.py ${argStr}", 'publish.log')
 
             def res = summarise(readFile('publish.log'))
             currentBuild.description = (params.DRY_RUN ? 'DRY RUN<br>' : '') + res[0]

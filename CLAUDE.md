@@ -328,3 +328,22 @@ first commit of the feature was missing half of it. Untracked files and the
 gitignored rendered `franklin/deploy/config/` survive a reset; tracked edits do
 not. Commit and push BEFORE building or triggering the job, or edit in a
 separate worktree.
+
+## Python environment — `/home/Franklin/venvs/franklin-radicale-prod`
+
+Follows the host convention `/home/Franklin/venvs/<component>-<env>` (moved
+2026-09-16 from a repo-local `.venv`, at Sal's direction). Used by the
+`calendar-publisher` Jenkins job (tests + publish), `create-publisher-account.sh`,
+and the browser test (`franklin/tests/web_calendar_e2e.py`, Playwright driving the
+host's Google Chrome). The Radicale SERVER does not use it — that runs in the
+container image.
+
+Rebuild:
+
+    python3 -m venv /home/Franklin/venvs/franklin-radicale-prod
+    /home/Franklin/venvs/franklin-radicale-prod/bin/pip install -r franklin/deploy/requirements-franklin-radicale-prod.txt
+
+Deliberately **no editable install** of this repo. The old `.venv` had one, so
+`import radicale` resolved to the production checkout from ANY directory. Run
+commands with cwd = the checkout (`python -m pytest ...`) instead; outside the
+repo `import radicale` should fail, and that failure is the check.
