@@ -1,58 +1,67 @@
 # Radicale rights — Franklin Digital (DAYTRADE-778)
 #
-# Evaluated TOP-DOWN; the FIRST matching section wins. Order is load-bearing:
-# put a broad rule above a narrow one and the narrow one becomes unreachable.
+# FIRST MATCHING RULE WINS (user AND collection both match). Order is not
+# cosmetic: a broad rule above a narrow one makes the narrow one unreachable.
 #
-# {0} interpolates the authenticated username.
+# PERMISSION LETTERS (from the shipped upstream `rights` example, not guessed):
+#   R / W  apply to the PRINCIPAL (parent) collection -- W is what permits
+#          CREATING a calendar beneath it, e.g. MKCALENDAR
+#   r / w  apply to the calendars/address books themselves
+#   i      HTTP GET only; for unauthenticated access. Not used here.
 #
-# SHARED CALENDARS LIVE UNDER THE `calendar-publisher` PRINCIPAL, not under a
-# synthetic "shared" path. Radicale has no concept of an ownerless collection:
-# every collection sits under some principal, and that principal must be a real
-# authenticated user. An earlier draft of this file granted rights on
-# /shared/... -- a path nothing would ever create.
+# {0} interpolates the whole `user` match (group 0).
 #
-# Note this file is ordered publisher-first. The owner rules below match
-# `user = .+` on `{0}/.*`, which WOULD match calendar-publisher's own paths;
-# placing the read-only rule after them would make it unreachable and silently
-# give every user read-write on the shared calendars.
+# SHARED CALENDARS LIVE UNDER THE `calendar-publisher` PRINCIPAL. Radicale has
+# no ownerless collections -- every collection sits under a principal and a
+# principal must be a real authenticated user (id=3 in the dashboard `users`
+# table). An earlier draft granted rights on /shared/..., a path nothing would
+# ever create.
 
-# --- the shared, DERIVED calendars ---------------------------------------
-# Earnings + Economic Indicator. Written by the publisher job from data
-# Franklin already owns (FMP earnings calendar, economic indicators). Readable
-# by every AUTHENTICATED user -- `user = .+` means authenticated, never
-# anonymous, since an unauthenticated request never reaches this file.
+# --- publisher: MUST come first ------------------------------------------
+# These name a specific user, so they have to precede the `user = .+` rules
+# below. With the read-only rule first, the publisher matched it and got `r`
+# on its own calendars -- MKCALENDAR then returned 403 (measured, 2026-09-16).
+# Note 403 not 401: authentication had SUCCEEDED and authorization refused.
 
-[shared-calendars-readonly]
-# MUST precede the owner rules, or `{0}/.*` would match first for the
-# publisher and grant rw to whoever is logged in as them.
-user = .+
-collection = calendar-publisher/(earnings|economic-indicators)
-permissions = r
+[publisher-principal]
+# W on the principal is what allows creating the calendars beneath it.
+user = calendar-publisher
+collection = calendar-publisher
+permissions = RW
+
+[publisher-calendars]
+user = calendar-publisher
+collection = calendar-publisher/[^/]+
+permissions = rw
+
+# --- everyone else: read-only on the shared calendars --------------------
+# `user = .+` means AUTHENTICATED, never anonymous -- an unauthenticated
+# request never reaches this file.
 
 [shared-discovery]
-# Clients PROPFIND the parent to enumerate collections; without read on the
-# principal itself, discovery returns nothing and the calendars look absent.
+# R on the principal so clients can PROPFIND it and enumerate. Without this
+# the calendars exist but are invisible to discovery.
 user = .+
 collection = calendar-publisher
 permissions = R
 
-[shared-publisher-write]
-# The publisher is the ONLY writer, so a misconfigured client cannot corrupt a
-# derived calendar.
-user = calendar-publisher
-collection = calendar-publisher/.*
-permissions = rw
+[shared-calendars-readonly]
+# Named explicitly rather than [^/]+ so a future calendar under this principal
+# is private until someone deliberately adds it here.
+user = .+
+collection = calendar-publisher/(earnings|economic-indicators)
+permissions = r
 
-# --- each user owns their own home collection ----------------------------
-# Discovery PROPFINDs the principal path first, so without this a client
-# cannot enumerate anything at all.
+# --- each user's own home collection -------------------------------------
+# Discovery PROPFINDs the principal path first; without these a client cannot
+# enumerate anything of its own.
 
-[owner-root]
+[owner-principal]
 user = .+
 collection = {0}
 permissions = RW
 
-[owner-collections]
+[owner-calendars]
 user = .+
-collection = {0}/.*
+collection = {0}/[^/]+
 permissions = rw

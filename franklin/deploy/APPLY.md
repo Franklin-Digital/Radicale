@@ -75,6 +75,43 @@ curl -X PUT "https://api.cloudflare.com/client/v4/zones/$ZID/rulesets/phases/htt
 
 ---
 
+## Step 1b — Access Bypass application (HARD BLOCKER for clients)
+
+**Measured 2026-09-15:** Access IS enforcing on this zone. Sal loaded
+`questdb.franklinfinancial.ai` from a phone on cellular and got the Cloudflare
+Access window. No probe from mac-pro/DGX/MacBook can see this — they share the
+house egress IP, which is bypassed.
+
+That phone test *is* the CalDAV client test: a DAVx5 or macOS Calendar client
+on cellular hits the same Access window, cannot complete an interactive browser
+flow, and fails to sync. **Without a Bypass, no client will ever connect** — the
+symptom will be an auth failure that looks like wrong credentials.
+
+Zero Trust → **Access → Applications → Add an application → Self-hosted**:
+
+| Field | Value |
+|---|---|
+| Application name | `Radicale CalDAV` |
+| Session duration | (default) |
+| Subdomain / Domain | `calendar` / `franklinfinancial.ai` |
+| Path | *(leave empty — the whole hostname)* |
+| Policy name | `caldav-bypass` |
+| Action | **Bypass** |
+| Include | **Everyone** |
+
+Bypass is per-Application and an Application is a hostname (+ optional path),
+so this touches no other hostname.
+
+Needs an **account-scoped** token with *Access: Apps & Policies Edit*. The
+DNS-scoped `CLOUDFLARE_ACCESS_TOKEN` cannot do it, and there is no other CF
+token in `franklin.env` — so this is dashboard work.
+
+**What replaces Access here:** HTTP Basic against the same Postgres `users`
+rows the dashboard authenticates, over edge TLS, failing closed on DB outage /
+missing deps / corrupt hash / empty hash. That is why Step 1's rate limit is
+not optional — it is the only thing standing between a bypassed hostname and
+unlimited password guessing.
+
 ## Step 2 — Tunnel ingress
 
 A validated config is staged at
