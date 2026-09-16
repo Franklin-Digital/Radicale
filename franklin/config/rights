@@ -27,6 +27,18 @@
 # on its own calendars -- MKCALENDAR then returned 403 (measured, 2026-09-16).
 # Note 403 not 401: authentication had SUCCEEDED and authorization refused.
 
+[root]
+# Read the ROOT collection ("/") and nothing below it. Without this every
+# authenticated user gets 403 on `PROPFIND /`, which is the FIRST request the
+# web UI and CalDAV clients make to discover their principal -- the web UI
+# reports that as a failed login even though the password was accepted
+# ("Successful login: 'sal.cobian'" followed by "Access to '/' denied").
+# Matches upstream's shipped example. The empty pattern fullmatches only the
+# root path, so it grants no access to any user's collections.
+user = .+
+collection =
+permissions = R
+
 [publisher-principal]
 # W on the principal is what allows creating the calendars beneath it.
 user = calendar-publisher
