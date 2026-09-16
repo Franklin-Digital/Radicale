@@ -1,0 +1,3235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<multistatus xmlns="DAV:" xmlns:C="urn:ietf:params:xml:ns:caldav"><response><href>/calendar-publisher/earnings/earnings-dc2155924e8b260dbbfb.ics</href><propstat><prop><getetag>"c2e70cd7da1b3c4fc5148a90e48a8d2c83e431de41f0da043afebe4be134074e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-dc2155924e8b260dbbfb@franklinfinancial.ai
+DTSTART:20260910T120000Z
+DTEND:20260910T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2027\nEPS est: 0.04\nRevenue est: 29\,189\,000\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:ALOT earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-cb1b3457cc382da353bc.ics</href><propstat><prop><getetag>"ad81520620f2d699e1785407b0079035d8aa2178acb8bc3e414ccdc3f52fe107"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-cb1b3457cc382da353bc@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260918
+DTEND;VALUE=DATE:20260919
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.14\nRevenue est: 59\,344\,000\nDat
+ e NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:HTFL earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-2ef084f0d43261eb34f4.ics</href><propstat><prop><getetag>"3ea3d4798229706babb464aac1e19c1cd1189dc6eca4166f8869c66b08db69b3"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-2ef084f0d43261eb34f4@franklinfinancial.ai
+DTSTART:20260914T120000Z
+DTEND:20260914T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: -0.05\nEPS actual: -0.15\nRevenue est
+ : 8\,200\,000\nRevenue actual: 8\,232\,726
+DTSTAMP:20260916T081524Z
+SUMMARY:ABAT earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-5d943fbbfc883d4735bf.ics</href><propstat><prop><getetag>"e06246e0716e7f02b13c156b2c384ce94ed9dd2747d1994cb4a824fedce69046"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-5d943fbbfc883d4735bf@franklinfinancial.ai
+DTSTART:20261209T213000Z
+DTEND:20261209T220000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 3.82\nRevenue est: 34\,862\,720\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:AVGO earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-25b171b60eb53850cb8b.ics</href><propstat><prop><getetag>"519c3d7e1de8abc881c630a991aa8d647a68c9c415213abe6156eab79d19a3d1"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-25b171b60eb53850cb8b@franklinfinancial.ai
+DTSTART:20260911T120000Z
+DTEND:20260911T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.159\nRevenue est: 181\,340\,500
+DTSTAMP:20260916T081524Z
+SUMMARY:HERE earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6c8ac8e0a4152decf77e.ics</href><propstat><prop><getetag>"0f2c0cf250cc8369297cd89d9d25e95442f821b59e80d9b724f65c548a04a104"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6c8ac8e0a4152decf77e@franklinfinancial.ai
+DTSTART:20261022T120000Z
+DTEND:20261022T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: -0.3977\nRevenue est: 192\,226\,500
+DTSTAMP:20260916T081524Z
+SUMMARY:MANU earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-f4d565286df55b2ea13e.ics</href><propstat><prop><getetag>"e01f6e5dc2862b1ed3fee1a50a640fd9d1c452f4dee9b5aca92a41781d9beade"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-f4d565286df55b2ea13e@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.05\nRevenue est: 6\,777\,500\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:ABAT earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6149a7eabd5cf3d0496e.ics</href><propstat><prop><getetag>"5d59a1742b2e1649b8dac54899a11903fc641f227b2d1f41fe8f152792385f68"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6149a7eabd5cf3d0496e@franklinfinancial.ai
+DTSTART:20260922T203000Z
+DTEND:20260922T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 31.14\nRevenue est: 50\,413\,240\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:MU earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-1c6c6a225f8bf3d28a41.ics</href><propstat><prop><getetag>"e0ece09ba0ff5e48e0ab1e89066fe5c0f81b5e2ab265765af3e974e361ca7709"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-1c6c6a225f8bf3d28a41@franklinfinancial.ai
+DTSTART:20261029T203000Z
+DTEND:20261029T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 1.96\nRevenue est: 202\,098\,300\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:AMZN earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-9196b7078abb9174c5bb.ics</href><propstat><prop><getetag>"583bcd9a125b9dbfbc28918d7c89d52c5ed75475619dd9f8a53f991987f81579"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-9196b7078abb9174c5bb@franklinfinancial.ai
+DTSTART:20261202T130000Z
+DTEND:20261202T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.03\nRevenue est: 18\,800\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:AMBR earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-b8358abf17091a8823c0.ics</href><propstat><prop><getetag>"48946a06ebe5eee81244bd8add159fd06d2a059f656391af60a20e94f38beb72"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-b8358abf17091a8823c0@franklinfinancial.ai
+DTSTART:20260915T203000Z
+DTEND:20260915T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2025\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:VIVO earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-94ebceb5253229ad9890.ics</href><propstat><prop><getetag>"fea1dd7a774943ac4980bc1129dca1ea8bad5b200653343f0ab945fd8065f199"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-94ebceb5253229ad9890@franklinfinancial.ai
+DTSTART:20260910T120000Z
+DTEND:20260910T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 0.205\nRevenue est: 919\,950\,000\nDa
+ te NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:HUBG earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-3f3b5feb4aaf920b18f9.ics</href><propstat><prop><getetag>"94b97b1e43b5bd89d739aaf8d2594a112895d2e5690719e8652a5b4903769d98"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-3f3b5feb4aaf920b18f9@franklinfinancial.ai
+DTSTART:20260916T120000Z
+DTEND:20260916T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.09\nRevenue est: 87\,418\,720\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:BLSH earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-336f67f7893f44b8de19.ics</href><propstat><prop><getetag>"e4bfddbfeb2bd2434d346ef1d9dbb87b19f6ac31ff8bd11758e15a49ad2a588e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-336f67f7893f44b8de19@franklinfinancial.ai
+DTSTART:20260910T120000Z
+DTEND:20260910T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:RENT earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-d40170d46c63eec063fa.ics</href><propstat><prop><getetag>"f64b9a9d46f1bd329e1ee5f014c573ac428aec96f6f3e25e4b5af165208269d2"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-d40170d46c63eec063fa@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.1\nRevenue est: 65\,257\,190
+DTSTAMP:20260916T081524Z
+SUMMARY:HTFL earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-1e775bcd3b9070824602.ics</href><propstat><prop><getetag>"f8514a6fbb17cd3123fe408bca9f866573b802667490ca2ab709fb08154bd890"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-1e775bcd3b9070824602@franklinfinancial.ai
+DTSTART:20260914T120000Z
+DTEND:20260914T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.115\nEPS actual: 0.12\nRevenue est:
+  7\,260\,000\nRevenue actual: 7\,717\,469
+DTSTAMP:20260916T081524Z
+SUMMARY:CODA earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-90605bec08bb280ffe00.ics</href><propstat><prop><getetag>"6b0c8acdf1204566076ca209172f973bbc672eea26279bc0752ce0039cde9b14"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-90605bec08bb280ffe00@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260915
+DTEND;VALUE=DATE:20260916
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:WBUY earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-855903b42919baa6e406.ics</href><propstat><prop><getetag>"c2da9831da98545e924fa059d0389c3eb6705dd0f79fbb1a1f1632bf3cc7756b"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-855903b42919baa6e406@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261210
+DTEND;VALUE=DATE:20261211
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026
+DTSTAMP:20260916T081524Z
+SUMMARY:RENT earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-c42e6040689f2f88710a.ics</href><propstat><prop><getetag>"36f24047e3c0817e9b1481403dfbb833e4dc8ca0737eff8159b7c91e3c7ab637"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-c42e6040689f2f88710a@franklinfinancial.ai
+DTSTART:20260911T120000Z
+DTEND:20260911T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.02\nEPS actual: -0.03\nRevenue est
+ : 21\,529\,000\nRevenue actual: 15\,752\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:MNY earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-3b295679bfadf9f68c2f.ics</href><propstat><prop><getetag>"6b2566dab920b06ab35037dc0879a2f408f4f899c79cf69e8a4ddc775f79828b"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-3b295679bfadf9f68c2f@franklinfinancial.ai
+DTSTART:20260917T120000Z
+DTEND:20260917T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.04\nRevenue est: 11\,948\,000\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:RSSS earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6928df43c86269d8699b.ics</href><propstat><prop><getetag>"ef22a8282a52e623b9c0a8321a93cbebd77eb605adb93038931c8c800ab88cd6"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6928df43c86269d8699b@franklinfinancial.ai
+DTSTART:20260916T203000Z
+DTEND:20260916T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: -0.068\nRevenue est: 51\,266\,600
+DTSTAMP:20260916T081524Z
+SUMMARY:SANG earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-cd65dfaffb86de920f32.ics</href><propstat><prop><getetag>"0a4327bbfcfa269342121d22b38e0f25a5dd709f4eae400b8ca8bc30a509542b"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-cd65dfaffb86de920f32@franklinfinancial.ai
+DTSTART:20261022T203000Z
+DTEND:20261022T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.39\nRevenue est: 16\,317\,630\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:INTC earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-e8036dd02374ffab092b.ics</href><propstat><prop><getetag>"973db827fd1e66b05d9f74f7bd5b1f02788b0c2eb0e294bf1e0abb5941bf155a"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-e8036dd02374ffab092b@franklinfinancial.ai
+DTSTART:20261105T130000Z
+DTEND:20261105T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.09\nRevenue est: 4\,360\,375
+DTSTAMP:20260916T081524Z
+SUMMARY:QBTS earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-2e0b945d3d29dbe0f3b2.ics</href><propstat><prop><getetag>"90eb7f476db666062b947d042691c2e3cf0e961b6505a643fa8d2f4e7516f048"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-2e0b945d3d29dbe0f3b2@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.01\nRevenue est: 15\,045\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:CSBR earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-82d8b66adee2a56f9f82.ics</href><propstat><prop><getetag>"fce7b09018d27e27dd40e345c688909ee214294c530e2545a47b9923d89f78f8"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-82d8b66adee2a56f9f82@franklinfinancial.ai
+DTSTART:20260914T120000Z
+DTEND:20260914T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.17\nRevenue est: 65\,371\,000\nRev
+ enue actual: 66\,320\,000\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:WALD earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-3d2e0de0e85fc888790e.ics</href><propstat><prop><getetag>"6bad5a01434f99e4e911f154d7c8bdacc1a0cac365a295b65bd2b3dca3a504e1"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-3d2e0de0e85fc888790e@franklinfinancial.ai
+DTSTART:20260915T120000Z
+DTEND:20260915T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.13\nRevenue est: 2e+05\nDate NOT co
+ nfirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:IXHL earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-4dbe0bab91e3b18ce434.ics</href><propstat><prop><getetag>"a051f7ac8b194570bd9c395c7175e53619ac91e43eaf993560a8150053c147e0"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-4dbe0bab91e3b18ce434@franklinfinancial.ai
+DTSTART:20260928T120000Z
+DTEND:20260928T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: -3.116\nRevenue est: 5\,412\,167\nDat
+ e NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:LITS earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-bd5745076401ec65efad.ics</href><propstat><prop><getetag>"d7d9b5668a999cb2b1c3e9797f0cfe3825a8fb79af9fb6f2d4fff1de00cf9db3"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-bd5745076401ec65efad@franklinfinancial.ai
+DTSTART:20260909T203000Z
+DTEND:20260909T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.03667\nEPS actual: 0.03\nRevenue es
+ t: 11\,948\,000\nRevenue actual: 12\,080\,560
+DTSTAMP:20260916T081524Z
+SUMMARY:RSSS earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-69170d6c2846b096c0a4.ics</href><propstat><prop><getetag>"2bed6a54f6220af3898a16ecb5be458f2323193233c6604be89bc2ba521893cf"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-69170d6c2846b096c0a4@franklinfinancial.ai
+DTSTART:20260917T120000Z
+DTEND:20260917T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.15\nRevenue est: 245\,631\,800\nDat
+ e NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:DAVA earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-27408f6fa98d3558d75a.ics</href><propstat><prop><getetag>"7c801ed7ad930a91d0f1ada9f6a6474511d93538011019229726d41c89605f87"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-27408f6fa98d3558d75a@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260918
+DTEND;VALUE=DATE:20260919
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -1.349\nDate NOT confirmed by the com
+ pany
+DTSTAMP:20260916T081524Z
+SUMMARY:MPLT earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-d39e2fe5ca2eb093c6e0.ics</href><propstat><prop><getetag>"86082517154eeca78961a73a8e68b654e8e1120cde53ad3cf7dde759140a7963"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-d39e2fe5ca2eb093c6e0@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261001
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -0.068\nRevenue est: 51\,266\,600
+DTSTAMP:20260916T081524Z
+SUMMARY:SANG earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-4816030c87c698ae4738.ics</href><propstat><prop><getetag>"d36d642dcb499a6499867e2bc111c43ff200880cc2801b4f0738704a124cf0cd"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-4816030c87c698ae4738@franklinfinancial.ai
+DTSTART:20260911T120000Z
+DTEND:20260911T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.465\nEPS actual: -0.465\nRevenue e
+ st: 14\,057\,370\nRevenue actual: 13\,340\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:ANAB earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-3a19fb165646db4897a5.ics</href><propstat><prop><getetag>"abe87081c1c6b63273db0a92a61cc31b91ef3da39968c221378e775a190d438a"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-3a19fb165646db4897a5@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260914
+DTEND;VALUE=DATE:20260915
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: 0.17\nRevenue est: 111\,300\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:YEXT earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-9e124b9da54f00834be1.ics</href><propstat><prop><getetag>"b4358b2d7c3d8e8f5e2145579a4d7c8197f809de89decd2ddd93b862247649dd"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-9e124b9da54f00834be1@franklinfinancial.ai
+DTSTART:20261104T130000Z
+DTEND:20261104T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 1.51\nRevenue est: 622\,590\,700
+DTSTAMP:20260916T081524Z
+SUMMARY:VIRT earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-cd5baa8c5a2ca2080888.ics</href><propstat><prop><getetag>"a816905f2cce87b466f06be2e1c47e8e72bbbfb053d6df16ae4689c42be7fca6"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-cd5baa8c5a2ca2080888@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260914
+DTEND;VALUE=DATE:20260915
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS actual: 0.088\nRevenue actual: 24\,753\,12
+ 0\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:HKD earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-71d8c4d923a973233626.ics</href><propstat><prop><getetag>"4442f1ff30d727d5c5165e396c2f6e759b1f1d03f9e4ee540eacf899cd615949"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-71d8c4d923a973233626@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260929
+DTEND;VALUE=DATE:20260930
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.075\nRevenue est: 5.75e+05\nDate N
+ OT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:ALMU earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-81718539bc85abc9ccfd.ics</href><propstat><prop><getetag>"150900060e2183cef33603dbb6b2a7ef38c486e04cd321e825efb66b25af840a"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-81718539bc85abc9ccfd@franklinfinancial.ai
+DTSTART:20260918T120000Z
+DTEND:20260918T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.16\nRevenue est: 16\,500\,000\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:GLBS earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-2420bca0a7eccf69fa3e.ics</href><propstat><prop><getetag>"291055b213d59d69d944a292b376a2186b9c51abcc894c3210a1d2cf1cd9fc05"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-2420bca0a7eccf69fa3e@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2027\nEPS est: -0.01903\nRevenue est: 104\,532\,500
+DTSTAMP:20260916T081524Z
+SUMMARY:PL earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-25e1a14f5da9cd49baa7.ics</href><propstat><prop><getetag>"afaa7b5489e83ca779b07f1fca539b117a4c5f72188378f928418ba08295d881"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-25e1a14f5da9cd49baa7@franklinfinancial.ai
+DTSTART:20260916T120000Z
+DTEND:20260916T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:ADSEW earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-5ceae9c4128feb9945d3.ics</href><propstat><prop><getetag>"597b405083a9a484bbefaf39f79df520ad1774c2ffd8a0d2674ed25574d7996e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-5ceae9c4128feb9945d3@franklinfinancial.ai
+DTSTART:20260910T120000Z
+DTEND:20260910T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 0.1\nRevenue est: 30\,400\,000\nDate 
+ NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:CSHR earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-03781766a66aa2d3493d.ics</href><propstat><prop><getetag>"7498cb8603dd64b84c09e81f235e4f6a6151693d7e8e54196dac63cf25766352"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-03781766a66aa2d3493d@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20260923
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:NAMM earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-7e4336bbf05b231a0cf5.ics</href><propstat><prop><getetag>"0d600025836ce1bda02de3d1d8a6a8c09c36f4eaa2375ed6788f303edf1049f0"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-7e4336bbf05b231a0cf5@franklinfinancial.ai
+DTSTART:20260916T120000Z
+DTEND:20260916T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.01\nRevenue est: 21\,336\,500\nReve
+ nue actual: 95\,945\,290\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:ISPR earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-db90335fb6ceab846f05.ics</href><propstat><prop><getetag>"724cef900ab04a6d95ecb38d601ee667e2af1be215035f0f2aa8a5c4e76e8696"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-db90335fb6ceab846f05@franklinfinancial.ai
+DTSTART:20260924T120000Z
+DTEND:20260924T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.17\nRevenue est: 65\,371\,000\nDat
+ e NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:WALD earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-b7be78b426ac908925d4.ics</href><propstat><prop><getetag>"04ed5d7c2d919c7cc9c32086b5d4167a0cb9cace2f18463d048ad4e9b2463b33"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-b7be78b426ac908925d4@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: 6.67\nRevenue est: 5\,589\,502\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:CASY earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-b99c0cd2dd4a15aa5696.ics</href><propstat><prop><getetag>"c530f2e4a79954d4fee1342f4f8cfbd1df757e2a8f79f80a9f7ca8a23a0d724d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-b99c0cd2dd4a15aa5696@franklinfinancial.ai
+DTSTART:20261005T120000Z
+DTEND:20261005T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: -0.135\nRevenue est: 2e+05\nDate NOT 
+ confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:IXHL earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-86dd59886f60e0e1f2a4.ics</href><propstat><prop><getetag>"523eb51b92d31a5b9b59dec8f77b2ccfb02d4e71b5b533c1b6d0c4c0c89c5f7a"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-86dd59886f60e0e1f2a4@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261203
+DTEND;VALUE=DATE:20261204
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -1.183\nDate NOT confirmed by the com
+ pany
+DTSTAMP:20260916T081524Z
+SUMMARY:MPLT earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-0bf4c3188732d9f4e576.ics</href><propstat><prop><getetag>"c7566c8af81db7cc0efc472aa6e5772441250548d380758a8cee6108bbe53353"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-0bf4c3188732d9f4e576@franklinfinancial.ai
+DTSTART:20260914T120000Z
+DTEND:20260914T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.0626\nRevenue est: 5\,404\,900\nDa
+ te NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:CHRN earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-fee0192704317786fccb.ics</href><propstat><prop><getetag>"ca45e7d4b33779aa6356c663c3643d7927a302bf8167e95033610d52de278211"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-fee0192704317786fccb@franklinfinancial.ai
+DTSTART:20260915T120000Z
+DTEND:20260915T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.1654\nEPS actual: -0.1654\nRevenue
+  est: 6\,483\,444\nRevenue actual: 6\,483\,444
+DTSTAMP:20260916T081524Z
+SUMMARY:ZENA earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-f26d7a75ac27676cb88f.ics</href><propstat><prop><getetag>"19eb37fa14a63aa270123fb888f0161bbee28f3c1be100d62bdbd30ed909c6a0"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-f26d7a75ac27676cb88f@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260928
+DTEND;VALUE=DATE:20260929
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:WSHP earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-cdb176a088c29e393e10.ics</href><propstat><prop><getetag>"470d547dc06fe2b63cde4b4b41a727ce8aa2d85aefba565f8e006af65d85d472"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-cdb176a088c29e393e10@franklinfinancial.ai
+DTSTART:20260930T203000Z
+DTEND:20260930T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: -0.05\nRevenue est: 8\,200\,000\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:ABAT earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-fd5e11e49e881cbedcdb.ics</href><propstat><prop><getetag>"eb23cbb0d1169eef12c3a9b1eb0007210b744df67b9a6b0f052539a7e22b6eab"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-fd5e11e49e881cbedcdb@franklinfinancial.ai
+DTSTART:20260921T120000Z
+DTEND:20260921T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.21\nDate NOT confirmed by the comp
+ any
+DTSTAMP:20260916T081524Z
+SUMMARY:USAU earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-409dc0f6f2656ea94db8.ics</href><propstat><prop><getetag>"d7c2cb944969d5a263724d2793c9f592cf8f24b805841716735d4a1e23f8764d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-409dc0f6f2656ea94db8@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 0.18\nEPS actual: -0.36\nRevenue est:
+  556\,827\,900\nRevenue actual: 544\,100\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:PLAY earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-a3ec96e608493ff9550d.ics</href><propstat><prop><getetag>"0a1b25d94001d1ad0a9b69ffd4b27eb22ae54d905110f0630ca212bcf400bd65"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-a3ec96e608493ff9550d@franklinfinancial.ai
+DTSTART:20261005T203000Z
+DTEND:20261005T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.01\nRevenue est: 5\,109\,071
+DTSTAMP:20260916T081524Z
+SUMMARY:ATCH earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-b336113ed2b8e6f61a29.ics</href><propstat><prop><getetag>"8afc36bd3cfc0f52d1e23f9dae2d4d4ae5bcd59c0c818c70a180dc7a675e045c"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-b336113ed2b8e6f61a29@franklinfinancial.ai
+DTSTART:20260923T120000Z
+DTEND:20260923T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.3977\nRevenue est: 192\,226\,500
+DTSTAMP:20260916T081524Z
+SUMMARY:MANU earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-03826900695b01eaf57e.ics</href><propstat><prop><getetag>"fc1909fe9631a0eaa72a293a3c74c334185609d3b68afb2a0a0fd5ee55f775fa"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-03826900695b01eaf57e@franklinfinancial.ai
+DTSTART:20261204T130000Z
+DTEND:20261204T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 0.02\nRevenue est: 21\,529\,000\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:MNY earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-0786c711611f2f08d51f.ics</href><propstat><prop><getetag>"6b7195d2417afbe06fc4e1fa97e2e7b1a424871d55c764d52db828973f93f9c2"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-0786c711611f2f08d51f@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -0.83
+DTSTAMP:20260916T081524Z
+SUMMARY:ODTX earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-2d7075a253a01c28b630.ics</href><propstat><prop><getetag>"3512b754dcfebca06c06bc15edd7fcc63e8abd52e6faff09536b1e57c391b90d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-2d7075a253a01c28b630@franklinfinancial.ai
+DTSTART:20261112T213000Z
+DTEND:20261112T220000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.13\nRevenue est: 6\,252\,667
+DTSTAMP:20260916T081524Z
+SUMMARY:FLUX earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-7caa8782b11c088f77e8.ics</href><propstat><prop><getetag>"b572df84d1420bf65a8ffb13610b7007a3102ef1eb18d58aff755ac1f160e194"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-7caa8782b11c088f77e8@franklinfinancial.ai
+DTSTART:20260916T203000Z
+DTEND:20260916T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.01\nRevenue est: 5\,109\,071
+DTSTAMP:20260916T081524Z
+SUMMARY:ATCH earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-0b60d1ab175d1af3bf76.ics</href><propstat><prop><getetag>"066e1c9e2631641b6773595c0935ed2f9b4be7eea883990c2cc8dd8cf7c73e63"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-0b60d1ab175d1af3bf76@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261209
+DTEND;VALUE=DATE:20261210
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026
+DTSTAMP:20260916T081524Z
+SUMMARY:RENT earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-ca3cf7951ab62758ed25.ics</href><propstat><prop><getetag>"2e5f2e56926c8e74ff8f024f32656de815a982541f8d16664511c4ccaf393f08"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-ca3cf7951ab62758ed25@franklinfinancial.ai
+DTSTART:20261028T203000Z
+DTEND:20261028T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: 7.34\nRevenue est: 4\,118\,998\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:STX earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-ffd5fa5a50d017c5207a.ics</href><propstat><prop><getetag>"e8b475fc5c0f9076b39f0ea7d20d5e64feb92c0a641e34d6ce56f1aabd8711b3"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-ffd5fa5a50d017c5207a@franklinfinancial.ai
+DTSTART:20260917T203000Z
+DTEND:20260917T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: -0.09\nRevenue est: 7\,936\,333
+DTSTAMP:20260916T081524Z
+SUMMARY:FLUX earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-ebb0dc072e01d1e39fb3.ics</href><propstat><prop><getetag>"5745183a2b9e26e0d80b3080b4da9370b20c8c722ef9d3add23cc31047ce3179"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-ebb0dc072e01d1e39fb3@franklinfinancial.ai
+DTSTART:20260911T120000Z
+DTEND:20260911T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.1\nEPS actual: -0.13\nRevenue est:
+  11\,000\,000\nRevenue actual: 11\,200\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:LAES earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-4117bf9939ac9c225209.ics</href><propstat><prop><getetag>"8931e183fd30f93fead0f49f920322066e4e0929f57d46481b87ed867e3594ee"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-4117bf9939ac9c225209@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260915
+DTEND;VALUE=DATE:20260916
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:WSHP earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-8fe050ea06c7cc2ab2b7.ics</href><propstat><prop><getetag>"3e2fde086d47bf1a0b8b2ea05808a8748ec53ed048f96f1fc8045cc8d56c3b05"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-8fe050ea06c7cc2ab2b7@franklinfinancial.ai
+DTSTART:20260916T120000Z
+DTEND:20260916T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -55.2\nEPS actual: -1.65\nRevenue est
+ : 2e+05\nRevenue actual: 5.075e+05\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:RVSN earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-1ba405f0b2454388f314.ics</href><propstat><prop><getetag>"d644fdafc82b132eec5e5defca2a3ecdff11050e52a4fe8053d88b540add6bdf"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-1ba405f0b2454388f314@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: 0.00134\nRevenue est: 130\,779\,800
+DTSTAMP:20260916T081524Z
+SUMMARY:HITI earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-3f0f958c7f8d5d7dfedd.ics</href><propstat><prop><getetag>"b2848f2e55d9ec2162f1952a9cea370ef60e5735ba70d441140298d1c0e71dc4"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-3f0f958c7f8d5d7dfedd@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2027\nEPS est: 0.05\nRevenue est: 52\,852\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:MAMA earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-a41642351674f979247c.ics</href><propstat><prop><getetag>"ee6f4e80c1d834a3e288315acba65022752892e89ba9bae9b3ca64f5f481cd34"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-a41642351674f979247c@franklinfinancial.ai
+DTSTART:20260921T203000Z
+DTEND:20260921T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 0.19\nRevenue est: 556\,827\,900
+DTSTAMP:20260916T081524Z
+SUMMARY:PLAY earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-faf4bc2f33c4022a88e9.ics</href><propstat><prop><getetag>"f830f2c8f106372a76528f0c8f34dd8af3ad9c9ab50826e51da3c47d2f2866bd"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-faf4bc2f33c4022a88e9@franklinfinancial.ai
+DTSTART:20260918T120000Z
+DTEND:20260918T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.33\nRevenue est: 1\,149\,335\,000\
+ nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:VFS earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-5a6f74aaef06347daadc.ics</href><propstat><prop><getetag>"58e5ea3413a11d03b5af35c9724b5cad9595cf6889beed3f84c1498b7db574f6"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-5a6f74aaef06347daadc@franklinfinancial.ai
+DTSTART:20260917T120000Z
+DTEND:20260917T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 0.02485\nRevenue est: 33\,943\,700
+DTSTAMP:20260916T081524Z
+SUMMARY:IH earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-4d9904bb63e940ad2c9f.ics</href><propstat><prop><getetag>"481920d7f8fb6f510e3f814308cc2d8a58c1855e2a3f7033b55913295295e6d4"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-4d9904bb63e940ad2c9f@franklinfinancial.ai
+DTSTART:20260911T120000Z
+DTEND:20260911T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.02\nEPS actual: -0.03\nRevenue est
+ : 21\,529\,000\nRevenue actual: 15\,752\,000\nDate NOT confirmed by the co
+ mpany
+DTSTAMP:20260916T081524Z
+SUMMARY:MNYWW earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-cf32bda07f482a6971df.ics</href><propstat><prop><getetag>"b1195af7bbf905c15ab618d1cb9b34c17da81202dbb598d350dd677b3aa079fe"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-cf32bda07f482a6971df@franklinfinancial.ai
+DTSTART:20261029T203000Z
+DTEND:20261029T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: 4.07\nRevenue est: 4\,131\,961\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:WDC earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-a0f0021a6f670888afe1.ics</href><propstat><prop><getetag>"0fe4dd2db3d493ebc6fa5d7c40c4b4c6ee60876b19ebd42eededd3ba25ee53d8"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-a0f0021a6f670888afe1@franklinfinancial.ai
+DTSTART:20260924T120000Z
+DTEND:20260924T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2025\nEPS est: -0.09\nRevenue est: 723\,299\,800\nDa
+ te NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:LUXE earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-d92fbf7d9b62a5ec10c4.ics</href><propstat><prop><getetag>"d825b09cc2240b3a60d2c2a32ad807be315283726412feb182c9d4defe5418e1"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-d92fbf7d9b62a5ec10c4@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.149\nRevenue est: 1\,118\,600\nDat
+ e NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:RZLT earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-c673c1bcc0ac785e9341.ics</href><propstat><prop><getetag>"c3c331de7b672f909a46591c6871a0726757deaca435169ddb6c8da1ba8fa088"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-c673c1bcc0ac785e9341@franklinfinancial.ai
+DTSTART:20260910T120000Z
+DTEND:20260910T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 2.93\nEPS actual: 3.14\nRevenue est: 
+ 238\,866\,500\nRevenue actual: 246\,279\,500
+DTSTAMP:20260916T081524Z
+SUMMARY:TEN earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-b5fddd0bb78df7b7b0bf.ics</href><propstat><prop><getetag>"6f9cbfa4cb904e04a22ef812caa1e037f51161d123bff3f07b01cf0414cb013f"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-b5fddd0bb78df7b7b0bf@franklinfinancial.ai
+DTSTART:20260909T120000Z
+DTEND:20260909T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.4133\nEPS actual: -0.31\nRevenue e
+ st: 6\,670\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:ANAB earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-ae51d03282c71820821e.ics</href><propstat><prop><getetag>"4a69c148838f1270cb340a6350ee41838450941efe905a7bba75c6efc3e9308b"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-ae51d03282c71820821e@franklinfinancial.ai
+DTSTART:20260917T203000Z
+DTEND:20260917T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: -0.05\nRevenue est: 8\,200\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:ABAT earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-a3be0df2068750b9ca2a.ics</href><propstat><prop><getetag>"be53074ac551a587850e23cee845ba5ba14c0396ff0a703d220e82b90942275a"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-a3be0df2068750b9ca2a@franklinfinancial.ai
+DTSTART:20261118T130000Z
+DTEND:20261118T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.08\nRevenue est: 81\,764\,710
+DTSTAMP:20260916T081524Z
+SUMMARY:BLSH earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-9e3be7b17c897359fc36.ics</href><propstat><prop><getetag>"60af94782c87e1f72ace9ba2a58a06c8ef1035a8d24d445a930799aca59197db"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-9e3be7b17c897359fc36@franklinfinancial.ai
+DTSTART:20260917T203000Z
+DTEND:20260917T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.873\nRevenue est: 2\,290\,696\,000\
+ nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:TCOM earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-5813ce6d81cacfe3d4cb.ics</href><propstat><prop><getetag>"a2f5fc3aca6837eb5b24283a0f9f11bbf14888198d420fb46401ae6035998501"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-5813ce6d81cacfe3d4cb@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260917
+DTEND;VALUE=DATE:20260918
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -0.022\nRevenue est: 9\,692\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:SATL earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-13d98ecb20365026d126.ics</href><propstat><prop><getetag>"faaa999cfed89eb7341b7e7ebc47fc49efed17c5bbe496f6d4a35c2cba020bc3"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-13d98ecb20365026d126@franklinfinancial.ai
+DTSTART:20260910T120000Z
+DTEND:20260910T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2027\nEPS est: -0.08\nRevenue est: 65\,955\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:VRA earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-f1826795ac31d1fc73f9.ics</href><propstat><prop><getetag>"e4c00f0db243e2628dd1c649e4851056fffe5c32b6bf82c8db9e5dff9c0fbe4c"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-f1826795ac31d1fc73f9@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261209
+DTEND;VALUE=DATE:20261210
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2027\nEPS est: -0.02\nRevenue est: 105\,146\,600
+DTSTAMP:20260916T081524Z
+SUMMARY:PL earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-82c14c9ec95f6a2a236e.ics</href><propstat><prop><getetag>"f8b95ed4ca1cba627abc66acec9c9a96c1dbde061ec322745443909af8f359f8"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-82c14c9ec95f6a2a236e@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.01\nEPS actual: 0.02\nRevenue est: 
+ 138\,973\,300\nRevenue actual: 141\,737\,400
+DTSTAMP:20260916T081524Z
+SUMMARY:HITI earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-c5273676b7b992c796a0.ics</href><propstat><prop><getetag>"916a9088c0bb01cfa4d30b014e0504eda0a521b282d9d62a0ab60016af88805b"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-c5273676b7b992c796a0@franklinfinancial.ai
+DTSTART:20260909T120000Z
+DTEND:20260909T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.01
+DTSTAMP:20260916T081524Z
+SUMMARY:ATCH earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-471b90a4c62d3087efe3.ics</href><propstat><prop><getetag>"b42fb6cfe0d2620e6946932e677d200fb64c2e0f4d7b2a62e9028e90d26ae16d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-471b90a4c62d3087efe3@franklinfinancial.ai
+DTSTART:20260916T120000Z
+DTEND:20260916T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.465\nRevenue est: 14\,057\,370
+DTSTAMP:20260916T081524Z
+SUMMARY:ANAB earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-bea34c4c0a41dc30ca8e.ics</href><propstat><prop><getetag>"307da57da99f7a00120b13d0e5c9d1222772068e38a3cfdf6714573356cbe218"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-bea34c4c0a41dc30ca8e@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260915
+DTEND;VALUE=DATE:20260916
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: 0.04\nRevenue est: 29\,189\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:ALOT earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6a53d6231a9a8ecdc1e6.ics</href><propstat><prop><getetag>"46f0fbad136a67e5810ea52c45091864f5de0e565a8ede5907e51135bd9c6094"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6a53d6231a9a8ecdc1e6@franklinfinancial.ai
+DTSTART:20260917T120000Z
+DTEND:20260917T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.2946\nRevenue est: 6\,353\,425\nDa
+ te NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:IPHA earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-4dee5aa36485a5cc7306.ics</href><propstat><prop><getetag>"9d2a11a78a55fe65176ab593991deae37d966ebc3940b718eff78438d187039f"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-4dee5aa36485a5cc7306@franklinfinancial.ai
+DTSTART:20260911T120000Z
+DTEND:20260911T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.01\nEPS actual: 0.35\nRevenue est: 
+ 23\,000\,000\nRevenue actual: 21\,686\,260
+DTSTAMP:20260916T081524Z
+SUMMARY:JVA earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-c6550a69cbb74565082f.ics</href><propstat><prop><getetag>"74f35e661018894b805af65e13daae66c2972268ccdea98c2780d30fefd04ddb"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-c6550a69cbb74565082f@franklinfinancial.ai
+DTSTART:20260916T203000Z
+DTEND:20260916T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.1578\nRevenue est: 830\,883\,700
+DTSTAMP:20260916T081524Z
+SUMMARY:CBRL earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-d3a61b285ea846acbdb5.ics</href><propstat><prop><getetag>"8c00b64da60011053547af723ac7dddb1527c283feb5659700b6f124eb711f07"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-d3a61b285ea846acbdb5@franklinfinancial.ai
+DTSTART:20260914T120000Z
+DTEND:20260914T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 0.1\nEPS actual: 0.1\nRevenue est: 35
+ \,700\,000\nRevenue actual: 35\,700\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:CSHR earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-ccfad1118b90c4258f96.ics</href><propstat><prop><getetag>"1406e0c4b8642612fc422d050660f1346795a9789df8835431c20cbb6770e08e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-ccfad1118b90c4258f96@franklinfinancial.ai
+DTSTART:20261029T203000Z
+DTEND:20261029T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 1.98\nRevenue est: 113\,210\,600\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:AAPL earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-1cbd6796304f3a978cd9.ics</href><propstat><prop><getetag>"1f5e7b7417e28a6a91106338af5c348f19ef38d68120287257ec23a0eed963de"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-1cbd6796304f3a978cd9@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.05466\nEPS actual: -0.09\nRevenue 
+ est: 3\,224\,922\nRevenue actual: 2\,733\,258
+DTSTAMP:20260916T081524Z
+SUMMARY:HYFT earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-b38a6a8ac2331e030da8.ics</href><propstat><prop><getetag>"cf477e8c81b72cdc32c8598db116c18389f9ee1728af4aa180c3ca419d33aaa6"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-b38a6a8ac2331e030da8@franklinfinancial.ai
+DTSTART:20260921T203000Z
+DTEND:20260921T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.9881\nRevenue est: 7.992e+05\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:ABVX earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-33ee80600b16b5a80161.ics</href><propstat><prop><getetag>"b0bb80be4a644c7788dd118eab635e2ba4cc55acf9f4abc78dbd45743445fa2a"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-33ee80600b16b5a80161@franklinfinancial.ai
+DTSTART:20260910T203000Z
+DTEND:20260910T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.01\nEPS actual: 0.05\nRevenue est:
+  15\,045\,000\nRevenue actual: 15\,232\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:CSBR earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-33572f6a000a75a235d9.ics</href><propstat><prop><getetag>"3c66611dca5eadbae03a247b597f7acad25790dde0a3bdcc402b4678cb2887b1"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-33572f6a000a75a235d9@franklinfinancial.ai
+DTSTART:20260916T120000Z
+DTEND:20260916T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:NCPLW earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-0c8c477b3a7cbc647e78.ics</href><propstat><prop><getetag>"b00dba9f496c4d51451d6d4ac6613d75715b03715192f6ab2bcf269e683a11da"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-0c8c477b3a7cbc647e78@franklinfinancial.ai
+DTSTART:20261109T213000Z
+DTEND:20261109T220000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: 0.09\nRevenue est: 246\,250\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:RLGT earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-b1fb79f15ff84b6704a5.ics</href><propstat><prop><getetag>"ba1d915fec2c7180586941ef13be600aab5e8cb723cb6ace4159b30691120585"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-b1fb79f15ff84b6704a5@franklinfinancial.ai
+DTSTART:20260914T120000Z
+DTEND:20260914T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.2\nEPS actual: 0.19\nRevenue est: 2
+ 3\,283\,000\nRevenue actual: 23\,960\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:RFIL earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-f3d471cb161fe7c83caa.ics</href><propstat><prop><getetag>"2e2341228cb84937f216bb2f6bbf1a85bdd9abe8ffd1f571bd39743aae85b82e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-f3d471cb161fe7c83caa@franklinfinancial.ai
+DTSTART:20261210T213000Z
+DTEND:20261210T220000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2027\nEPS est: -0.6\nRevenue est: 32\,027\,690
+DTSTAMP:20260916T081524Z
+SUMMARY:KMTS earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-d29626d1f37118d983e4.ics</href><propstat><prop><getetag>"fcac9d6c965a9ca7557a14a455cd02573e90f66d24cbfb7ef7181b93f0b6c31b"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-d29626d1f37118d983e4@franklinfinancial.ai
+DTSTART:20260914T120000Z
+DTEND:20260914T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS actual: 0.23\nRevenue actual: 25\,567\,440
+DTSTAMP:20260916T081524Z
+SUMMARY:CTRM earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-775546738cfa4610ea9b.ics</href><propstat><prop><getetag>"c3166c68b260ebf30713bcf76762b10f8f52363e93a7a87875a67acc13319e3d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-775546738cfa4610ea9b@franklinfinancial.ai
+DTSTART:20261208T213000Z
+DTEND:20261208T220000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2027\nEPS est: 6.18\nRevenue est: 5\,451\,839\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:CASY earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6c669f80baea1bc00452.ics</href><propstat><prop><getetag>"71656198b88b8be08b4dce1b9801c6b5efed3e7fa61942c331589451ee5dce23"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6c669f80baea1bc00452@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260917
+DTEND;VALUE=DATE:20260918
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.3\nRevenue est: 51\,601\,200\nDate 
+ NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:PPHC earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6910e6725e5ea7b32659.ics</href><propstat><prop><getetag>"477e2e7da1e9ee681493e054943275a33ae4bfcaf68abb5f777b53aad3cc2af2"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6910e6725e5ea7b32659@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20260923
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.21\nRevenue est: 210\,206\,800\nDa
+ te NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:CBRS earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-2be439007954c7dfd773.ics</href><propstat><prop><getetag>"ca827dd3a803cdca1d6a51858d267b3ae9d09039df3add6cde9cdf22481b9f47"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-2be439007954c7dfd773@franklinfinancial.ai
+DTSTART:20260916T120000Z
+DTEND:20260916T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.4063\nRevenue est: 196\,379\,300
+DTSTAMP:20260916T081524Z
+SUMMARY:MANU earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-647b411baeff71f50d19.ics</href><propstat><prop><getetag>"198bb8db31c30a28b468d43535aabb3f93fef7f37559feb81cd7326e72a9c1f0"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-647b411baeff71f50d19@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+CATEGORIES:Earnings
+DTSTAMP:20260916T081524Z
+SUMMARY:ADSE earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-3d73befc3173e5f740c3.ics</href><propstat><prop><getetag>"9c906e42f570f619b86b0a8ffa91ac0d36e4bfa706865bb8644c5dc0e629bccf"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-3d73befc3173e5f740c3@franklinfinancial.ai
+DTSTART:20260921T120000Z
+DTEND:20260921T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: -0.02\nRevenue est: 21\,336\,500
+DTSTAMP:20260916T081524Z
+SUMMARY:ISPR earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-183d91502a6d055e229a.ics</href><propstat><prop><getetag>"3eebc26a382d9969f15fcc25fe88013ef15441d791c117949467037147d85652"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-183d91502a6d055e229a@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260918
+DTEND;VALUE=DATE:20260919
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.02\nRevenue est: 21\,529\,000\nDat
+ e NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:MNYWW earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-87b074e741118888883d.ics</href><propstat><prop><getetag>"6da1d91b519fa98c9238923d4e7deb5414d0eb33dd61bba400e6e25e8e69669f"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-87b074e741118888883d@franklinfinancial.ai
+DTSTART:20260930T203000Z
+DTEND:20260930T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 31.14\nRevenue est: 50\,420\,880\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:MU earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-e3aa373a91bafe21e9c3.ics</href><propstat><prop><getetag>"b80346a4074dbde00d335227d86c4c5799828d8687cd9467abc2f01b9e9ee332"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-e3aa373a91bafe21e9c3@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.1543\nRevenue est: 214\,702\,900
+DTSTAMP:20260916T081524Z
+SUMMARY:CBRS earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-c86f2e302430a2b3490e.ics</href><propstat><prop><getetag>"098d8f3d3d389d9c3bec1c4eee1d3f5f9dea087408dd65420763c1d11c91579d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-c86f2e302430a2b3490e@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260914
+DTEND;VALUE=DATE:20260915
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -0.71
+DTSTAMP:20260916T081524Z
+SUMMARY:SPTX earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-2d6caa15afc0c9e54262.ics</href><propstat><prop><getetag>"c38567ad55864c65608e21e79f669b105cb544ed523c94bae1c8ce4aec76f734"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-2d6caa15afc0c9e54262@franklinfinancial.ai
+DTSTART:20260930T120000Z
+DTEND:20260930T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 4.35\nRevenue est: 629\,737\,300
+DTSTAMP:20260916T081524Z
+SUMMARY:FDS earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-e5bfc82760b17ed6a374.ics</href><propstat><prop><getetag>"8cc8ccb06b1356606b2b2f85ef3c53592e0410d8e5b0412142061877681ddce1"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-e5bfc82760b17ed6a374@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20260923
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:MWC earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-9c4622925e82d1780aad.ics</href><propstat><prop><getetag>"0f67283b6e5013a675b8c6e0d25817cf9da3d86dbc14685bb16de22973a9922a"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-9c4622925e82d1780aad@franklinfinancial.ai
+DTSTART:20260914T120000Z
+DTEND:20260914T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: -0.135\nRevenue est: 2e+05\nDate NOT 
+ confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:IXHL earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-bc51eae75cf3dff23ca3.ics</href><propstat><prop><getetag>"afd64ba46f78bad230ee701e8f728a6c601f426b9676aeecc6aba06706e3455e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-bc51eae75cf3dff23ca3@franklinfinancial.ai
+DTSTART:20260915T120000Z
+DTEND:20260915T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2025\nEPS est: 0.2397\nEPS actual: 0.25\nRevenue est
+ : 429\,935\,900\nRevenue actual: 461\,672\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:FPS earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-7a092f09bd6362fb9bf7.ics</href><propstat><prop><getetag>"7744bb0363b7e5506979a3106b93cceb19577265a980c23b4c6560d254a434c7"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-7a092f09bd6362fb9bf7@franklinfinancial.ai
+DTSTART:20260915T203000Z
+DTEND:20260915T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.00667\nEPS actual: 0.13\nRevenue es
+ t: 23\,235\,440\nRevenue actual: 24\,208\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:EPM earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6f30bdb91ab830af0009.ics</href><propstat><prop><getetag>"aa561d82c9bf361200d376773501adfcd41b5725dd17aa6497fc8c437c5d9042"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6f30bdb91ab830af0009@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20260923
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: 0.01\nRevenue est: 21\,336\,500
+DTSTAMP:20260916T081524Z
+SUMMARY:ISPR earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-9bfa3a86633eaf4362e3.ics</href><propstat><prop><getetag>"e5bd73f2c61c568fed8386b48c54b2cafef3d03c9a627c1b26a511937fdfbef0"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-9bfa3a86633eaf4362e3@franklinfinancial.ai
+DTSTART:20261210T130000Z
+DTEND:20261210T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2027\nEPS est: -0.17\nRevenue est: 57\,118\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:VRA earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-8eb379a1b0ffa6738d8f.ics</href><propstat><prop><getetag>"9a8fa2a2e2b37eb55b68c23a81fc26579e6c228452cea57e4270d673c9c2e13e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-8eb379a1b0ffa6738d8f@franklinfinancial.ai
+DTSTART:20260917T203000Z
+DTEND:20260917T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: 4.21\nRevenue est: 23\,198\,360\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:FDX earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-e34521e159d48021ff76.ics</href><propstat><prop><getetag>"5b216c968aa713bc5d01e5859de2807f94440f1d12301a979cd6c78558994a40"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-e34521e159d48021ff76@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260914
+DTEND;VALUE=DATE:20260915
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:MWC earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-99b4b3622aca73fba26c.ics</href><propstat><prop><getetag>"c67aab3c6e60df6b348f93a8be6a4659896f513809de9a323da85ef8561807ca"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-99b4b3622aca73fba26c@franklinfinancial.ai
+DTSTART:20261028T203000Z
+DTEND:20261028T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: 3.63\nRevenue est: 21\,516\,180\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:FDX earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-e39459e278f1a1f1173b.ics</href><propstat><prop><getetag>"5d765687d40083cd06b5fe85ffd7c775b3df7c93e5b062ec1c3e0f8fff3ac3dc"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-e39459e278f1a1f1173b@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.065\nEPS actual: 0.15\nRevenue est:
+  231\,340\,000\nRevenue actual: 261\,436\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:RLGT earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-d18a437480c5c79d53cd.ics</href><propstat><prop><getetag>"e6bfc328b601e8872adbc55dd531bad1fd120f19cc921e15cb341784bb8d752e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-d18a437480c5c79d53cd@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260914
+DTEND;VALUE=DATE:20260915
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: 0.01\nRevenue est: 21\,336\,500
+DTSTAMP:20260916T081524Z
+SUMMARY:ISPR earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-8638b03cbbbe434c2e77.ics</href><propstat><prop><getetag>"ae6230b33edbaa6ce0344aa90b0c55cee8047189babc53e720eb305ca8abffde"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-8638b03cbbbe434c2e77@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260917
+DTEND;VALUE=DATE:20260918
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -0.025\nRevenue est: 9\,581\,667
+DTSTAMP:20260916T081524Z
+SUMMARY:SATLW earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-5a169b6c16e676caadff.ics</href><propstat><prop><getetag>"d6aaa14e45440a898ba4f8f49e1278c3a5db977a1befffcdae8a73c328b0945e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-5a169b6c16e676caadff@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260914
+DTEND;VALUE=DATE:20260915
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -0.21
+DTSTAMP:20260916T081524Z
+SUMMARY:USAU earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-c3bee6b7fb08c66d9871.ics</href><propstat><prop><getetag>"3c88207920517b730d0b6f4f5f515c68aa236f80f204a526d90459b49b810b57"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-c3bee6b7fb08c66d9871@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260917
+DTEND;VALUE=DATE:20260918
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -0.32\nRevenue est: 2\,000\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:NRXS earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-e266cad3be79a9443995.ics</href><propstat><prop><getetag>"b47010d01af97f6ae07747fb2b54993ca3900a15e182c2f3aa0cbbfbda1d0ba7"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-e266cad3be79a9443995@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2025\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:VIVO earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-74d0fb16ec410f276687.ics</href><propstat><prop><getetag>"d594fd45be12f89194ec880f41f7ddedf0eb325e225ddbf75fe8cce976d12801"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-74d0fb16ec410f276687@franklinfinancial.ai
+DTSTART:20260910T203000Z
+DTEND:20260910T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.2\nRevenue est: 23\,283\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:RFIL earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-e645561bba70c2d16866.ics</href><propstat><prop><getetag>"4cbcbbac0152ec23f8cce57be1be813d5f9820ad290736c7d2d798b463e13e39"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-e645561bba70c2d16866@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.72\nEPS actual: -0.86\nRevenue est
+ : 1e+05\nRevenue actual: 2\,100\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:HSCSW earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-18262421ea90f654e7be.ics</href><propstat><prop><getetag>"fd314ecd0451b74369418bb45a7d1b4e5a9e6e948a46ae4efdfde0832c54d5e3"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-18262421ea90f654e7be@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260914
+DTEND;VALUE=DATE:20260915
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -0.9585\nRevenue est: 7.785e+05
+DTSTAMP:20260916T081524Z
+SUMMARY:ABVX earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-7c091a363ee3801c45d0.ics</href><propstat><prop><getetag>"f96e32f7a4b76d004e92ecaea6c7b92b6127a8edd9707eb63c78fd205d8b20a1"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-7c091a363ee3801c45d0@franklinfinancial.ai
+DTSTART:20260911T203000Z
+DTEND:20260911T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2026\nEPS est: 0.44\nEPS actual: 0.05\nRevenue est: 
+ 14\,270\,000\nRevenue actual: 6\,051\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:AXR earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-5b7458df0125813b860a.ics</href><propstat><prop><getetag>"cfd65ad849f3cee5caec050688604e2c1194e547a779d88d3ca217af9e25f0fa"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-5b7458df0125813b860a@franklinfinancial.ai
+DTSTART:20261202T130000Z
+DTEND:20261202T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:CTRM earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-5a6b503f07e06faac8b7.ics</href><propstat><prop><getetag>"b9f5feea93d1306992505614e9e388a02d28d662d4cdde79797b721fc7636c7d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-5a6b503f07e06faac8b7@franklinfinancial.ai
+DTSTART:20261110T130000Z
+DTEND:20261110T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.05\nRevenue est: 16\,128\,160\nDat
+ e NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:ANAB earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-5e93d3fad25923825810.ics</href><propstat><prop><getetag>"31156b805caaa17b3c68e70d29d43a7199375902c5bf93e1938480b388b9ac9b"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-5e93d3fad25923825810@franklinfinancial.ai
+DTSTART:20261104T130000Z
+DTEND:20261104T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 0.1\nRevenue est: 35\,700\,000\nDate 
+ NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:CSHR earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-bc28611ca01f18f91f0c.ics</href><propstat><prop><getetag>"758517cefa3b6956ee10081e649d3973bb3f06833861d215b90b1fe8ef26d341"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-bc28611ca01f18f91f0c@franklinfinancial.ai
+DTSTART:20260916T120000Z
+DTEND:20260916T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 0.03\nRevenue est: 14\,000\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:AMBR earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-ea59547ef418271372b2.ics</href><propstat><prop><getetag>"9746f3d57a555383156f9363b7b4bf164a96558ab288337eb328c5465e014a04"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-ea59547ef418271372b2@franklinfinancial.ai
+DTSTART:20260917T120000Z
+DTEND:20260917T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: 2.05\nRevenue est: 3\,207\,177\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:DRI earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6814e4391e0b9cae2591.ics</href><propstat><prop><getetag>"36f927c0be9fdd0c11ff177ff6467eda54090b452d1b5d6a5b413663d8457bdf"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6814e4391e0b9cae2591@franklinfinancial.ai
+DTSTART:20260917T120000Z
+DTEND:20260917T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 11.99\nRevenue est: 38\,878\,720
+DTSTAMP:20260916T081524Z
+SUMMARY:AIFU earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-0388deed9a2d7e9e6488.ics</href><propstat><prop><getetag>"f46b37facf132ac2c2b64101d541de109de51a5718b4c58846fdb23c3b0b730f"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-0388deed9a2d7e9e6488@franklinfinancial.ai
+DTSTART:20260917T203000Z
+DTEND:20260917T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -3.4\nRevenue est: 224\,689\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:SCHL earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-aea5f8e74336e520cd96.ics</href><propstat><prop><getetag>"bc20b866e5630ecf8162b9076b43f6887521608af411c095b05fb7cf79bcb156"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-aea5f8e74336e520cd96@franklinfinancial.ai
+DTSTART:20260915T120000Z
+DTEND:20260915T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2027\nEPS est: -0.08\nEPS actual: 0.11\nRevenue est:
+  65\,955\,000\nRevenue actual: 71\,649\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:VRA earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-5e512f02efbabf40c475.ics</href><propstat><prop><getetag>"30cb2d5810560b981f27a0c4fff98ea07bd825425cdfe8600e868bfe40ea26db"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-5e512f02efbabf40c475@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20260923
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: 0.1397\nRevenue est: 241\,509\,200\nD
+ ate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:DAVA earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-f01c3c9e891e00ff5aee.ics</href><propstat><prop><getetag>"cf41032a97fdabeca8cd558648719d414c62441918b801392d6e126692facab4"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-f01c3c9e891e00ff5aee@franklinfinancial.ai
+DTSTART:20261119T130000Z
+DTEND:20261119T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.34\nRevenue est: 38\,372\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:DLNG earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-fe4e31b65da6bb46aa18.ics</href><propstat><prop><getetag>"5433038ecd8ded09a617059c00d51983666c703764c92f9af5265c81156fd041"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-fe4e31b65da6bb46aa18@franklinfinancial.ai
+DTSTART:20261111T213000Z
+DTEND:20261111T220000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: 0.07\nRevenue est: 236\,278\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:RLGT earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-345f65fda8acc1976640.ics</href><propstat><prop><getetag>"1ea28c73b15c414ef893de6ba045af9adf7e0b9c1c8ade6973c2128a5070dcd5"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-345f65fda8acc1976640@franklinfinancial.ai
+DTSTART:20260915T120000Z
+DTEND:20260915T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.159\nRevenue est: 181\,340\,500\nDa
+ te NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:HERE earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-3354db439a1226ed0d2d.ics</href><propstat><prop><getetag>"d15890f63f6383ba9708169cc6a735e4ddc41e3dbb92246117a3ab6f5a3a5945"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-3354db439a1226ed0d2d@franklinfinancial.ai
+DTSTART:20260914T120000Z
+DTEND:20260914T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.47\nDate NOT confirmed by the comp
+ any
+DTSTAMP:20260916T081524Z
+SUMMARY:ENGN earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-2c267795f7722398a929.ics</href><propstat><prop><getetag>"dc2429eb92b03a0bf9ea8b2dc82093ddf53efeb1e04bf5c5896d571312ad4596"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-2c267795f7722398a929@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: 2.93\nRevenue est: 238\,866\,500
+DTSTAMP:20260916T081524Z
+SUMMARY:TEN earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-4d339572ad424433e734.ics</href><propstat><prop><getetag>"58c27c63de2b2d0ae8675198ba13db9cf528aecc7c663f94151c8f3c7c4853aa"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-4d339572ad424433e734@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260917
+DTEND;VALUE=DATE:20260918
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: 0.91\nRevenue est: 13\,600\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:ESP earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-d66c5e8d4e0041442974.ics</href><propstat><prop><getetag>"2fda8417039e09b1b1c6dbb2974e5995fefed1a13742ae6c277292b11c51f200"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-d66c5e8d4e0041442974@franklinfinancial.ai
+DTSTART:20261028T203000Z
+DTEND:20261028T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 3.03\nRevenue est: 126\,790\,100\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:GOOGL earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-dcfa257effff43036f9a.ics</href><propstat><prop><getetag>"6ae237d6684fb774508560edd0575ff23005c100323230514178d7ae821d48f4"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-dcfa257effff43036f9a@franklinfinancial.ai
+DTSTART:20260916T120000Z
+DTEND:20260916T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2025\nEPS est: -0.11\nRevenue est: 723\,299\,800
+DTSTAMP:20260916T081524Z
+SUMMARY:LUXE earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-326bd4f99d94f5e333b9.ics</href><propstat><prop><getetag>"a926df15ffc5050c42843c46f460133165db6a1fad62b3bbcc765ddcc3aa79df"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-326bd4f99d94f5e333b9@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.16\nRevenue est: 16\,500\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:GLBS earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6eb9618c6942d32c5840.ics</href><propstat><prop><getetag>"d189eefe828a893e16694c5009715527d284f150805773758bcda0734258895b"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6eb9618c6942d32c5840@franklinfinancial.ai
+DTSTART:20261110T213000Z
+DTEND:20261110T220000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.01\nRevenue est: 21\,733\,940
+DTSTAMP:20260916T081524Z
+SUMMARY:EPM earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-2b89e049ae905fc06633.ics</href><propstat><prop><getetag>"dd536b81c25ec1fba505b6100a29078161e8241b2ed314d79531ec08c29b4594"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-2b89e049ae905fc06633@franklinfinancial.ai
+DTSTART:20260916T120000Z
+DTEND:20260916T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -55.2\nRevenue est: 2e+05\nDate NOT c
+ onfirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:RVSNW earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-311e73e27f6d07ed1dee.ics</href><propstat><prop><getetag>"03d12e75421d002c0548dde2983f70d31e0bde6cf9b6b1ee599d31a68c4bd6bf"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-311e73e27f6d07ed1dee@franklinfinancial.ai
+DTSTART:20260916T120000Z
+DTEND:20260916T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.4266\nDate NOT confirmed by the co
+ mpany
+DTSTAMP:20260916T081524Z
+SUMMARY:ENGNW earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-63ed72fda1c1a4d57a88.ics</href><propstat><prop><getetag>"21a45e5a452c06414a73199bc2fcef316bb437647d9570b6a0b98c3b7be47b2e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-63ed72fda1c1a4d57a88@franklinfinancial.ai
+DTSTART:20260917T120000Z
+DTEND:20260917T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 0.205\nRevenue est: 919\,950\,000\nDa
+ te NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:HUBG earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-e216413878aab0502970.ics</href><propstat><prop><getetag>"538bef3a2ad1a07d520b667f78acd495e7fe29d3dce2862cfc13150143165076"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-e216413878aab0502970@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.185\nRevenue est: 10\,000\,000\nDa
+ te NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:IXHL earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-adf655d58919288f67a1.ics</href><propstat><prop><getetag>"ff7765ff4caab5956e7d2477fe4d6be3d1aeeee1579f77a9adf0eef7889229c8"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-adf655d58919288f67a1@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -0.01\nRevenue est: 15\,045\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:CSBR earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-2c641b21e44c50b0eb56.ics</href><propstat><prop><getetag>"20d06f9cd4a792faee162aa20222a30d551e5a19ee921ba2a590c7a19593ad03"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-2c641b21e44c50b0eb56@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: 0.28\nRevenue est: 36\,306\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:DLNG earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-c135b67938fb76aff053.ics</href><propstat><prop><getetag>"3aadcd1ff0e5356c14dfbcaa3f37252f6937c4b9b9e0298557369344b147a51b"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-c135b67938fb76aff053@franklinfinancial.ai
+DTSTART:20260916T203000Z
+DTEND:20260916T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: -0.075\nRevenue est: 5.75e+05
+DTSTAMP:20260916T081524Z
+SUMMARY:ALMU earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-2c6accb5790ee544c0ca.ics</href><propstat><prop><getetag>"bcd977f3e52bbb4c27a6b75f7d322626f94ea327547b8b2a1c812cac7b791a11"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-2c6accb5790ee544c0ca@franklinfinancial.ai
+DTSTART:20260917T120000Z
+DTEND:20260917T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 4.34\nRevenue est: 629\,698\,900\nDat
+ e NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:FDS earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-8426bbb0af6f3b12d76e.ics</href><propstat><prop><getetag>"9dc5731a4b6ce2b7d204935dab899bcc4d800900524c8f8649c09e5d1fc33741"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-8426bbb0af6f3b12d76e@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.005\nRevenue est: 315\,420\,400
+DTSTAMP:20260916T081524Z
+SUMMARY:PLCE earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-007f747f45875508982a.ics</href><propstat><prop><getetag>"65b93d96e54bdb4e823489ec05fd3091e504b5fb4625df1e99954ce0458cc3af"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-007f747f45875508982a@franklinfinancial.ai
+DTSTART:20261102T130000Z
+DTEND:20261102T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.58\nDate NOT confirmed by the comp
+ any
+DTSTAMP:20260916T081524Z
+SUMMARY:SPTX earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6c69491be5859ae93011.ics</href><propstat><prop><getetag>"479712a42cd06509e02c6c5767dd33447d321ae4ad1716d44e5e67f782729a1d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6c69491be5859ae93011@franklinfinancial.ai
+DTSTART:20260915T120000Z
+DTEND:20260915T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS actual: -0.43\nRevenue actual: 31\,966\,40
+ 0
+DTSTAMP:20260916T081524Z
+SUMMARY:COE earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-c1b11890fd65890f013e.ics</href><propstat><prop><getetag>"29ac18ccc19421e92897c9f9edfd7419a73f12f58ddf06a8acd0e2ec2b6a1255"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-c1b11890fd65890f013e@franklinfinancial.ai
+DTSTART:20261104T130000Z
+DTEND:20261104T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -1.076\nDate NOT confirmed by the com
+ pany
+DTSTAMP:20260916T081524Z
+SUMMARY:ODTX earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6e91b3c9e617b3ae2e48.ics</href><propstat><prop><getetag>"ec0c7b51c1bea3356fdf2caa6f86d55ef0dcea5c8373ab9391f7651470513c30"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6e91b3c9e617b3ae2e48@franklinfinancial.ai
+DTSTART:20260916T203000Z
+DTEND:20260916T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.96\nRevenue est: 14\,800\,000\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:ESP earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-1ea1704103934d704a73.ics</href><propstat><prop><getetag>"b6b2572027b25203a7f059a08bb65d608041159895d06e4c548d53bde919912d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-1ea1704103934d704a73@franklinfinancial.ai
+DTSTART:20260918T120000Z
+DTEND:20260918T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.33\nRevenue est: 1\,149\,335\,000\
+ nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:VFSWW earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-df1362463475e344e40f.ics</href><propstat><prop><getetag>"078107372d4672f3c7bdb3c6b3aad742e7dca4b87b71dbd8e6a0c9cff21f69ed"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-df1362463475e344e40f@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.1325\nRevenue est: 389\,525\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:AVO earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-d6bdb1b41f011ff67768.ics</href><propstat><prop><getetag>"957ee6be23f24710f070ca599a8c5d15651ed51b5edf76e852987900dfd232b4"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-d6bdb1b41f011ff67768@franklinfinancial.ai
+DTSTART:20260914T120000Z
+DTEND:20260914T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.01\nRevenue est: 23\,000\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:JVA earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-decc110ff461fa81adea.ics</href><propstat><prop><getetag>"791131716f572b8a5a9fdb2b2a98dddc3dbb0a2700f9c293f9a9e2027bc24500"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-decc110ff461fa81adea@franklinfinancial.ai
+DTSTART:20260911T120000Z
+DTEND:20260911T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.42\nEPS actual: -0.28\nDate NOT co
+ nfirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:USAU earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-baf768c6615440a67cc5.ics</href><propstat><prop><getetag>"76d3842f1ac1de3cf726a558bda14afcf87a7c58723f3d30b0d94c234477e964"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-baf768c6615440a67cc5@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260915
+DTEND;VALUE=DATE:20260916
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -0.09\nRevenue est: 7\,936\,333
+DTSTAMP:20260916T081524Z
+SUMMARY:FLUX earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-d04ae17df4a0f7713628.ics</href><propstat><prop><getetag>"a1fbeb523fa2e745bca1aa31b3791125bad933ef3b6daf881dbeee7590acc284"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-d04ae17df4a0f7713628@franklinfinancial.ai
+DTSTART:20261103T130000Z
+DTEND:20261103T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.1\nRevenue est: 298\,747\,300
+DTSTAMP:20260916T081524Z
+SUMMARY:LUCK earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-b49bcad11873cce893a9.ics</href><propstat><prop><getetag>"46db03b7650527e29b6b5e874bd0dc07c951703ae9219dc22e6e60478834af46"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-b49bcad11873cce893a9@franklinfinancial.ai
+DTSTART:20260910T120000Z
+DTEND:20260910T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.72\nRevenue est: 1e+05\nDate NOT c
+ onfirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:HSCSW earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-183586d3910eda9e4990.ics</href><propstat><prop><getetag>"80bac9d2f9262e69a68d3de55ebaed962cb9fa50a0dbabfc0e01776e8eee7153"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-183586d3910eda9e4990@franklinfinancial.ai
+DTSTART:20260917T203000Z
+DTEND:20260917T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 1.3\nRevenue est: 8\,312\,769\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:LEN earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-0b218a4bd7bef155a1fc.ics</href><propstat><prop><getetag>"66538c9e1d3f83a00c5632c09215ec1c77e3f8a04a9f134576998f8cc26a2620"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-0b218a4bd7bef155a1fc@franklinfinancial.ai
+DTSTART:20260924T203000Z
+DTEND:20260924T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -3.42\nRevenue est: 224\,689\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:SCHL earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-e990e6cca04f6a58c0e1.ics</href><propstat><prop><getetag>"a01b978ee19cc6db0045d60c59036c2981a41d963dd279b467a241e1178ebc15"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-e990e6cca04f6a58c0e1@franklinfinancial.ai
+DTSTART:20260915T203000Z
+DTEND:20260915T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.1\nRevenue est: 11\,000\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:LAES earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-21574b8fac46e9e492e5.ics</href><propstat><prop><getetag>"ffe9afa60cee011d45a77a0023e952ee57aa808778f7a459817da6d44476736d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-21574b8fac46e9e492e5@franklinfinancial.ai
+DTSTART:20261203T130000Z
+DTEND:20261203T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.02\nRevenue est: 25\,990\,000\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:MNYWW earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-f6be1e5ee51bcf00f5f3.ics</href><propstat><prop><getetag>"298f19159c39516d543fb1c39d249174066aed7326f321c368445aacf97a08ed"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-f6be1e5ee51bcf00f5f3@franklinfinancial.ai
+DTSTART:20261117T130000Z
+DTEND:20261117T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.21\nRevenue est: 2\,100\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:NRXS earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-b96c5793dd22a4abd85f.ics</href><propstat><prop><getetag>"79771d4e39bdec63aaafe79893aefe899f28aa6c0c476cca881c052e12237f46"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-b96c5793dd22a4abd85f@franklinfinancial.ai
+DTSTART:20260921T120000Z
+DTEND:20260921T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.05\nRevenue est: 3\,224\,922\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:HYFT earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-843f4d0a8a007268c80e.ics</href><propstat><prop><getetag>"7d1f68e6c110f003c4a5018a28ceab1153602d03911c4376f12f707d7b1cc96c"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-843f4d0a8a007268c80e@franklinfinancial.ai
+DTSTART:20260924T120000Z
+DTEND:20260924T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: 2.05\nRevenue est: 3\,206\,762\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:DRI earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6ea0bf4794f531c85815.ics</href><propstat><prop><getetag>"bc12665275a35847387d0ca0028fb7310d21d4bec016f5d629088443782de8b7"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6ea0bf4794f531c85815@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.01\nRevenue est: 12\,360\,330
+DTSTAMP:20260916T081524Z
+SUMMARY:SATL earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-642b36b99ddcd563003b.ics</href><propstat><prop><getetag>"64143e5c79df10769bb051aa1d092bdd24d558ffa83cf982c816d2f87415a385"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-642b36b99ddcd563003b@franklinfinancial.ai
+DTSTART:20260930T120000Z
+DTEND:20260930T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.055\nRevenue est: 3\,430\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:IMMR earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-8c7cdf5fc32398f9f0ef.ics</href><propstat><prop><getetag>"5d91e13af2e19b74a61b201ea71816bd56d134214529a495f55c8e30790767c0"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-8c7cdf5fc32398f9f0ef@franklinfinancial.ai
+DTSTART:20261028T203000Z
+DTEND:20261028T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: 4.69\nRevenue est: 90\,585\,590\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:MSFT earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-7addda5ae38ee8981e6b.ics</href><propstat><prop><getetag>"9ca67ad5f23da7666de3b006af588783ae57f92c2e72378fd2461b17bfd96644"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-7addda5ae38ee8981e6b@franklinfinancial.ai
+DTSTART:20260921T120000Z
+DTEND:20260921T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.0626\nRevenue est: 5\,404\,900\nDa
+ te NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:CHRN earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-e664a849f2694363d919.ics</href><propstat><prop><getetag>"4063352db361991909969b54b9ecb490c254f7afa94a0e6cc85348a08324aecc"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-e664a849f2694363d919@franklinfinancial.ai
+DTSTART:20260918T120000Z
+DTEND:20260918T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.07834\nDate NOT confirmed by the c
+ ompany
+DTSTAMP:20260916T081524Z
+SUMMARY:TLSA earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-9ee34fc847eb3913b3ef.ics</href><propstat><prop><getetag>"f1d114991b7304c1e5b72298e89066f7529aa8fb6ae0eb5bf8ccae3dcccad5d4"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-9ee34fc847eb3913b3ef@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261209
+DTEND;VALUE=DATE:20261210
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2027\nEPS est: -0.42\nDate NOT confirmed by the comp
+ any
+DTSTAMP:20260916T081524Z
+SUMMARY:USAU earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-f2e766e4ee37e3990076.ics</href><propstat><prop><getetag>"bbf48bde2907a595857e8111603d57c4abed1cae6db29289501cb4137a700a0f"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-f2e766e4ee37e3990076@franklinfinancial.ai
+DTSTART:20260914T120000Z
+DTEND:20260914T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 0.055\nEPS actual: 0.5\nRevenue est: 
+ 3\,371\,000\nRevenue actual: 294\,399\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:IMMR earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-66dc7f42b13988703fb8.ics</href><propstat><prop><getetag>"1a2b6ae1281263826c1015d91ef3fb4d1e082628f688f4344226f58c6dbe3d08"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-66dc7f42b13988703fb8@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261117
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.01833\nRevenue est: 12\,360\,330\n
+ Date NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:SATLW earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-ed85e93c76a32ea187ec.ics</href><propstat><prop><getetag>"e91b113b7c52f1c563336acae38dc4387faf2365abc075b61ea87ca5f717c549"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-ed85e93c76a32ea187ec@franklinfinancial.ai
+DTSTART:20260915T120000Z
+DTEND:20260915T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:CTRM earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-259b1474c5326f896566.ics</href><propstat><prop><getetag>"d3503b1158e93cc0ac7a0b0e46dcf4f5c2a4699d57d0f0cda4fe046635111438"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-259b1474c5326f896566@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.6159\nEPS actual: -0.75\nRevenue e
+ st: 29\,009\,920\nRevenue actual: 30\,971\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:KMTS earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-7966f96d568ac853ab8b.ics</href><propstat><prop><getetag>"44262503f3127227a57bd315ac19e85f6c1c5d8dfbd4e18aef713d24baf5958b"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-7966f96d568ac853ab8b@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: 0.03\nRevenue est: 12\,161\,900\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:RSSS earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-80a2de148871afc8f575.ics</href><propstat><prop><getetag>"cd792b8e5a11bbe13f6c468889e3816e97f4b72e7137c4452f5ccabadbaafc1a"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-80a2de148871afc8f575@franklinfinancial.ai
+DTSTART:20261119T130000Z
+DTEND:20261119T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 2.68\nRevenue est: 230\,869\,500\nDat
+ e NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:TEN earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-f2a55ff62de62605e360.ics</href><propstat><prop><getetag>"289c7992f3604f85f0e0d73203dc52a60852a968697d0d2cc6550f939695b868"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-f2a55ff62de62605e360@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: 0.01\nRevenue est: 23\,000\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:JVA earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-a0357d14bbb6388f71bc.ics</href><propstat><prop><getetag>"e830150a214ca9e9b719390b33bda1e0f25be2488ebe872b1b182ddb4dc2dd68"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-a0357d14bbb6388f71bc@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260915
+DTEND;VALUE=DATE:20260916
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:NAMM earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-024142101717c649c5fc.ics</href><propstat><prop><getetag>"912177be548ac9f2559b9083eaa30328cf1b1ef150791c332166c5004b5b9d68"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-024142101717c649c5fc@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260921
+DTEND;VALUE=DATE:20260922
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:HKD earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-611c4f95f1d10f4cb45e.ics</href><propstat><prop><getetag>"f11d2847521617ea002fcb4e7fa394772c071266285eeb6bbf28b6f641ab277d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-611c4f95f1d10f4cb45e@franklinfinancial.ai
+DTSTART:20260911T120000Z
+DTEND:20260911T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS actual: -0.3592\nRevenue actual: 97\,700\,
+ 000
+DTSTAMP:20260916T081524Z
+SUMMARY:RENT earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6ca8bcfa09d5124974ea.ics</href><propstat><prop><getetag>"307055219ac321b26aca5c4499b277efe82570c72d0e84a56429cc25d1b8d923"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6ca8bcfa09d5124974ea@franklinfinancial.ai
+DTSTART:20260916T203000Z
+DTEND:20260916T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:KEQU earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-df2a9a059d83ebbc2125.ics</href><propstat><prop><getetag>"aeb15e15f47ce2e2fd8743953419d1f85615b759ed823a8a5ea30f8bed51af9d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-df2a9a059d83ebbc2125@franklinfinancial.ai
+DTSTART:20260917T120000Z
+DTEND:20260917T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.23\nDate NOT confirmed by the comp
+ any
+DTSTAMP:20260916T081524Z
+SUMMARY:USAU earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-5296e8ca061d2fc1f501.ics</href><propstat><prop><getetag>"bcf855e306b988384cb39327904a1c20a3222b246640873a2fa8163753275cc6"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-5296e8ca061d2fc1f501@franklinfinancial.ai
+DTSTART:20260909T120000Z
+DTEND:20260909T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2027\nEPS est: 0.17\nRevenue est: 111\,300\,000\nDat
+ e NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:YEXT earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-760f994c27e9e4ae9ec1.ics</href><propstat><prop><getetag>"3645be939d73815442f897323b337ba425d78eee40cd8441bb947727e5923b3e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-760f994c27e9e4ae9ec1@franklinfinancial.ai
+DTSTART:20260916T203000Z
+DTEND:20260916T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 1.28\nRevenue est: 8\,318\,669\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:LEN earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-f6ea70baccfcaee532f3.ics</href><propstat><prop><getetag>"c7d0b5cac71474919e2b62942be56cd3b4e49c4e1235498c282a76960e2976c2"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-f6ea70baccfcaee532f3@franklinfinancial.ai
+DTSTART:20260917T120000Z
+DTEND:20260917T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.33\nRevenue est: 1\,149\,335\,000\
+ nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:VFS earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-4814ef1d5e39cb356749.ics</href><propstat><prop><getetag>"acf0702ac7da8b645eaae257103f2d1d2baddeed3631a1b01a5d87d99e6c3b32"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-4814ef1d5e39cb356749@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260918
+DTEND;VALUE=DATE:20260919
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -3.116\nRevenue est: 5\,412\,167
+DTSTAMP:20260916T081524Z
+SUMMARY:LITS earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-58758ec3d931a87d024e.ics</href><propstat><prop><getetag>"8bd7179a3c0ba3a58f5a6534d837b9eba6e4edc26ced5cbeecd4e342496902e9"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-58758ec3d931a87d024e@franklinfinancial.ai
+DTSTART:20260918T120000Z
+DTEND:20260918T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.02\nRevenue est: 21\,529\,000\nDat
+ e NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:MNY earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-839e30d80e0749ec0e01.ics</href><propstat><prop><getetag>"b5a85c79fb32be848f14a007a5967a640bd68db721f394c9ebc585387f725689"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-839e30d80e0749ec0e01@franklinfinancial.ai
+DTSTART:20260909T203000Z
+DTEND:20260909T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS actual: 0.58\nRevenue actual: 66\,320\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:KEQU earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-c0d977f255a91c59de6c.ics</href><propstat><prop><getetag>"3511ec82dd0cec2d5364ccb055a95723452643307e921a5edcef73db1faaea2d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-c0d977f255a91c59de6c@franklinfinancial.ai
+DTSTART:20260917T120000Z
+DTEND:20260917T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026
+DTSTAMP:20260916T081524Z
+SUMMARY:ADSE earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-c3e3ec9ddb6bb8c0cd55.ics</href><propstat><prop><getetag>"951258835b26d4ecc9e9fe0ef2bbf3b47cd55898540c9aa86ff7cb9a33f7cabc"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-c3e3ec9ddb6bb8c0cd55@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.31\nRevenue est: 54\,951\,400
+DTSTAMP:20260916T081524Z
+SUMMARY:PPHC earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-dc4673c353971681c528.ics</href><propstat><prop><getetag>"2d53fbe73e9295d8f3feb3a3399e630ffb856ff9ec833f02d92e30cb4a2b588d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-dc4673c353971681c528@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260915
+DTEND;VALUE=DATE:20260916
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nDate NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:MWC earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-f831fccb860747c4e5d3.ics</href><propstat><prop><getetag>"e202e4aa35fd4be53047fba6e46546fea72c2a64399d93bf28117e26ccec4467"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-f831fccb860747c4e5d3@franklinfinancial.ai
+DTSTART:20260910T203000Z
+DTEND:20260910T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2027\nEPS est: -0.6164\nRevenue est: 29\,006\,840
+DTSTAMP:20260916T081524Z
+SUMMARY:KMTS earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-36f9f4bf773988192000.ics</href><propstat><prop><getetag>"564f3565080883877cedad1d464abe56947a64525f688f99a28e11aa21bb0175"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-36f9f4bf773988192000@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -0.1474\nRevenue est: 7\,695\,033\nDa
+ te NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:ZENA earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-9912f5deed6a17bd10fa.ics</href><propstat><prop><getetag>"044d9d897087926771d453e67e3c1d84b771ee1c559669229d9e521fde7516e2"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-9912f5deed6a17bd10fa@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260909
+DTEND;VALUE=DATE:20260910
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.1\nRevenue est: 11\,000\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:LAES earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-ef45967a9b7cf0891a8b.ics</href><propstat><prop><getetag>"6850556bd2dec09858ae1c3adfad2bf7e4f1be5b7fa042b881c206ec28352b0b"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-ef45967a9b7cf0891a8b@franklinfinancial.ai
+DTSTART:20260915T120000Z
+DTEND:20260915T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q1 2026\nEPS est: 0.44\nRevenue est: 14\,270\,000\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:AXR earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-aa471b3a47f7bc39e8b7.ics</href><propstat><prop><getetag>"f57dd209f4de7386942dd93d83b04dc76ae9f0e3fc7675eeee3138cbd872702a"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-aa471b3a47f7bc39e8b7@franklinfinancial.ai
+DTSTART:20260923T203000Z
+DTEND:20260923T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.1554\nRevenue est: 830\,805\,900
+DTSTAMP:20260916T081524Z
+SUMMARY:CBRL earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-4661305a2161f0d8ba6f.ics</href><propstat><prop><getetag>"86245638acc63fc3ccefbf6ee00ef6180a51735d89c4908dd9cb5032dcf23163"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-4661305a2161f0d8ba6f@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260910
+DTEND;VALUE=DATE:20260911
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -0.08223\nRevenue est: 741\,311\,100
+DTSTAMP:20260916T081524Z
+SUMMARY:LUXE earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-fe6d8e932f02e803a383.ics</href><propstat><prop><getetag>"91352a475350fb0575f70a75f7071036a2830e6710e4df451deefde7371d1a63"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-fe6d8e932f02e803a383@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+CATEGORIES:Earnings
+DTSTAMP:20260916T081524Z
+SUMMARY:RENT earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-d9ff7a63b8cfbaeb2811.ics</href><propstat><prop><getetag>"0f13ae02d6e5744bcb40310c23ad116c0b51b6333ce63e16c9503428bea1544d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-d9ff7a63b8cfbaeb2811@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: -0.04778\nRevenue est: 311\,299\,500
+DTSTAMP:20260916T081524Z
+SUMMARY:LUCK earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-81b3a372b11938187688.ics</href><propstat><prop><getetag>"fb859f140e21686977f8648a43896cc8fbf56dbce8f66a3ab485a1531b75e34e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-81b3a372b11938187688@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261022
+DTEND;VALUE=DATE:20261023
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.295\nRevenue est: 979\,400\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:HUBG earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-7068f2efc750ac24d7b9.ics</href><propstat><prop><getetag>"0ad0e6648a0d9c25cd47443fd04bd97aebf88b9294f8dd50ba817bc0019c4e2f"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-7068f2efc750ac24d7b9@franklinfinancial.ai
+DTSTART:20260914T120000Z
+DTEND:20260914T123000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.159\nRevenue est: 181\,340\,500\nDa
+ te NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:HERE earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-9dd29a58d9ffbba9e7ae.ics</href><propstat><prop><getetag>"e1022e36ba511faeaa919474046ecc2120f21b86af5ba633a0e33e4066c9f8e7"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-9dd29a58d9ffbba9e7ae@franklinfinancial.ai
+DTSTART:20261118T213000Z
+DTEND:20261118T220000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2027\nEPS est: 2.47\nRevenue est: 108\,672\,700\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:NVDA earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-562f58a8fc7022f38e5c.ics</href><propstat><prop><getetag>"de16cb968d0869adab49a09ef8f1338d3347277a9cc13f058d154a479e244df0"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-562f58a8fc7022f38e5c@franklinfinancial.ai
+DTSTART:20260910T203000Z
+DTEND:20260910T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 0.065\nRevenue est: 231\,340\,000\nDa
+ te NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:RLGT earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-9cf6964dae31679f2140.ics</href><propstat><prop><getetag>"2ca8d75ea3428d987adea2703c89954dd97c3745b848f9673012508d2c7157b9"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-9cf6964dae31679f2140@franklinfinancial.ai
+DTSTART:20260914T203000Z
+DTEND:20260914T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: -0.932\nEPS actual: -0.82\nRevenue es
+ t: 268\,483\,000\nRevenue actual: 241\,800\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:PLCE earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-9b147c0c1032e514865d.ics</href><propstat><prop><getetag>"40aba63bece052d39bd5b83c54b1278e66f00a5120638663a0122226a38673a8"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-9b147c0c1032e514865d@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261215
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2026\nEPS est: 0.32\nRevenue est: 11\,210\,000\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:AXR earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-84a7a386e30dfcecc65a.ics</href><propstat><prop><getetag>"4ecc201a28d7835e3e3dbebeeb4b1a467cf5e814b7787cb4834dbb95fea3447a"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-84a7a386e30dfcecc65a@franklinfinancial.ai
+DTSTART:20261214T213000Z
+DTEND:20261214T220000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2027\nEPS est: 0.06\nRevenue est: 55\,666\,380
+DTSTAMP:20260916T081524Z
+SUMMARY:MAMA earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-378b1d059c0fff4cb014.ics</href><propstat><prop><getetag>"46b70bb753d680e3817ecdf1af57e6785b308774365ae1967fac8c47f8141e65"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-378b1d059c0fff4cb014@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260921
+DTEND;VALUE=DATE:20260922
+CATEGORIES:Earnings
+DESCRIPTION:EPS est: 0.1\nRevenue est: 13\,900\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:GLBS earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-70aaa7bc8db4b7da8640.ics</href><propstat><prop><getetag>"d3a7508ded10033c9502d2a3608528d41dd1c8101b5c5c40b79451adb20d3f99"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-70aaa7bc8db4b7da8640@franklinfinancial.ai
+DTSTART:20261210T130000Z
+DTEND:20261210T133000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q2 2027\nEPS est: -0.65\nRevenue est: 1e+05\nDate NOT c
+ onfirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:HSCSW earnings (before open)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-9bb649914d7eac6bad10.ics</href><propstat><prop><getetag>"71ed02b4a61c55c4b514079803e32c8a512eb81783e9cbd18f158eb1f733cdf6"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-9bb649914d7eac6bad10@franklinfinancial.ai
+DTSTART:20260929T203000Z
+DTEND:20260929T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: 31.14\nRevenue est: 50\,413\,240\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:MU earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-652544a02a35b2a5a0e8.ics</href><propstat><prop><getetag>"d2a50273a5cdbbef5d23fc35e811163db0c83f0eeaa2028ada814c4f54aa4d7d"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-652544a02a35b2a5a0e8@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261118
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 1.18\nRevenue est: 1\,486\,704\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:Q earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-6a36fec11ae8ac4e22f7.ics</href><propstat><prop><getetag>"6d0439ac054c2d5718a57a5d229466d0c4cf3a1138941716e26a521aef68a9a3"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-6a36fec11ae8ac4e22f7@franklinfinancial.ai
+DTSTART;VALUE=DATE:20260917
+DTEND;VALUE=DATE:20260918
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: 0.32\nRevenue est: 11\,500\,000\nDate
+  NOT confirmed by the company
+DTSTAMP:20260916T081524Z
+SUMMARY:GVH earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-337aef658a7b741786f7.ics</href><propstat><prop><getetag>"3394d98911269ec846e49b87a842999b1e2e859f4516b9d2bd4da618543acca3"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-337aef658a7b741786f7@franklinfinancial.ai
+DTSTART:20261208T213000Z
+DTEND:20261208T220000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2026\nEPS est: -1.37\nRevenue est: 448\,552\,300
+DTSTAMP:20260916T081524Z
+SUMMARY:PLAY earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-bc84da326a60bd2c7c7e.ics</href><propstat><prop><getetag>"a72a44d2ecceb9560fb147c3067b3dc69f1b3f53c262eb27185338a7ad6333a7"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-bc84da326a60bd2c7c7e@franklinfinancial.ai
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261215
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q3 2027\nEPS est: 0.19\nRevenue est: 111\,800\,000
+DTSTAMP:20260916T081524Z
+SUMMARY:YEXT earnings
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response><response><href>/calendar-publisher/earnings/earnings-5af36fd335459104a6de.ics</href><propstat><prop><getetag>"28220c41366e0e0c6ffa1a8702fb10a813c9ea5a915d2e17416f815c1154f37e"</getetag><C:calendar-data>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Franklin Digital//Radicale Publisher//EN
+BEGIN:VEVENT
+UID:earnings-5af36fd335459104a6de@franklinfinancial.ai
+DTSTART:20260916T203000Z
+DTEND:20260916T210000Z
+CATEGORIES:Earnings
+DESCRIPTION:Fiscal: Q4 2026\nEPS est: -0.148\nDate NOT confirmed by the com
+ pany
+DTSTAMP:20260916T081524Z
+SUMMARY:RZLT earnings (after close)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</C:calendar-data></prop><status>HTTP/1.1 200 OK</status></propstat></response></multistatus>

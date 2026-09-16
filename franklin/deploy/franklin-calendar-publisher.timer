@@ -1,0 +1,15 @@
+[Unit]
+Description=Hourly refresh of the Franklin earnings/economic calendars
+Documentation=https://franklindigital.atlassian.net/browse/DAYTRADE-778
+
+[Timer]
+OnCalendar=hourly
+# Spread load off the top of the hour, where this host already fires a dozen
+# other timers.
+RandomizedDelaySec=300
+# Catch up after a reboot or a suspend rather than waiting for the next hour.
+Persistent=true
+Unit=franklin-calendar-publisher.service
+
+[Install]
+WantedBy=timers.target

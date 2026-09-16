@@ -153,26 +153,45 @@ speed bump, not a defence. Before this hostname is reachable, one of:
   per guess), or
 * **fail2ban** at the origin against the Radicale log.
 
-## Access enforcement across the zone is UNCONFIRMED
+## Access IS enforcing — and a local probe can never see it
 
-DevOps checked 7 hostnames (grafana, jenkins, dashboard, questdb, api, mcp,
-ai-gateway) and **none redirects to `cloudflareaccess.com`**, despite the root
-`CLAUDE.md` describing them all as "Cloudflare tunnel + Access". Two
-explanations fit and neither was distinguishable from on-network: an Access
-**Bypass** policy including the house egress IP, or **Access not enforcing at
-all**. mac-pro and DGX share that egress IP, and there is no Cloudflare API
-token on the box with Access scope, so this needs a human in Zero Trust →
-Access → Applications.
+**Resolved 2026-09-15.** This section previously said enforcement was
+unconfirmed, because no probe from mac-pro saw an Access redirect on any of 7
+hostnames. That reading was wrong, and the reason matters more than the answer:
 
-Do not reason from the DAYTRADE-204 config comment ("Access app = explicit
-bypass … enforced at the origin") as though it describes the live state. It
-describes an *intent*, and the same file's ⚠ warning about a second cloudflared
-daemon had already outlived the problem it described.
+**mac-pro, the DGX and the MacBook all share the house egress IP, and that IP
+is BYPASSED.** So every local probe returned the bypassed answer. The test was
+structurally incapable of returning the failing value — the same shape as a
+query that cannot return the row that would disprove it.
 
-**Status-code alone cannot tell you whether Access is in front.** Grafana
-returns `302`, which reads like an Access redirect but whose `Location` is
-Grafana's own `/login`. Only the redirect *target* or `cf-access-*` headers
-answer it.
+Sal loaded `questdb.franklinfinancial.ai` from a phone on cellular and got the
+Cloudflare Access window. Access is live on the zone.
+
+**To verify anything about Access posture, you must be off-network** — a phone
+on cellular with VPN off, or any host outside the house. A local `curl` proves
+nothing either way.
+
+### Which makes the Access Bypass a HARD blocker, not a design preference
+
+Sal's phone test *is* the CalDAV client test. A DAVx5 or macOS Calendar client
+on cellular hits exactly that Access window, cannot complete an interactive
+browser flow, and fails to sync. So:
+
+**No client will work until a per-Application Bypass exists for
+`calendar.franklinfinancial.ai`.** An Application is a hostname (+ optional
+path); a Bypass/Everyone policy scoped to this one touches nothing else.
+
+Creating it needs an **account-scoped** token with *Access: Apps & Policies
+Edit*. There is no Cloudflare API token in `franklin.env` at all, and the
+DNS-scoped `CLOUDFLARE_ACCESS_TOKEN` cannot do it — so this happens in the Zero
+Trust dashboard.
+
+### Status code alone cannot tell you whether Access is in front
+
+Grafana returns `302`, which reads like an Access login redirect. Its
+`Location` is `/login` — Grafana's *own* page. Discriminate on the redirect
+TARGET containing `cloudflareaccess.com`, or on `cf-access-*` headers. Never on
+the code.
 
 ## Tunnel ingress — one config, not two
 
@@ -200,3 +219,57 @@ which nothing reads.
   XML. If WAF is on, check for false positives before blaming Radicale.
 * **`X-Forwarded-Host`** — see the HTTPS note above; Radicale advertises
   `http://` URLs unless that header is present.
+
+## Publisher job — `franklin/publisher/publish_calendars.py`
+
+Renders `fmp_earnings_calendar` and `fmp_economic_calendar` (Postgres
+`benny_prod`) into the two shared calendars as `calendar-publisher`. Scheduled
+hourly by `franklin/deploy/franklin-calendar-publisher.{service,timer}`.
+
+**Scope (defaults).** Earnings: active members (`removed_at IS NULL`) of
+`portfolio` + `earnings_wk`; economic: `country = 'US'`; window −7/+90 days.
+Measured 2026-09-16: **224 earnings, 955 economic.** The unscoped table is
+1M+ rows. `earnings_wk` is a rolling list (858 rows, 93 active), so ignoring
+`removed_at` quadruples the calendar with names that left the universe. Of the
+52 portfolio symbols, 37 are ETFs/leveraged funds with no earnings — 17
+portfolio events is complete, not a gap.
+
+**Times.** `bmo` → 08:00 ET, `amc` → 16:30 ET, anything else → ALL-DAY. An
+unknown time is never rendered as a clock time. Emitted in UTC, DST per date.
+
+**Cost.** One CalDAV REPORT per calendar, then PUT only new/changed and DELETE
+only stale. A quiet run is ~5 s. A full rewrite (`--force`, or first run) is
+~1,200 PUTs at ~0.4 s each — ~10 min — which is why change-detection is
+load-bearing for an hourly timer.
+
+**Verified live, both directions (2026-09-16):** tampering one SUMMARY →
+`1 changed` → repaired → `0 changed`; planting a foreign item → `1 stale` →
+deleted, 224 remain.
+
+### Four bugs this shipped through — each passed something that looked like a test
+
+1. **Rights `{0}` → HTTP 500.** `{0}` is the first CAPTURE GROUP of the user
+   pattern, not the username; `user = .+` has none. It only fired on item
+   paths, because every earlier request matched a publisher rule first. Use
+   `{user}`. (`radicale/rights/from_file.py:121`)
+2. **Folding a multi-line block → intermittent 400.** Only when a 75-octet cut
+   landed exactly on a CRLF. `vobject.readOne` ACCEPTS the corrupt form;
+   Radicale's `read_components` rejects it. Tests parse with Radicale's reader
+   and sweep length by 1 byte — two earlier test versions went green against
+   this exact bug.
+3. **`@` in resource names → the job deleted its own events.** Radicale
+   percent-encodes hrefs; `%40` never matched, so everything was both "new"
+   and "stale", and deletes ran after puts: 47 freshly written events gone.
+   Resource names are now `[a-z0-9-]` slugs (the UID *property* keeps
+   `@franklinfinancial.ai`), deletes run first, and deleting a wanted slug is
+   an assertion.
+4. **Change-detection that could never see the calendar.** A regex for
+   `<calendar-data>` missed Radicale's `<C:calendar-data>`, so every run saw an
+   empty calendar and rewrote everything while logging success. And a textual
+   comparison would never match anyway: Radicale reorders properties,
+   re-folds, and returns LF. Now: XML parser + order/fold-insensitive compare,
+   tested against a verbatim server response (`fixtures_report_earnings.xml`).
+
+Also: a mutation run whose `str.replace` silently matched nothing reported the
+tests as catching a bug they did not catch. Mutation scripts must assert the
+mutation applied.

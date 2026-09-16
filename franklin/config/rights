@@ -9,7 +9,11 @@
 #   r / w  apply to the calendars/address books themselves
 #   i      HTTP GET only; for unauthenticated access. Not used here.
 #
-# {0} interpolates the whole `user` match (group 0).
+# {user} interpolates the authenticated username (escaped).
+# NOT {0}: that is the first CAPTURE GROUP of the user pattern, and
+# `user = .+` has none -- it raises IndexError and returns HTTP 500
+# on any request that reaches the rule. Verified in
+# radicale/rights/from_file.py:121 (collection_pattern.format).
 #
 # SHARED CALENDARS LIVE UNDER THE `calendar-publisher` PRINCIPAL. Radicale has
 # no ownerless collections -- every collection sits under a principal and a
@@ -58,10 +62,10 @@ permissions = r
 
 [owner-principal]
 user = .+
-collection = {0}
+collection = {user}
 permissions = RW
 
 [owner-calendars]
 user = .+
-collection = {0}/[^/]+
+collection = {user}/[^/]+
 permissions = rw

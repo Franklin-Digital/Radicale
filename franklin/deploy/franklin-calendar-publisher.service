@@ -1,0 +1,39 @@
+# Publishes the Earnings and Economic Indicator calendars (DAYTRADE-778).
+#
+# Install:
+#   sudo cp franklin/deploy/franklin-calendar-publisher.{service,timer} /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now franklin-calendar-publisher.timer
+#
+# Run it by hand with:
+#   sudo systemctl start franklin-calendar-publisher.service
+[Unit]
+Description=Publish Franklin earnings/economic calendars to Radicale
+Documentation=https://franklindigital.atlassian.net/browse/DAYTRADE-778
+# franklin-radicale IS a systemd unit (unlike postgres-prod), so this
+# ordering is real rather than a silent no-op. Requires= as well: with the
+# server down every PUT fails and the run is pure noise.
+After=franklin-radicale.service
+Requires=franklin-radicale.service
+
+[Service]
+Type=oneshot
+User=sal
+Group=sal
+WorkingDirectory=/home/Franklin/franklin-radicale
+
+# franklin.env has no `export` lines, but systemd's EnvironmentFile parses
+# KEY=VALUE directly and does not need `set -a` -- that requirement applies
+# to SHELL dot-sourcing only.
+EnvironmentFile=/home/Franklin/secrets/franklin.env
+
+ExecStart=/home/Franklin/franklin-radicale/.venv/bin/python \
+    /home/Franklin/franklin-radicale/franklin/publisher/publish_calendars.py
+
+# A full rewrite (first run, or --force) is ~1,200 PUTs at ~0.4s each.
+# Steady-state runs are seconds: the publisher fetches current content in one
+# CalDAV REPORT and writes only what differs.
+TimeoutStartSec=1800
+
+# The publisher refuses to start without CALENDAR_PUBLISHER_PASSWORD and
+# fails loudly on any HTTP error, so a non-zero exit is a real failure.
