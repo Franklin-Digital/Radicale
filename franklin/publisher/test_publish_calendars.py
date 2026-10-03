@@ -505,3 +505,99 @@ def test_notes_list_every_company_with_estimates():
 def test_unparseable_date_row_is_skipped_not_fatal():
     groups = pc.group_earnings_rows([_row(date="not-a-date"), _row(symbol="OK")])
     assert [len(v) for v in groups.values()] == [1]
+
+
+# ── SMB sessions (2026-10-03) ────────────────────────────────────────
+
+import json as _json
+import fetch_smb_meetings as fsm
+
+_M = dict(id="3429", title="AM Meeting", type="morning_meeting",
+          start="2026-10-01T13:00:00.000Z", end="2026-10-01T13:30:00.000Z",
+          status="upcoming", duration=30)
+
+
+def test_smb_times_are_the_utc_instants_rt_sent():
+    _, ics = pc.smb_vevent(_M, NOW)
+    # rt sends UTC with a Z. Reading it as local time would shift it 4-7 h.
+    assert "DTSTART:20261001T130000Z" in ics and "DTEND:20261001T133000Z" in ics, ics
+
+
+def test_smb_description_shows_et_across_dst():
+    _, oct_ics = pc.smb_vevent(_M, NOW)
+    _, dec_ics = pc.smb_vevent(dict(_M, start="2026-12-01T14:00:00.000Z",
+                                    end="2026-12-01T14:30:00.000Z"), NOW)
+    # 13:00Z in EDT and 14:00Z in EST are both 9:00 AM ET. A fixed -4 offset
+    # would print 10:00 AM for December.
+    assert "9:00 AM ET" in oct_ics and "9:00 AM ET" in dec_ics, (oct_ics, dec_ics)
+
+
+def test_smb_event_points_at_rt_calendar_and_the_confluence_archive():
+    _, ics = pc.smb_vevent(_M, NOW)
+    unfolded = ics.replace("\r\n ", "")
+    assert "URL:https://rt.smbtraining.com/calendar" in unfolded
+    assert "pages/149651457" in unfolded
+
+
+def test_smb_slug_is_stable_and_moves_with_the_start():
+    a, _ = pc.smb_vevent(_M, NOW)
+    b, _ = pc.smb_vevent(dict(_M), NOW + dt.timedelta(days=1))
+    c, _ = pc.smb_vevent(dict(_M, start="2026-10-01T14:00:00.000Z",
+                              end="2026-10-01T14:30:00.000Z"), NOW)
+    assert a == b, "same session must overwrite itself, not duplicate"
+    assert a != c, "a moved session must replace its old slot"
+    assert a.startswith("smb-") and set(a) <= set("abcdefghijklmnopqrstuvwxyz0123456789-")
+
+
+def test_smb_naive_or_backwards_times_are_refused():
+    with pytest.raises(ValueError):
+        pc.smb_vevent(dict(_M, start="2026-10-01T13:00:00"), NOW)
+    with pytest.raises(ValueError):
+        pc.smb_vevent(dict(_M, end="2026-10-01T12:00:00.000Z"), NOW)
+
+
+def test_fetcher_drops_the_join_link_and_webinar_ids():
+    raw = [{**_M, "extendedProps": {"webinar_id": "816947830", "occurrence_id": "1790859600000",
+                                    "url": "https://us02web.zoom.us/w/816947830?tk=SECRET",
+                                    "status": "upcoming", "duration": 30}}]
+    out = _json.dumps(fsm.sanitise(raw))
+    assert "zoom" not in out and "SECRET" not in out and "816947830" not in out, out
+    assert _json.loads(out)[0]["status"] == "upcoming"
+
+
+def _write(tmp_path, doc):
+    p = tmp_path / "m.json"
+    p.write_text(_json.dumps(doc))
+    return str(p)
+
+
+@pytest.mark.parametrize("doc", [{"meetings": []}, {"nope": 1}, [], {"meetings": "x"}])
+def test_an_empty_or_broken_fetch_never_reaches_sync(tmp_path, monkeypatch, doc):
+    called = []
+    monkeypatch.setattr(pc, "_sync", lambda *a, **k: called.append(a) or 0)
+    args = type("A", (), dict(smb_json=_write(tmp_path, doc), base="http://x",
+                              dry_run=True, force=False))()
+    # _sync deletes everything not wanted: reaching it with nothing would wipe
+    # the calendar. The publisher must fail instead and leave it alone.
+    assert pc.publish_smb(args, NOW, "pw") == 1
+    assert called == [], "sync was reached with an unusable fetch"
+
+
+def test_a_good_fetch_syncs_the_smb_sessions_calendar(tmp_path, monkeypatch):
+    seen = {}
+
+    def fake_sync(cal, wanted, label, force=False):
+        seen.update(url=cal.url, n=len(wanted), label=label)
+        return 0
+    monkeypatch.setattr(pc, "_sync", fake_sync)
+    two = [_M, dict(_M, id="3430", start="2026-10-02T13:00:00.000Z", end="2026-10-02T13:30:00.000Z")]
+    args = type("A", (), dict(smb_json=_write(tmp_path, {"meetings": two}),
+                              base="http://x", dry_run=True, force=False))()
+    assert pc.publish_smb(args, NOW, "pw") == 0
+    assert seen == {"url": "http://x/calendar-publisher/smb-sessions/", "n": 2, "label": "smb"}, seen
+
+
+def test_only_smb_without_json_is_refused(monkeypatch):
+    monkeypatch.setenv("CALENDAR_PUBLISHER_PASSWORD", "pw")
+    monkeypatch.setattr(sys, "argv", ["publish_calendars.py", "--only", "smb"])
+    assert pc.main() == 2

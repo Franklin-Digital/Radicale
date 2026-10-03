@@ -10,7 +10,7 @@
 # forces Enabled / not Hidden / read-only for the member.
 #
 # Idempotent: an existing share returns 409 and is treated as present; the
-# script then asserts via the list API that BOTH shares exist, so "exit 0"
+# script then asserts via the list API that EVERY share exists, so "exit 0"
 # means the shares are really there, not merely that nothing errored.
 #
 # Run as sal on mac-pro:  franklin/deploy/create-group-shares.sh
@@ -25,6 +25,7 @@ AUTH="calendar-publisher:${CALENDAR_PUBLISHER_PASSWORD}"
 SHARES=(
   "franklin-earnings:earnings"
   "franklin-economic-indicators:economic-indicators"
+  "franklin-smb-sessions:smb-sessions"
 )
 
 for pair in "${SHARES[@]}"; do
@@ -52,4 +53,4 @@ for pair in "${SHARES[@]}"; do
     echo "FAIL: share /{user}/${name}/ not present in sharing list:"; echo "$list"; exit 1
   fi
 done
-echo "verified: both group shares present"
+echo "verified: all ${#SHARES[@]} group shares present"
