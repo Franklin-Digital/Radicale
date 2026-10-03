@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Publish Earnings and Economic Indicator calendars to Radicale (DAYTRADE-778).
+"""Publish Earnings, Economic Indicator and SMB Sessions calendars to Radicale (DAYTRADE-778).
+
+SMB SESSIONS (2026-10-03) come from rt.smbtraining.com/calendar, fetched on the
+DGX by fetch_smb_meetings.py (the rt cookie lives only there) and handed to
+this script as sanitised JSON via --smb-json. No join links are published.
 
 These calendars are DERIVED. Franklin already owns both data sets, so nothing
 here invents data: it renders `fmp_earnings_calendar` and
@@ -32,6 +36,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import hashlib
+import json
 import logging
 import os
 import re
@@ -340,6 +345,84 @@ def group_economic_rows(rows: list) -> dict:
     return groups
 
 
+# ── SMB sessions ─────────────────────────────────────────────────────
+
+SMB_CALENDAR_URL = "https://rt.smbtraining.com/calendar"
+#: "SMB Inside Access Sessions" on Confluence: the per-category year pages
+#: (video + write-up, usually within about an hour of a session) live under it.
+SMB_ARCHIVE_URL = "https://franklindigital.atlassian.net/wiki/spaces/SMB/pages/149651457"
+
+
+def _utc(iso: str) -> dt.datetime:
+    """rt sends '2026-10-01T13:00:00.000Z'. Parse it as an AWARE UTC instant."""
+    t = dt.datetime.fromisoformat(iso.replace("Z", "+00:00"))
+    if t.tzinfo is None:
+        raise ValueError(f"naive timestamp {iso!r} - refusing to guess its zone")
+    return t.astimezone(UTC)
+
+
+def smb_vevent(m: dict, now: dt.datetime) -> tuple[str, str]:
+    """One SMB session -> (slug, VEVENT). Identity is rt's id plus its start,
+    so a re-run overwrites and a moved session replaces its old slot."""
+    start, end = _utc(m["start"]), _utc(m["end"])
+    if end <= start:
+        raise ValueError(f"session {m['id']} ends before it starts")
+    slug = _slug("smb", str(m["id"]), start.isoformat())
+    et = start.astimezone(ET)
+    desc = [f"SMB Inside Access - {m['title']}",
+            f"{et.strftime('%a %b %-d, %-I:%M %p')} ET",
+            "",
+            f"Join (SMB members): {SMB_CALENDAR_URL}",
+            "Video and write-up: usually on Confluence within about an hour,",
+            f"under SMB Inside Access Sessions: {SMB_ARCHIVE_URL}"]
+    lines = ["BEGIN:VEVENT", f"UID:{slug}@{UID_DOMAIN}", f"DTSTAMP:{_stamp(now)}",
+             f"SUMMARY:{_esc(m['title'])}",
+             f"DTSTART:{_stamp(start)}",
+             f"DTEND:{_stamp(end)}",
+             f"DESCRIPTION:{_esc(chr(10).join(desc))}",
+             f"URL:{SMB_CALENDAR_URL}",
+             f"CATEGORIES:{_esc('SMB')}",
+             "TRANSP:TRANSPARENT",
+             "END:VEVENT"]
+    return slug, "\r\n".join(lines)
+
+
+def load_smb_meetings(path: str) -> list:
+    """The fetcher's JSON -> meetings. RAISES on anything that is not a usable,
+    non-empty list: _sync deletes whatever is not wanted, so an empty or broken
+    input must never reach it - it would wipe the calendar."""
+    with open(path) as f:
+        doc = json.load(f)
+    meetings = doc.get("meetings") if isinstance(doc, dict) else None
+    if not isinstance(meetings, list):
+        raise ValueError(f"{path}: no 'meetings' list")
+    if not meetings:
+        raise ValueError(f"{path}: 0 meetings - refusing to publish an empty SMB calendar")
+    return meetings
+
+
+def publish_smb(args, now, pw) -> int:
+    try:
+        meetings = load_smb_meetings(args.smb_json)
+    except Exception as e:                                    # noqa: BLE001
+        log.error("smb: NOT published, calendar left as it is: %s", e)
+        return 1
+    wanted: dict[str, str] = {}
+    for m in meetings:
+        try:
+            slug, ics = smb_vevent(m, now)
+            wanted[slug] = ics
+        except Exception as e:                                # noqa: BLE001
+            log.warning("skipping smb session %s/%s: %s", m.get("id"), m.get("start"), e)
+    if not wanted:
+        log.error("smb: none of %d session(s) could be rendered - calendar left as it is",
+                  len(meetings))
+        return 1
+    log.info("smb: %d session(s) -> %d events", len(meetings), len(wanted))
+    cal = Calendar(args.base, "calendar-publisher", pw, "smb-sessions", args.dry_run)
+    return _sync(cal, wanted, "smb", args.force)
+
+
 # ── CalDAV ───────────────────────────────────────────────────────────
 
 class Calendar:
@@ -441,7 +524,9 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--force", action="store_true",
                     help="re-PUT every event even if unchanged")
-    ap.add_argument("--only", choices=["earnings", "economic"])
+    ap.add_argument("--only", choices=["earnings", "economic", "smb"])
+    ap.add_argument("--smb-json", help="sanitised meetings from fetch_smb_meetings.py "
+                    "(run on the DGX); without it the SMB calendar is not touched")
     args = ap.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
@@ -456,6 +541,18 @@ def main() -> int:
     end = (now.date() + dt.timedelta(days=args.forward_days))
     log.info("window %s .. %s", start, end)
 
+    rc = 0
+    if args.only in (None, "smb"):
+        if args.smb_json:
+            rc |= publish_smb(args, now, pw)
+        elif args.only == "smb":
+            log.error("--only smb needs --smb-json")
+            return 2
+        else:
+            log.info("smb: no --smb-json given - SMB calendar not touched")
+    if args.only == "smb":
+        return rc
+
     conn = psycopg2.connect(
         connect_timeout=10,
         host=os.environ.get("BENNY_PG_HOST", "localhost"),
@@ -464,7 +561,6 @@ def main() -> int:
         user=os.environ.get("BENNY_USER", "benny_prod"),
         password=os.environ["BENNY_PASSWORD"])
 
-    rc = 0
     try:
         if args.only in (None, "earnings"):
             rc |= publish_earnings(conn, args, start, end, now, pw)

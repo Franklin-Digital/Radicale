@@ -68,7 +68,7 @@ permissions = R
 # Named explicitly rather than [^/]+ so a future calendar under this principal
 # is private until someone deliberately adds it here.
 user = .+
-collection = calendar-publisher/(earnings|economic-indicators)
+collection = calendar-publisher/(earnings|economic-indicators|smb-sessions)
 permissions = r
 
 # --- each user's own home collection -------------------------------------

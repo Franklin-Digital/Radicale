@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Create the two shared calendars ONCE, under the calendar-publisher principal.
+# Create the shared calendars ONCE, under the calendar-publisher principal.
 #
 #   /calendar-publisher/earnings/              "Earnings Calendar"
 #   /calendar-publisher/economic-indicators/   "Economic Indicator Calendar"
+#   /calendar-publisher/smb-sessions/          "SMB Sessions" (2026-10-03)
 #
 # NOT predefined_collections: that creates a PRIVATE copy under every user who
 # logs in (radicale/app/__init__.py:625 uses principal_path + name), which is a
@@ -54,6 +55,7 @@ XML
 
 mk "earnings"            "Earnings Calendar"
 mk "economic-indicators" "Economic Indicator Calendar"
+mk "smb-sessions"        "SMB Sessions"
 
 echo
 echo "  verifying both are discoverable..."

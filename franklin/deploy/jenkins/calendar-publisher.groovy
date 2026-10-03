@@ -1,4 +1,4 @@
-// calendar-publisher — publishes the Earnings and Economic Indicator calendars
+// calendar-publisher — publishes the Earnings, Economic Indicator and SMB Sessions calendars
 // to Radicale (calendar.franklinfinancial.ai). DAYTRADE-778.
 //
 // LOADED, not run directly. The Jenkins job definition is a small bootstrap
@@ -15,7 +15,7 @@
 // Parameters (declared in config.xml so they exist before the first build):
 //   DRY_RUN  compute and log new/changed/stale, write nothing
 //   FORCE    re-PUT every event even if unchanged (~10 min)
-//   ONLY     both | earnings | economic
+//   ONLY     both | earnings | economic   ('both' = every calendar, SMB included)
 
 // Python environment: the host convention /home/Franklin/venvs/<component>-<env>.
 // Built from franklin/deploy/requirements-franklin-radicale-prod.txt with NO
@@ -23,6 +23,12 @@
 // `python -m pytest` imports the checked-out radicale package directly.
 @groovy.transform.Field
 String VENV = '/home/Franklin/venvs/franklin-radicale-prod'
+
+// SMB Sessions (2026-10-03). rt.smbtraining.com's cookie lives ONLY on the DGX
+// (Sal, 2026-09-22), so the fetch runs there, with the DGX's own venv of the
+// same name. Only the sanitised JSON (no join links) comes back to mac-pro.
+@groovy.transform.Field
+String SMB_JSON = '/tmp/calendar-publisher-smb-meetings.json'
 
 // Run a command as sal, in the repo, with franklin.env loaded. franklin.env
 // has no `export` lines, so `set -a` is required or every variable is empty.
@@ -63,11 +69,51 @@ def run(params) {
             asSal("${VENV}/bin/python -m pytest franklin/publisher franklin/tests -q -p no:cacheprovider")
         }
 
+        stage('Fetch SMB sessions (dgx)') {
+            // The script comes from THIS checkout (git), copied out via sal the
+            // same way the bootstrap copies this file (jenkins has no read access
+            // to the checkout), then runs on the DGX, where the rt cookie lives;
+            // the dgx agent has no clone of this fork. A failure here never blocks
+            // the other calendars: publish then leaves the SMB calendar untouched.
+            sh "sudo -u sal -H cat /home/Franklin/franklin-radicale/franklin/publisher/fetch_smb_meetings.py > fetch_smb_meetings.py"
+            def fetcher = readFile('fetch_smb_meetings.py')
+            def fetched = false
+            try {
+                // Bounded: a busy dgx agent must not hold the hourly run for 45 min.
+                timeout(time: 10, unit: 'MINUTES') {
+                    node('dgx') {
+                        writeFile file: 'fetch_smb_meetings.py', text: fetcher
+                        def rc = sh(returnStatus: true, script: '''#!/bin/bash
+set -uo pipefail
+/home/Franklin/venvs/franklin-radicale-prod/bin/python fetch_smb_meetings.py > smb-meetings.json
+''')
+                        if (rc == 0) {
+                            stash name: 'smb-meetings', includes: 'smb-meetings.json'
+                            fetched = true
+                        } else if (rc == 3) {
+                            unstable('SMB calendar NOT refreshed: rt.smbtraining.com cookie rejected. Refresh it: smb-cookie smb')
+                        } else {
+                            unstable("SMB calendar NOT refreshed: fetch failed (rc=${rc})")
+                        }
+                    }
+                }
+            } catch (e) {
+                unstable("SMB calendar NOT refreshed: dgx fetch did not complete (${e})")
+            }
+            if (fetched) {
+                unstash 'smb-meetings'
+                sh "install -m 644 smb-meetings.json ${SMB_JSON}"
+            } else {
+                sh "rm -f ${SMB_JSON}"
+            }
+        }
+
         stage('Publish') {
             def args = []
             if (params.DRY_RUN) { args << '--dry-run' }
             if (params.FORCE)   { args << '--force' }
             if (params.ONLY && params.ONLY != 'both') { args << "--only ${params.ONLY}" }
+            if (fileExists(SMB_JSON)) { args << "--smb-json ${SMB_JSON}" }
             def argStr = args.join(' ')
             echo "publish_calendars.py ${argStr ?: '(no flags)'}"
 
