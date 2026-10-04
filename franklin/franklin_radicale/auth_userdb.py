@@ -67,7 +67,10 @@ logger = logging.getLogger(__name__)
 #: "sal.cobian@gmail.com" must land in the same /<user>/ tree.
 #:
 #: Parameterised, so a username can never become SQL.
-_LOOKUP_SQL = ("SELECT username, password_hash FROM users "
+#:
+#: `status` (onboarding sql/001): only 'active' signs in. 'invited' has no
+#: password yet; 'disabled' is off. Both get the same "" as a wrong password.
+_LOOKUP_SQL = ("SELECT username, password_hash, status FROM users "
                "WHERE lower(username) = lower(%s) LIMIT 2")
 
 
@@ -122,7 +125,10 @@ class Auth(BaseAuth):
                          "case-insensitively - refusing", login)
             return ""
 
-        username, stored = rows[0]
+        username, stored, status = rows[0]
+        if status != "active":
+            logger.info("franklin auth: %r is %s - refusing", username, status)
+            return ""
         if not stored:
             # Present but unusable. NOT the same as "no password required".
             logger.warning("franklin auth: user %r has an empty password_hash "
