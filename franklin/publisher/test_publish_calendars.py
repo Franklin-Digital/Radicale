@@ -601,3 +601,16 @@ def test_only_smb_without_json_is_refused(monkeypatch):
     monkeypatch.setenv("CALENDAR_PUBLISHER_PASSWORD", "pw")
     monkeypatch.setattr(sys, "argv", ["publish_calendars.py", "--only", "smb"])
     assert pc.main() == 2
+
+
+def test_smb_event_carries_id_and_webinar_type_for_the_dispatcher():
+    _, ics = pc.smb_vevent(dict(_M, type="monster_trades", webinar_type="easy_money"), NOW)
+    # Easy Money Trades arrives as type=monster_trades: the dispatcher would
+    # file it under the wrong archive category without webinar_type.
+    assert "X-FRANKLIN-SMB-TYPE:easy_money" in ics and "X-FRANKLIN-SMB-ID:3429" in ics, ics
+
+
+def test_fetcher_keeps_webinar_type():
+    raw = [{**_M, "type": "monster_trades",
+            "extendedProps": {"webinar_type": "easy_money", "url": "https://zoom.us/x"}}]
+    assert fsm.sanitise(raw)[0]["webinar_type"] == "easy_money"
