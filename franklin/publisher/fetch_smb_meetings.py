@@ -6,7 +6,8 @@ nowhere else (Sal, 2026-09-22), so this script is the one place that talks to
 rt. It prints a SANITISED JSON list on stdout, which the calendar-publisher
 job carries back to mac-pro for publish_calendars.py --smb-json.
 
-What is kept: the meeting id, title, type, start/end (UTC), status, duration.
+What is kept: the meeting id, title, type, webinar_type, start/end (UTC),
+status, duration.
 What is DROPPED: extendedProps.url (the webinar join link), webinar_id and
 occurrence_id. A join link belongs to a member account and is not ours to
 republish on a calendar every Franklin user can read; the event points at
@@ -43,6 +44,10 @@ def sanitise(items: list) -> list:
         m = {k: i.get(k) for k in KEEP}
         m["status"] = ep.get("status")
         m["duration"] = ep.get("duration")
+        # webinar_type, not type: rt reports Easy Money Trades with
+        # type=monster_trades but webinar_type=easy_money. The dispatcher maps
+        # this to an archive category, so it needs the distinguishing one.
+        m["webinar_type"] = ep.get("webinar_type") or i.get("type")
         if not (m["id"] and m["title"] and m["start"] and m["end"]):
             continue                      # an event with no time is not a calendar entry
         out.append(m)

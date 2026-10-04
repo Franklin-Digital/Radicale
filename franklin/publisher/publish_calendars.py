@@ -382,6 +382,10 @@ def smb_vevent(m: dict, now: dt.datetime) -> tuple[str, str]:
              f"DESCRIPTION:{_esc(chr(10).join(desc))}",
              f"URL:{SMB_CALENDAR_URL}",
              f"CATEGORIES:{_esc('SMB')}",
+             # Machine-readable identity for smb-session-dispatch (franklin-infra),
+             # which schedules the archive pull-downs from this calendar.
+             f"X-FRANKLIN-SMB-ID:{_esc(m['id'])}",
+             f"X-FRANKLIN-SMB-TYPE:{_esc(m.get('webinar_type') or m.get('type') or '')}",
              "TRANSP:TRANSPARENT",
              "END:VEVENT"]
     return slug, "\r\n".join(lines)
