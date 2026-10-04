@@ -1,24 +1,26 @@
 #!/bin/bash
-# Create the secret, read-only, UNAUTHENTICATED feed URL for SMB Sessions that
-# Confluence's "Subscribe by URL" reads. DAYTRADE-778, approved by Sal
-# 2026-10-04.
+# Create the secret, read-only, UNAUTHENTICATED feed URL for one shared
+# calendar, for Confluence's "Subscribe by URL". DAYTRADE-778, approved by Sal
+# 2026-10-04 (SMB Sessions first; Earnings and Economic Indicators the same day).
 #
 # Why a token: Confluence Cloud's subscriber never sends HTTP Basic credentials
 # (the form's Username/Password and user:pass@ in the URL both arrived as
 # "anonymous" -> 401), so a login-gated feed cannot be subscribed to.
 #
 # Needs `[sharing] collection_by_token = True` (franklin/config/config) and the
-# rights rule [publisher-smb-sessions] (T on smb-sessions only), deployed:
-# render-config.sh + `docker restart franklin-radicale`.
+# rights rule [publisher-tokenable-calendars] (T on the three shared calendars
+# only), deployed: render-config.sh + `docker restart franklin-radicale`.
 #
 # The URL is a secret: it is saved to franklin.env (timestamped backup first)
-# as SMB_SESSIONS_FEED_URL and printed ONCE. Idempotent: an existing token
-# share is never duplicated or overwritten.
+# as <CALENDAR>_FEED_URL -- SMB_SESSIONS_FEED_URL, EARNINGS_FEED_URL,
+# ECONOMIC_INDICATORS_FEED_URL -- and printed ONCE. Idempotent: an existing
+# token share is never duplicated or overwritten.
 #
 # Revoke: POST /.sharing/v1/token/delete PathOrToken=<the /.token/... path>
 # as calendar-publisher. Confluence then shows the calendar as unreadable.
 #
-# Run as sal on mac-pro:  franklin/deploy/create-smb-token-share.sh
+# Run as sal on mac-pro:
+#   franklin/deploy/create-token-share.sh smb-sessions|earnings|economic-indicators
 set -euo pipefail
 ENV=/home/Franklin/secrets/franklin.env
 set -a; . "$ENV"; set +a
@@ -27,8 +29,12 @@ set -a; . "$ENV"; set +a
 BASE="${RADICALE_BASE:-http://127.0.0.1:5232}"
 PUBLIC="${RADICALE_PUBLIC:-https://calendar.franklinfinancial.ai}"
 AUTH="calendar-publisher:${CALENDAR_PUBLISHER_PASSWORD}"
-TARGET=/calendar-publisher/smb-sessions/
-VAR=SMB_SESSIONS_FEED_URL
+case "${1:-}" in
+  smb-sessions|earnings|economic-indicators) CAL="$1" ;;
+  *) echo "usage: $0 smb-sessions|earnings|economic-indicators" >&2; exit 2 ;;
+esac
+TARGET="/calendar-publisher/$CAL/"
+VAR="$(tr 'a-z-' 'A-Z_' <<<"$CAL")_FEED_URL"
 TMP=$(mktemp); trap 'rm -f "$TMP"' EXIT
 
 existing=$(curl -s -u "$AUTH" -H 'accept: text/csv' -d '' "$BASE/.sharing/v1/token/list" \
@@ -53,8 +59,8 @@ else
       -d "PathOrToken=$token" "$BASE/.sharing/v1/token/enable")
   [ "$code" = 200 ] || { echo "FAIL: token/enable -> HTTP $code: $(head -c 300 "$TMP")"; exit 1; }
   cp -p "$ENV" "$ENV.bak-$(date +%Y%m%d-%H%M%S)"
-  printf '\n# Secret read-only SMB Sessions feed for Confluence "Subscribe by URL" (%s)\n%s=%s%s\n' \
-      "$(date +%F)" "$VAR" "$PUBLIC" "$token" >> "$ENV"
+  printf '\n# Secret read-only %s feed for Confluence "Subscribe by URL" (%s)\n%s=%s%s\n' \
+      "$CAL" "$(date +%F)" "$VAR" "$PUBLIC" "$token" >> "$ENV"
   echo "created  token share for $TARGET (read-only); saved to $ENV as $VAR"
 fi
 
