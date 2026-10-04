@@ -51,18 +51,24 @@ logger = logging.getLogger(__name__)
 
 #: Read-only: this plugin never creates or mutates a user.
 #:
-#: EXACT match, not lower(). Two reasons, both load-bearing:
+#: CASE-INSENSITIVE, matching the dashboard (DayTradingAgent, onboarding
+#: 2026-10-03): usernames are email addresses, and nobody types one in a fixed
+#: case. This was an exact match while `users_username_key` was the only unique
+#: index, because a lower() lookup could then match "Sal" AND "sal". Two things
+#: keep that from happening now:
 #:
-#:   1. `users_username_key` is a CASE-SENSITIVE unique btree on `username`, so
-#:      "Sal" and "sal" can both exist as separate accounts. A lower() lookup
-#:      would match both and fetchone() would take an arbitrary one -- a login
-#:      resolving to whichever row the planner happened to return.
-#:   2. The dashboard does `WHERE username = %s` (trading_desk.py:1572). Matching
-#:      loosely here would create a credential that works on the calendar and
-#:      fails on the dashboard -- exactly the divergence this plugin prevents.
+#:   1. At most two rows are fetched and anything but exactly one is refused, so
+#:      an ambiguous name signs nobody in instead of whichever row came first.
+#:   2. onboarding sql/001 adds a unique index on lower(username), which makes
+#:      the ambiguous case impossible.
+#:
+#: The STORED username is returned, never the typed one: Radicale keys
+#: collections and rights on it, so "Sal.Cobian@Gmail.com" and
+#: "sal.cobian@gmail.com" must land in the same /<user>/ tree.
 #:
 #: Parameterised, so a username can never become SQL.
-_LOOKUP_SQL = "SELECT password_hash FROM users WHERE username = %s"
+_LOOKUP_SQL = ("SELECT username, password_hash FROM users "
+               "WHERE lower(username) = lower(%s) LIMIT 2")
 
 
 class Auth(BaseAuth):
@@ -97,7 +103,7 @@ class Auth(BaseAuth):
             conn = psycopg2.connect(connect_timeout=5, **self._dsn)
             with conn.cursor() as cur:
                 cur.execute(_LOOKUP_SQL, (login,))
-                row = cur.fetchone()
+                rows = cur.fetchall()
         except Exception as exc:  # noqa: BLE001 - outage must fail CLOSED
             logger.error("franklin auth: user lookup failed for %r: %s", login, exc)
             return ""
@@ -108,11 +114,15 @@ class Auth(BaseAuth):
                 except Exception:  # noqa: BLE001
                     pass
 
-        if row is None:
+        if not rows:
             logger.info("franklin auth: no such user %r", login)
             return ""
+        if len(rows) > 1:
+            logger.error("franklin auth: %r matches more than one user "
+                         "case-insensitively - refusing", login)
+            return ""
 
-        stored = row[0]
+        username, stored = rows[0]
         if not stored:
             # Present but unusable. NOT the same as "no password required".
             logger.warning("franklin auth: user %r has an empty password_hash "
@@ -129,5 +139,5 @@ class Auth(BaseAuth):
             logger.info("franklin auth: bad password for %r", login)
             return ""
 
-        logger.debug("franklin auth: %r authenticated", login)
-        return login
+        logger.debug("franklin auth: %r authenticated as %r", login, username)
+        return username
