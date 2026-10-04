@@ -45,14 +45,17 @@ user = calendar-publisher
 collection = calendar-publisher
 permissions = RW
 
-[publisher-smb-sessions]
+[publisher-tokenable-calendars]
 # As publisher-calendars below, plus T: may create a share-by-TOKEN (secret,
-# unauthenticated, read-only URL) of SMB Sessions ONLY -- the feed Confluence
-# subscribes to, because Confluence Cloud never sends Basic credentials. Must
-# precede publisher-calendars, which also matches this collection and would
-# win without the T. Earnings/Economic stay untokenable on purpose.
+# unauthenticated, read-only URL) of the three SHARED calendars -- the feeds
+# Confluence subscribes to, because Confluence Cloud never sends Basic
+# credentials. SMB Sessions 2026-10-04 (#5); Earnings and Economic Indicators
+# added the same day at Sal's request. Must precede publisher-calendars, which
+# also matches these collections and would win without the T. Named
+# explicitly: a future calendar under this principal is untokenable until
+# someone deliberately adds it here.
 user = calendar-publisher
-collection = calendar-publisher/smb-sessions
+collection = calendar-publisher/(earnings|economic-indicators|smb-sessions)
 permissions = rwMT
 
 [publisher-calendars]

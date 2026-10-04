@@ -1,13 +1,15 @@
-"""Share-by-token for SMB Sessions, through the REAL rights file and the REAL
-[sharing] section of franklin/config/config (DAYTRADE-778).
+"""Share-by-token for the three shared calendars, through the REAL rights file
+and the REAL [sharing] section of franklin/config/config (DAYTRADE-778).
 
 Confluence Cloud's "Subscribe by URL" never sends HTTP Basic credentials, so
-the SMB Sessions feed it subscribes to is a secret token URL. These tests pin
-what that may and may not open:
+the feeds it subscribes to are secret token URLs. These tests pin what that
+may and may not open:
 
-  * calendar-publisher can create a token for smb-sessions, and it reads
-    anonymously and is read-only;
-  * NO token can be created for any other calendar, by anyone;
+  * calendar-publisher can create a token for smb-sessions, earnings and
+    economic-indicators; each reads anonymously, only its own calendar, and
+    is read-only;
+  * NO token can be created for any other calendar (a new publisher calendar
+    or a personal one), by anyone;
   * the normal paths stay login-only.
 """
 import configparser
@@ -25,6 +27,7 @@ RIGHTS = os.path.join(HERE, "..", "config", "rights")
 CONFIG = os.path.join(HERE, "..", "config", "config")
 
 PUB = "calendar-publisher:pubpw"
+TOKENABLE = ("smb-sessions", "earnings", "economic-indicators")
 USER = "sal.cobian:salpw"
 
 EVENT = """BEGIN:VCALENDAR
@@ -47,7 +50,7 @@ def _real_sharing_section() -> dict:
     return dict(cp["sharing"])
 
 
-class TestSmbTokenShare(BaseTest):
+class TestCalendarTokenShares(BaseTest):
 
     def setup_method(self) -> None:
         BaseTest.setup_method(self)
@@ -60,7 +63,7 @@ class TestSmbTokenShare(BaseTest):
             "rights": {"type": "from_file", "file": RIGHTS},
             "sharing": _real_sharing_section(),
         })
-        for name in ("smb-sessions", "earnings", "economic-indicators"):
+        for name in TOKENABLE + ("unlisted-draft",):
             path = f"/calendar-publisher/{name}/"
             self.mkcalendar(path, login=PUB)
             self.put(path + "e1.ics", EVENT % {"uid": f"{name}-e1"}, login=PUB)
@@ -84,13 +87,15 @@ class TestSmbTokenShare(BaseTest):
         # Creation must stay rights-gated (T), never globally permitted.
         assert s.get("permit_create_token", "false").lower() == "false"
 
-    def test_publisher_token_for_smb_sessions_reads_anonymously(self):
-        token = self._create_token("smb-sessions", PUB, 200)
-        assert token.startswith("/.token/")
-        self._enable(token)
-        _, _, body = self.request("GET", token, check=200)   # no login
-        assert "UID:smb-sessions-e1" in body
-        assert "earnings-e1" not in body
+    def test_publisher_tokens_for_shared_calendars_read_anonymously(self):
+        for name in TOKENABLE:
+            token = self._create_token(name, PUB, 200)
+            assert token.startswith("/.token/")
+            self._enable(token)
+            _, _, body = self.request("GET", token, check=200)   # no login
+            assert f"UID:{name}-e1" in body
+            assert all(f"{o}-e1" not in body
+                       for o in TOKENABLE + ("unlisted-draft",) if o != name)
 
     def test_token_is_read_only(self):
         token = self._create_token("smb-sessions", PUB, 200)
@@ -98,9 +103,10 @@ class TestSmbTokenShare(BaseTest):
         self.put(token + "e2.ics", EVENT % {"uid": "intruder"}, check=403)
         self.delete(token + "e1.ics", check=403)
 
-    def test_no_token_for_other_calendars(self):
-        for name in ("earnings", "economic-indicators"):
-            assert self._create_token(name, PUB, 403) == ""
+    def test_no_token_for_an_unlisted_publisher_calendar(self):
+        # A future calendar under calendar-publisher must be untokenable until
+        # someone deliberately adds it to [publisher-tokenable-calendars].
+        assert self._create_token("unlisted-draft", PUB, 403) == ""
 
     def test_ordinary_user_cannot_create_tokens(self):
         assert self._create_token("smb-sessions", USER, 403) == ""
@@ -114,8 +120,8 @@ class TestSmbTokenShare(BaseTest):
         self.request("GET", "/calendar-publisher/smb-sessions/", check=401)
         self.request("GET", "/.token/v1/notarealtoken/", check=403)
 
-    def test_list_csv_shape_that_create_smb_token_share_sh_parses(self):
-        """create-smb-token-share.sh finds an existing share with
+    def test_list_csv_shape_that_create_token_share_sh_parses(self):
+        """create-token-share.sh finds an existing share with
         awk -F';' '$1=="token" && $3==<target> {print $2}'."""
         token = self._create_token("smb-sessions", PUB, 200)
         _, _, csv = self.request("POST", "/.sharing/v1/token/list", check=200, login=PUB,
