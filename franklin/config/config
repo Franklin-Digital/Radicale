@@ -98,6 +98,19 @@ franklin_excluded_users = calendar-publisher
 type = csv
 collection_by_map = True
 
+# Share-by-TOKEN: a secret, unauthenticated, read-only URL /.token/v1/<token>/
+# for ONE calendar -- SMB Sessions, for Confluence's "Subscribe by URL".
+# Confluence Cloud's subscriber never sends HTTP Basic credentials (neither the
+# form's Username/Password nor user:pass@ in the URL -- measured 2026-10-04,
+# both arrived as "anonymous" and got 401), so a login-gated feed cannot be
+# subscribed to at all. Approved by Sal, 2026-10-04.
+#
+# Resolving tokens is all this turns on. CREATING one is still refused
+# (permit_create_token defaults to False) except where the rights file grants
+# `T` -- only calendar-publisher, only on smb-sessions. A token is revoked by
+# deleting its share (sharing API token/delete).
+collection_by_token = True
+
 [web]
 type = internal
 
