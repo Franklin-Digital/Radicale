@@ -13,15 +13,15 @@ sys.path.insert(0, "franklin")
 
 
 class _FakeCursor:
-    def __init__(self, row):
-        self._row = row
+    def __init__(self, rows):
+        self._rows = rows
         self.executed = []
 
     def execute(self, sql, params=None):
         self.executed.append((sql, params))
 
-    def fetchone(self):
-        return self._row
+    def fetchall(self):
+        return list(self._rows)
 
     def __enter__(self):
         return self
@@ -31,23 +31,23 @@ class _FakeCursor:
 
 
 class _FakeConn:
-    def __init__(self, row=None, raise_on_connect=False):
-        self._row = row
+    def __init__(self, rows=(), raise_on_connect=False):
+        self._rows = rows
         self.closed = False
 
     def cursor(self):
-        return _FakeCursor(self._row)
+        return _FakeCursor(self._rows)
 
     def close(self):
         self.closed = True
 
 
-def _auth(monkeypatch, row=None, connect_exc=None, check_result=True,
+def _auth(monkeypatch, rows=(), connect_exc=None, check_result=True,
           check_exc=None):
     """Build an Auth with psycopg2/werkzeug stubbed."""
     from franklin_radicale import auth_userdb
 
-    conn = _FakeConn(row)
+    conn = _FakeConn(rows)
 
     def fake_connect(**kw):
         if connect_exc:
@@ -74,7 +74,7 @@ def _auth(monkeypatch, row=None, connect_exc=None, check_result=True,
 # ── the happy path ────────────────────────────────────────────────────
 
 def test_valid_credentials_return_the_username(monkeypatch):
-    a, _ = _auth(monkeypatch, row=("pbkdf2:sha256:1000$abc$def",),
+    a, _ = _auth(monkeypatch, rows=[("sal", "pbkdf2:sha256:1000$abc$def", "active")],
                  check_result=True)
     assert a._login("sal", "correct-horse") == "sal"
 
@@ -82,12 +82,12 @@ def test_valid_credentials_return_the_username(monkeypatch):
 # ── fail-closed paths: each of these MUST return "" ───────────────────
 
 def test_unknown_user_is_refused(monkeypatch):
-    a, _ = _auth(monkeypatch, row=None)
+    a, _ = _auth(monkeypatch, rows=[])
     assert a._login("nobody", "pw") == ""
 
 
 def test_wrong_password_is_refused(monkeypatch):
-    a, _ = _auth(monkeypatch, row=("hash",), check_result=False)
+    a, _ = _auth(monkeypatch, rows=[("sal", "hash", "active")], check_result=False)
     assert a._login("sal", "wrong") == ""
 
 
@@ -96,19 +96,19 @@ def test_empty_password_hash_is_refused_not_treated_as_no_password(
         monkeypatch, stored):
     """A row with no usable hash must NOT mean 'no password required'.
     Unknown and permitted are different things."""
-    a, _ = _auth(monkeypatch, row=(stored,), check_result=True)
+    a, _ = _auth(monkeypatch, rows=[("sal", stored, "active")], check_result=True)
     assert a._login("sal", "anything") == ""
 
 
 @pytest.mark.parametrize("pw", ["", None])
 def test_empty_password_never_reaches_the_hash_check(monkeypatch, pw):
     """Some schemes accept '' against a malformed digest, so short-circuit."""
-    a, _ = _auth(monkeypatch, row=("hash",), check_result=True)
+    a, _ = _auth(monkeypatch, rows=[("sal", "hash", "active")], check_result=True)
     assert a._login("sal", pw) == ""
 
 
 def test_empty_login_is_refused(monkeypatch):
-    a, _ = _auth(monkeypatch, row=("hash",), check_result=True)
+    a, _ = _auth(monkeypatch, rows=[("sal", "hash", "active")], check_result=True)
     assert a._login("", "pw") == ""
 
 
@@ -120,7 +120,7 @@ def test_database_outage_fails_CLOSED(monkeypatch):
 
 
 def test_corrupt_hash_fails_closed(monkeypatch):
-    a, _ = _auth(monkeypatch, row=("$weird$",),
+    a, _ = _auth(monkeypatch, rows=[("sal", "$weird$", "active")],
                  check_exc=ValueError("unknown scheme"))
     assert a._login("sal", "pw") == ""
 
@@ -137,17 +137,20 @@ def test_missing_dependencies_fail_closed(monkeypatch):
 
 # ── shape of the query ────────────────────────────────────────────────
 
-def test_lookup_is_exact_match_not_case_folded():
-    """`users_username_key` is a CASE-SENSITIVE unique index, so "Sal" and "sal"
-    can both exist. A lower() lookup would match BOTH, and fetchone() would take
-    an arbitrary row -- a login resolving to whichever the planner returned.
-
-    The dashboard does `WHERE username = %s` (trading_desk.py:1572). Matching
-    loosely here would create a credential that works on the calendar and fails
-    on the dashboard, which is the divergence this plugin exists to prevent."""
+def test_lookup_is_case_insensitive_and_returns_the_stored_username(monkeypatch):
+    """Usernames are email addresses (onboarding, 2026-10-03). Whatever case is
+    typed, the STORED name comes back: Radicale keys collections on it."""
     from franklin_radicale import auth_userdb
-    assert "WHERE username = %s" in auth_userdb._LOOKUP_SQL
-    assert "lower(" not in auth_userdb._LOOKUP_SQL.lower()
+    assert "lower(username) = lower(%s)" in auth_userdb._LOOKUP_SQL
+    a, conn = _auth(monkeypatch, rows=[("sal.cobian@gmail.com", "hash", "active")])
+    assert a._login("SAL.Cobian@Gmail.com", "pw") == "sal.cobian@gmail.com"
+
+
+def test_an_ambiguous_username_signs_nobody_in(monkeypatch):
+    """Before onboarding sql/001's lower() unique index, "Sal" and "sal" could
+    both exist. Two matches must refuse, never pick one."""
+    a, _ = _auth(monkeypatch, rows=[("Sal", "h1", "active"), ("sal", "h2", "active")], check_result=True)
+    assert a._login("sal", "pw") == ""
 
 
 def test_lookup_is_parameterised():
@@ -163,3 +166,11 @@ def test_plugin_never_writes():
     sql = auth_userdb._LOOKUP_SQL.upper()
     for verb in ("INSERT", "UPDATE", "DELETE", "DROP", "ALTER"):
         assert verb not in sql
+
+
+@pytest.mark.parametrize("status", ["invited", "disabled", None])
+def test_only_an_active_account_signs_in(monkeypatch, status):
+    """onboarding sql/001: invited has no password yet, disabled is off. The
+    same refusal as a wrong password, even with the right one."""
+    a, _ = _auth(monkeypatch, rows=[("ada@x.com", "hash", status)], check_result=True)
+    assert a._login("ada@x.com", "right-password") == ""
