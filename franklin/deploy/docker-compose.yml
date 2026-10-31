@@ -16,6 +16,17 @@ services:
     image: franklin-radicale:1.0prod
     container_name: franklin-radicale
 
+    # ROTATED LOG (2026-10-31, Sal: "ALL logs should have rotation"). With no
+    # `logging:` Docker's json-file grows forever (neither host had a daemon
+    # default); this container writes ~1.5 MB/day. 10 MB x 20, the same as
+    # franklin-infra's x-audit-logging. Changing it needs a RECREATE, which
+    # `systemctl restart franklin-radicale` does (down + up).
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "20"
+
     # NO `ports:` block -- it is INERT under network_mode: host and would be
     # actively misleading, because a reader would take it as the thing
     # providing loopback-only exposure. Under host networking the bind is
